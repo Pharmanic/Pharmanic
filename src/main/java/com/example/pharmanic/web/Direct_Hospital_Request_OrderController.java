@@ -1,7 +1,7 @@
 package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Direct_Hospital_Request_Order;
-import com.example.pharmanic.model.Direct_Hospital_Request_OrderRepository;
+import com.example.pharmanic.repositories.Direct_Hospital_Request_OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

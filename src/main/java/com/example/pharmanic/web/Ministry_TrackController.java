@@ -1,7 +1,7 @@
 package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Ministry_Track;
-import com.example.pharmanic.model.Ministry_TrackRepository;
+import com.example.pharmanic.repositories.Ministry_TrackRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
