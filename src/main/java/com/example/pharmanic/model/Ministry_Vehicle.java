@@ -1,6 +1,5 @@
-package com.example.pharmanic;
+package com.example.pharmanic.model;
 
-import com.sun.xml.bind.v2.runtime.SchemaTypeTransducer;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -10,7 +9,6 @@ import javax.persistence.Id;
 @Entity
 public class Ministry_Vehicle {
     private @Id String vehicle_no;
-
     private String type;
     private Long capacity;
 
@@ -45,5 +43,14 @@ public class Ministry_Vehicle {
 
     public void setCapacity(Long capacity) {
         this.capacity = capacity;
+    }
+
+    @Override
+    public String toString() {
+        return "Ministry_Vehicle{" +
+                "vehicle_no='" + vehicle_no + '\'' +
+                ", type='" + type + '\'' +
+                ", capacity=" + capacity +
+                '}';
     }
 }

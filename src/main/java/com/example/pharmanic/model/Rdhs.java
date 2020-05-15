@@ -1,9 +1,8 @@
-package com.example.pharmanic;
+package com.example.pharmanic.model;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
@@ -27,11 +26,11 @@ public class Rdhs {
         this.telephone = telephone;
     }
 
-    public String getId() {
+    public String getReg_no() {
         return reg_no;
     }
 
-    public void setId(String reg_no) {
+    public void setReg_no(String reg_no) {
         this.reg_no = reg_no;
     }
 
@@ -65,5 +64,16 @@ public class Rdhs {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "Rdhs{" +
+                "reg_no='" + reg_no + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
     }
 }

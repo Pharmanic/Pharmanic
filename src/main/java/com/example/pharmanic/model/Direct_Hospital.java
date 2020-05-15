@@ -1,4 +1,4 @@
-package com.example.pharmanic;
+package com.example.pharmanic.model;
 
 import lombok.Data;
 
@@ -74,5 +74,17 @@ public class Direct_Hospital {
 
     public void setDoctor_incharge(String doctor_incharge) {
         this.doctor_incharge = doctor_incharge;
+    }
+
+    @Override
+    public String toString() {
+        return "Direct_Hospital{" +
+                "reg_no='" + reg_no + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", doctor_incharge='" + doctor_incharge + '\'' +
+                '}';
     }
 }

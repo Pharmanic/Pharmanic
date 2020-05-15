@@ -1,16 +1,15 @@
-package com.example.pharmanic;
-
+package com.example.pharmanic.model;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
 @Entity
 public class Ministry_Driver {
     private @Id String nic;
+
     private String name;
     private String email;
     private String address;
@@ -65,5 +64,16 @@ public class Ministry_Driver {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    @Override
+    public String toString() {
+        return "Ministry_Driver{" +
+                "nic='" + nic + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
     }
 }

@@ -1,8 +1,9 @@
-package com.example.pharmanic;
+package com.example.pharmanic.model;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
@@ -54,5 +55,15 @@ public class Medicine {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Medicine{" +
+                "sr_no='" + sr_no + '\'' +
+                ", name='" + name + '\'' +
+                ", side_effect='" + side_effect + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
