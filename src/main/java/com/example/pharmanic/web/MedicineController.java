@@ -23,7 +23,7 @@ public class MedicineController {
     MedicineService medicineService;
 
     @GetMapping("/medicines")
-    public List<Medicine> getMedicineList(){
+    public List<Medicine> medicines(){
         return medicineService.getMedicineList();
     }
 

@@ -23,7 +23,7 @@ public class Ministry_VehicleController {
     @Autowired
     Ministry_VehicleService ministry_vehicleService;
 
-    @GetMapping("/ministry_vehicles")
+    @GetMapping("/ministryvehicles")
     public List<Ministry_Vehicle> getMinistryVehicleList(){
         return ministry_vehicleService.getMinistryVehicleList();
     }

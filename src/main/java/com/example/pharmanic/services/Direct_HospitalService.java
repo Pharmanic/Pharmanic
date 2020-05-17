@@ -1,6 +1,7 @@
 package com.example.pharmanic.services;
 
 import com.example.pharmanic.model.Direct_Hospital;
+import com.example.pharmanic.model.Ministry_Current_Stock;
 import com.example.pharmanic.repositories.Direct_HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,13 @@ public class Direct_HospitalService {
         }
         return new Direct_Hospital();
     }
+
+    //addDirectHospital
+    public Integer addDirectHospital(Direct_Hospital direct_hospital){
+        direct_hospitalRepository.save(direct_hospital);
+        return 1;
+    }
+
+
 
 }

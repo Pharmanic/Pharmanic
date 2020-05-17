@@ -11,6 +11,10 @@ public class Ministry_Current_Stock {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long batch_id;
 
     @ManyToOne
+    @JoinColumn(name = "stock_id",referencedColumnName = "stock_id")
+    private Exported_Stock stock_id;
+
+    @ManyToOne
     @JoinColumn(name = "m_store_id",referencedColumnName = "m_store_id")
     private Ministry_Store m_store_id;
 
@@ -25,8 +29,9 @@ public class Ministry_Current_Stock {
     public Ministry_Current_Stock() {
     }
 
-    public Ministry_Current_Stock(Long batch_id, Ministry_Store m_store_id, Medicine sr_no, Date expire_date, String name, Long available_quantity) {
+    public Ministry_Current_Stock(Long batch_id, Exported_Stock stock_id, Ministry_Store m_store_id, Medicine sr_no, Date expire_date, String name, Long available_quantity) {
         this.batch_id = batch_id;
+        this.stock_id = stock_id;
         this.m_store_id = m_store_id;
         this.sr_no = sr_no;
         this.expire_date = expire_date;
@@ -40,6 +45,14 @@ public class Ministry_Current_Stock {
 
     public void setBatch_id(Long batch_id) {
         this.batch_id = batch_id;
+    }
+
+    public Exported_Stock getStock_id() {
+        return stock_id;
+    }
+
+    public void setStock_id(Exported_Stock stock_id) {
+        this.stock_id = stock_id;
     }
 
     public Ministry_Store getM_store_id() {
@@ -86,6 +99,7 @@ public class Ministry_Current_Stock {
     public String toString() {
         return "Ministry_Current_Stock{" +
                 "batch_id=" + batch_id +
+                ", stock_id=" + stock_id +
                 ", m_store_id=" + m_store_id +
                 ", sr_no=" + sr_no +
                 ", expire_date=" + expire_date +

@@ -23,7 +23,7 @@ public class Ministry_DriverController {
     @Autowired
     Ministry_DriverService ministry_driverService;
 
-    @GetMapping("/ministry_drivers")
+    @GetMapping("/ministrydrivers")
     public List<Ministry_Driver> getMinistryDriverList(){
         return ministry_driverService.getMinistryDriverList();
     }

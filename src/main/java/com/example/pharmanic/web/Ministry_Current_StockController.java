@@ -18,12 +18,12 @@ public class Ministry_Current_StockController {
     @Autowired
     Ministry_Current_StockService ministry_current_stockService;
 
-    @GetMapping("/ministry_current_stocks")
+    @GetMapping("/ministrycurrentstocks")
     public List<Ministry_Current_Stock> getMinistryCurrentStockList(){
         return ministry_current_stockService.getMinistryCurrentStockList();
     }
 
-    @PostMapping("/ministry_current_stock/add")
+    @PostMapping("/ministrycurrentstock/add")
     public Integer addMinistryCurrentStock(@RequestBody Ministry_Current_Stock ministry_current_stock){
         return ministry_current_stockService.addDrugsToMinistryCurrentStock(ministry_current_stock);
     }

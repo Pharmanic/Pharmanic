@@ -23,7 +23,7 @@ public class Ministry_StoreController {
     @Autowired
     Ministry_StoreService ministry_storeService;
 
-    @GetMapping("/ministry_stores")
+    @GetMapping("/ministrystores")
     public List<Ministry_Store> getMinistryStoreList(){
         return ministry_storeService.getMinistryStoreList();
     }
