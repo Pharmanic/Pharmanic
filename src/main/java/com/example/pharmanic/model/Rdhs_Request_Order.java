@@ -19,15 +19,17 @@ public class Rdhs_Request_Order {
     private Ministry_Store m_store_id;
 
     private Date date;
+    private int state;
 
     public Rdhs_Request_Order() {
     }
 
-    public Rdhs_Request_Order(Long order_id, Rdhs rdhs_reg_no, Ministry_Store m_store_id, Date date) {
+    public Rdhs_Request_Order(Long order_id, Rdhs rdhs_reg_no, Ministry_Store m_store_id, Date date, int state) {
         this.order_id = order_id;
         this.rdhs_reg_no = rdhs_reg_no;
         this.m_store_id = m_store_id;
         this.date = date;
+        this.state = state;
     }
 
     public Long getOrder_id() {
@@ -62,5 +64,22 @@ public class Rdhs_Request_Order {
         this.date = date;
     }
 
+    public int getState() {
+        return state;
+    }
 
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Rdhs_Request_Order{" +
+                "order_id=" + order_id +
+                ", rdhs_reg_no=" + rdhs_reg_no +
+                ", m_store_id=" + m_store_id +
+                ", date=" + date +
+                ", state=" + state +
+                '}';
+    }
 }

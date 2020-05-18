@@ -8,6 +8,7 @@ import java.sql.Date;
 @Data
 @Entity
 public class Direct_Hospital_Request_Order {
+
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long order_id;
 
     @ManyToOne
@@ -20,14 +21,17 @@ public class Direct_Hospital_Request_Order {
 
     private Date date;
 
+    private int state;
+
     public Direct_Hospital_Request_Order() {
     }
 
-    public Direct_Hospital_Request_Order(Long order_id, Direct_Hospital hospital_reg_no, Ministry_Store m_store_id, Date date) {
+    public Direct_Hospital_Request_Order(Long order_id, Direct_Hospital hospital_reg_no, Ministry_Store m_store_id, Date date, int state) {
         this.order_id = order_id;
         this.hospital_reg_no = hospital_reg_no;
         this.m_store_id = m_store_id;
         this.date = date;
+        this.state = state;
     }
 
     public Long getOrder_id() {
@@ -62,6 +66,14 @@ public class Direct_Hospital_Request_Order {
         this.date = date;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Direct_Hospital_Request_Order{" +
@@ -69,6 +81,7 @@ public class Direct_Hospital_Request_Order {
                 ", hospital_reg_no=" + hospital_reg_no +
                 ", m_store_id=" + m_store_id +
                 ", date=" + date +
+                ", state=" + state +
                 '}';
     }
 }

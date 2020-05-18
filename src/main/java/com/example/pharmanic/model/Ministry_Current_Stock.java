@@ -24,18 +24,24 @@ public class Ministry_Current_Stock {
 
     private Date expire_date;
     private String name;
+    private Long import_quantity;
+    private Long supplyed_quantity;
+    private Long damage_quantity;
     private Long available_quantity;
 
     public Ministry_Current_Stock() {
     }
 
-    public Ministry_Current_Stock(Long batch_id, Exported_Stock stock_id, Ministry_Store m_store_id, Medicine sr_no, Date expire_date, String name, Long available_quantity) {
+    public Ministry_Current_Stock(Long batch_id, Exported_Stock stock_id, Ministry_Store m_store_id, Medicine sr_no, Date expire_date, String name, Long import_quantity, Long supplyed_quantity, Long damage_quantity, Long available_quantity) {
         this.batch_id = batch_id;
         this.stock_id = stock_id;
         this.m_store_id = m_store_id;
         this.sr_no = sr_no;
         this.expire_date = expire_date;
         this.name = name;
+        this.import_quantity = import_quantity;
+        this.supplyed_quantity = supplyed_quantity;
+        this.damage_quantity = damage_quantity;
         this.available_quantity = available_quantity;
     }
 
@@ -95,6 +101,30 @@ public class Ministry_Current_Stock {
         this.available_quantity = available_quantity;
     }
 
+    public Long getImport_quantity() {
+        return import_quantity;
+    }
+
+    public void setImport_quantity(Long import_quantity) {
+        this.import_quantity = import_quantity;
+    }
+
+    public Long getSupplyed_quantity() {
+        return supplyed_quantity;
+    }
+
+    public void setSupplyed_quantity(Long supplyed_quantity) {
+        this.supplyed_quantity = supplyed_quantity;
+    }
+
+    public Long getDamage_quantity() {
+        return damage_quantity;
+    }
+
+    public void setDamage_quantity(Long damage_quantity) {
+        this.damage_quantity = damage_quantity;
+    }
+
     @Override
     public String toString() {
         return "Ministry_Current_Stock{" +
@@ -104,6 +134,9 @@ public class Ministry_Current_Stock {
                 ", sr_no=" + sr_no +
                 ", expire_date=" + expire_date +
                 ", name='" + name + '\'' +
+                ", import_quantity=" + import_quantity +
+                ", supplyed_quantity=" + supplyed_quantity +
+                ", damage_quantity=" + damage_quantity +
                 ", available_quantity=" + available_quantity +
                 '}';
     }

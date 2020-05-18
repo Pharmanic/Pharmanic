@@ -21,6 +21,7 @@ public class Ministry_Current_StockService {
     //addDrugsToMinistryCurrentStore
     public Integer addDrugsToMinistryCurrentStock(Ministry_Current_Stock ministry_current_stock){
         ministry_current_stockRepository.save(ministry_current_stock);
+        ministry_current_stockRepository.updateAvailableStock(ministry_current_stock.getBatch_id());
         return 1;
     }
 

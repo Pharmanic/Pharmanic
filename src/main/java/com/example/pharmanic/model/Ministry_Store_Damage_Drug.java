@@ -11,30 +11,21 @@ public class Ministry_Store_Damage_Drug {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long did;
 
     @ManyToOne
-    @JoinColumn(name = "m_store_id",referencedColumnName = "m_store_id")
-    private Ministry_Store m_store_id;
+    @JoinColumn(name = "batch_id",referencedColumnName = "batch_id")
+    private Ministry_Current_Stock batch_id;
 
-    @ManyToOne
-    @JoinColumn(name = "sr_no",referencedColumnName = "sr_no")
-    private Medicine sr_no;
-
-    private String name;
     private Date date;
     private Long quantity;
-    private Date expire_date;
     private String reason;
 
     public Ministry_Store_Damage_Drug() {
     }
 
-    public Ministry_Store_Damage_Drug(Long did, Ministry_Store m_store_id, Medicine sr_no, String name, Date date, Long quantity, Date expire_date, String reason) {
+    public Ministry_Store_Damage_Drug(Long did, Ministry_Current_Stock batch_id, Date date, Long quantity, String reason) {
         this.did = did;
-        this.m_store_id = m_store_id;
-        this.sr_no = sr_no;
-        this.name = name;
+        this.batch_id = batch_id;
         this.date = date;
         this.quantity = quantity;
-        this.expire_date = expire_date;
         this.reason = reason;
     }
 
@@ -44,30 +35,6 @@ public class Ministry_Store_Damage_Drug {
 
     public void setDid(Long did) {
         this.did = did;
-    }
-
-    public Ministry_Store getM_store_id() {
-        return m_store_id;
-    }
-
-    public void setM_store_id(Ministry_Store m_store_id) {
-        this.m_store_id = m_store_id;
-    }
-
-    public Medicine getSr_no() {
-        return sr_no;
-    }
-
-    public void setSr_no(Medicine sr_no) {
-        this.sr_no = sr_no;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Date getDate() {
@@ -86,14 +53,6 @@ public class Ministry_Store_Damage_Drug {
         this.quantity = quantity;
     }
 
-    public Date getExpire_date() {
-        return expire_date;
-    }
-
-    public void setExpire_date(Date expire_date) {
-        this.expire_date = expire_date;
-    }
-
     public String getReason() {
         return reason;
     }
@@ -102,16 +61,21 @@ public class Ministry_Store_Damage_Drug {
         this.reason = reason;
     }
 
+    public Ministry_Current_Stock getBatch_id() {
+        return batch_id;
+    }
+
+    public void setBatch_id(Ministry_Current_Stock batch_id) {
+        this.batch_id = batch_id;
+    }
+
     @Override
     public String toString() {
         return "Ministry_Store_Damage_Drug{" +
                 "did=" + did +
-                ", m_store_id=" + m_store_id +
-                ", sr_no=" + sr_no +
-                ", name='" + name + '\'' +
+                ", batch_id=" + batch_id +
                 ", date=" + date +
                 ", quantity=" + quantity +
-                ", expire_date=" + expire_date +
                 ", reason='" + reason + '\'' +
                 '}';
     }
