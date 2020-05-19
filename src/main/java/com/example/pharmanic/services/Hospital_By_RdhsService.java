@@ -38,6 +38,16 @@ public class Hospital_By_RdhsService {
        return 0;
     }
 
+    public Integer deleteHospitalByRdhs(String reg_no) {
+        if (reg_no != null) {
+            if (hospitalByRdhsRepository.existsById(reg_no)) {
+                hospitalByRdhsRepository.deleteById(reg_no);
+                return 1;
+            }
+        }
+        return 0;
+    }
+
 
 
 }

@@ -37,4 +37,13 @@ public class Hospital_By_RdhsController {
     public Integer addHospitalByRDHA(@RequestBody Hospital_By_Rdhs hospital_by_rdhs){
         return hospital_by_rdhsService.addHospitalByRdhs(hospital_by_rdhs);
     }
+
+    @PutMapping("hospitalByRdhs/delete/{reg_no}")
+    public ResponseEntity<Integer> deleteHospitalByRdhs(@PathVariable("reg_no") String reg_no) {
+        Integer reply = hospital_by_rdhsService.deleteHospitalByRdhs(reg_no);
+        if (reply != null) {
+            return ResponseEntity.ok(reply);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
