@@ -4,6 +4,7 @@ import com.example.pharmanic.model.Direct_Hospital_Return_Drug;
 import com.example.pharmanic.repositories.Direct_Hospital_Return_DrugRepository;
 import com.example.pharmanic.services.Direct_Hospital_Return_DrugService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

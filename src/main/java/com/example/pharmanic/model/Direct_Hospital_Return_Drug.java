@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Data
-@Enabled
+@Entity
 public class Direct_Hospital_Return_Drug {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
