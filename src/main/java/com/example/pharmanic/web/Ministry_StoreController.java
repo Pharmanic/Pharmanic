@@ -36,25 +36,15 @@ public class Ministry_StoreController {
     }
 
     @PostMapping("/ministry_store")
-    Ministry_Store addMinistryStore(@RequestBody Ministry_Store ministry_Store) {
-        if(ministry_Store==null)
-            return null;
-        return ministry_storeService.addMinistryStore(ministry_Store);
+   public  ResponseEntity<Ministry_Store> addMinistryStore(@RequestBody Ministry_Store ministry_Store) {
+        if (ministry_Store == null)
+            return ResponseEntity.noContent().build();
+        ministry_Store = ministry_storeService.addMinistryStore(ministry_Store);
+        return ResponseEntity.ok(ministry_Store);
     }
 
     @PutMapping("/ministry_store")
     Ministry_Store updateMinistryStore(@RequestBody Ministry_Store new_Ministry_Store) {
-
-//        return repository.findById(id)
-//                .map(employee -> {
-//                    employee.setName(newEmployee.getName());
-//                    employee.setRole(newEmployee.getRole());
-//                    return repository.save(employee);
-//                })
-//                .orElseGet(() -> {
-//                    newEmployee.setId(id);
-//                    return repository.save(newEmployee);
-//                });
         return  ministry_storeService.updateMinistryStore(new_Ministry_Store);
 
     }
