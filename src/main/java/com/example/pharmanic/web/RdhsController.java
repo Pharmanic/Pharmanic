@@ -65,7 +65,7 @@ public class RdhsController {
     }
 
     @DeleteMapping("/rdhs/{reg_no}")
-    ResponseEntity<Integer> deleteRdhs(@PathVariable String reg_no) {
+    public ResponseEntity<Integer> deleteRdhs(@PathVariable String reg_no) {
         Integer reply=rdhsService.deleteRdhs(reg_no);
 
         if (reply != null) {
