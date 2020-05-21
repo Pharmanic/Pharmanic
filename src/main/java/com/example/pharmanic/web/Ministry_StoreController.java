@@ -2,14 +2,12 @@ package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.model.Ministry_Store;
+import com.example.pharmanic.model.Rdhs;
 import com.example.pharmanic.repositories.Ministry_StoreRepository;
 import com.example.pharmanic.services.Ministry_StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +33,34 @@ public class Ministry_StoreController {
             return ResponseEntity.ok(ministry_store);
         }
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/ministry_store")
+    Ministry_Store addMinistryStore(@RequestBody Ministry_Store ministry_Store) {
+        if(ministry_Store==null)
+            return null;
+        return ministry_storeService.addMinistryStore(ministry_Store);
+    }
+
+    @PutMapping("/ministry_store")
+    Ministry_Store updateMinistryStore(@RequestBody Ministry_Store new_Ministry_Store) {
+
+//        return repository.findById(id)
+//                .map(employee -> {
+//                    employee.setName(newEmployee.getName());
+//                    employee.setRole(newEmployee.getRole());
+//                    return repository.save(employee);
+//                })
+//                .orElseGet(() -> {
+//                    newEmployee.setId(id);
+//                    return repository.save(newEmployee);
+//                });
+        return  ministry_storeService.updateMinistryStore(new_Ministry_Store);
+
+    }
+
+    @DeleteMapping("/ministry_store/{ministry_id}")
+    Integer deleteMinistryStore(@PathVariable Long ministry_id) {
+        return ministry_storeService.deleteMinistryStore(ministry_id);
     }
 }
