@@ -31,10 +31,30 @@ public class Direct_HospitalService {
     }
 
     //addDirectHospital
-    public Integer addDirectHospital(Direct_Hospital direct_hospital){
-        direct_hospitalRepository.save(direct_hospital);
-        return 1;
+    public Direct_Hospital addDirectHospital(Direct_Hospital direct_hospital){
+       return  direct_hospitalRepository.save(direct_hospital);
     }
+
+    public Direct_Hospital updateDirectHospital(Direct_Hospital direct_hospital){
+        if(isExixts(direct_hospital))
+            return direct_hospitalRepository.save(direct_hospital);
+        return null;
+    }
+
+    public boolean isExixts(Direct_Hospital rdhs){
+        if(direct_hospitalRepository.findById(rdhs.getReg_no()).get()!=null)
+            return true;
+        return false;
+    }
+
+    public Integer deleteDirectHospital(String reg_no){
+        if(direct_hospitalRepository.findById(reg_no).get()!=null) {
+            direct_hospitalRepository.deleteById(reg_no);
+            return 1;
+        }
+        return 0;
+    }
+
 
 
 

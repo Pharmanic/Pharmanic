@@ -34,8 +34,31 @@ public class Direct_HospitalController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/directhospital/add")
-    public Integer addDirectHospital(@RequestBody Direct_Hospital direct_hospital){
-        return direct_hospitalService.addDirectHospital(direct_hospital);
+    @PostMapping("/directhospital")
+    public ResponseEntity<Direct_Hospital> addDirectHospital(@RequestBody Direct_Hospital newDirect_hospital) {
+        if (newDirect_hospital == null)
+            return ResponseEntity.noContent().build();
+        newDirect_hospital = direct_hospitalService.addDirectHospital(newDirect_hospital);
+        return ResponseEntity.ok(newDirect_hospital);
+    }
+
+    @PutMapping("/directhospital")
+    public ResponseEntity<Direct_Hospital> updateDirect_Hospital(@RequestBody Direct_Hospital newDirect_hospital) {
+
+        if(direct_hospitalService.updateDirectHospital(newDirect_hospital)!=null){
+            return ResponseEntity.ok(newDirect_hospital);
+        }
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @DeleteMapping("/directhospital/{reg_no}")
+    public ResponseEntity<Integer> deleteRdhs(@PathVariable String reg_no) {
+        Integer reply=direct_hospitalService.deleteDirectHospital(reg_no);
+
+        if (reply != null) {
+            return ResponseEntity.ok(reply);
+        }
+        return ResponseEntity.notFound().build();
     }
 }

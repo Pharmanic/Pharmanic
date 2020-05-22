@@ -6,10 +6,7 @@ import com.example.pharmanic.repositories.RdhsRepository;
 import com.example.pharmanic.services.RdhsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,7 +21,8 @@ public class RdhsController {
     RdhsService rdhsService;
 
     @GetMapping("/rdhss")
-    public List<Rdhs> getRdhsList(){
+    public List<Rdhs> getRdhsList()
+    {
         return rdhsService.getRdhsList();
     }
 
@@ -36,4 +34,45 @@ public class RdhsController {
         }
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/rdhs")
+    public ResponseEntity<Rdhs> addRdhs(@RequestBody Rdhs newRdhs) {
+        if (newRdhs == null)
+            return ResponseEntity.noContent().build();
+        newRdhs = rdhsService.addRdhs(newRdhs);
+        return ResponseEntity.ok(newRdhs);
+    }
+
+
+    @PutMapping("/rdhs")
+    public ResponseEntity<Rdhs> updateRdhs(@RequestBody Rdhs newRdhs) {
+
+//        return repository.findById(id)
+//                .map(employee -> {
+//                    employee.setName(newEmployee.getName());
+//                    employee.setRole(newEmployee.getRole());
+//                    return repository.save(employee);
+//                })
+//                .orElseGet(() -> {
+//                    newEmployee.setId(id);
+//                    return repository.save(newEmployee);
+//                });
+      if(rdhsService.updateRdhs(newRdhs)!=null){
+          return ResponseEntity.ok(newRdhs);
+      }
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @DeleteMapping("/rdhs/{reg_no}")
+    public ResponseEntity<Integer> deleteRdhs(@PathVariable String reg_no) {
+        Integer reply=rdhsService.deleteRdhs(reg_no);
+
+        if (reply != null) {
+            return ResponseEntity.ok(reply);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
 }
