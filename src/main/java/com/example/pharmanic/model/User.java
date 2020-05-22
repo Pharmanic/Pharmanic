@@ -12,7 +12,7 @@ public abstract class User {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long nic;
+    private String nic;
     private String first_name;
     private String last_name;
     private String tel_no;
@@ -24,9 +24,10 @@ public abstract class User {
 
 
     public User() {
+        System.out.println("User");
     }
 
-    public User(Long nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role) {
+    public User(String nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role) {
         this.nic = nic;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -36,6 +37,7 @@ public abstract class User {
         this.password = password;
         this.status = status;
         this.role = role;
+        System.out.println("User1");
     }
 
     public Integer getRole() {
@@ -46,11 +48,11 @@ public abstract class User {
         this.role = role;
     }
 
-    public Long getNic() {
+    public String getNic() {
         return nic;
     }
 
-    public void setNic(Long nic) {
+    public void setNic(String nic) {
         this.nic = nic;
     }
 
