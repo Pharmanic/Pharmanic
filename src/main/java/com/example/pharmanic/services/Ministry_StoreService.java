@@ -2,6 +2,7 @@ package com.example.pharmanic.services;
 
 import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.model.Ministry_Store;
+import com.example.pharmanic.model.Rdhs;
 import com.example.pharmanic.repositories.Ministry_DriverRepository;
 import com.example.pharmanic.repositories.Ministry_StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,29 @@ public class Ministry_StoreService {
             }
         }
         return new Ministry_Store();
+    }
+
+    public Ministry_Store addMinistryStore(Ministry_Store newMinistry_Store){
+        return ministry_storeRepository.save(newMinistry_Store);
+    }
+
+    public Ministry_Store updateMinistryStore(Ministry_Store ministry_store){
+        if(isExixts(ministry_store))
+            return ministry_storeRepository.save(ministry_store);
+        return null;
+    }
+
+    public boolean isExixts(Ministry_Store ministry_store){
+        if(ministry_storeRepository.findById(ministry_store.getM_store_id()).get()!=null)
+            return true;
+        return false;
+    }
+
+    public Integer deleteMinistryStore(Long ministry_id){
+        if(ministry_storeRepository.findById(ministry_id).get()!=null) {
+            ministry_storeRepository.deleteById(ministry_id);
+            return 1;
+        }
+        return 0;
     }
 }
