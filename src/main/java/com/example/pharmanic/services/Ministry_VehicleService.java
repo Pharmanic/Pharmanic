@@ -1,5 +1,6 @@
 package com.example.pharmanic.services;
 
+import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.model.Ministry_Store;
 import com.example.pharmanic.model.Ministry_Vehicle;
 import com.example.pharmanic.repositories.Ministry_VehicleRepository;
@@ -28,5 +29,11 @@ public class Ministry_VehicleService {
             }
         }
         return new Ministry_Vehicle();
+    }
+
+    //addDrugsToMinistryCurrentStore
+    public Integer addVehicle(Ministry_Vehicle ministry_vehicle){
+        ministry_vehicleRepository.save(ministry_vehicle);
+        return 1;
     }
 }
