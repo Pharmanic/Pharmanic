@@ -1,15 +1,13 @@
 package com.example.pharmanic.web;
 
+import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.model.Ministry_Store;
 import com.example.pharmanic.model.Ministry_Vehicle;
 import com.example.pharmanic.repositories.Ministry_VehicleRepository;
 import com.example.pharmanic.services.Ministry_VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +33,10 @@ public class Ministry_VehicleController {
             return ResponseEntity.ok(ministry_vehicle);
         }
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/ministry_vehicle/add")
+    public Integer addMinistryVehicle(@RequestBody Ministry_Vehicle ministry_vehicle){
+        return ministry_vehicleService.addVehicle(ministry_vehicle);
     }
 }
