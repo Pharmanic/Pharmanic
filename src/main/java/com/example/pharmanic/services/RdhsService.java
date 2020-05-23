@@ -24,9 +24,32 @@ public class RdhsService {
     public Rdhs getRdhsDetails(String reg_no){
         if (reg_no !=null){
             if (rdhsRepository.existsById(reg_no)){
-                return rdhsRepository.findByReg_no(reg_no);
+                return rdhsRepository.findById(reg_no).get();
             }
         }
         return new Rdhs();
+    }
+    public Rdhs addRdhs(Rdhs newRdhs){
+        return rdhsRepository.save(newRdhs);
+    }
+
+    public Rdhs updateRdhs(Rdhs rdhs){
+        if(isExixts(rdhs))
+             return rdhsRepository.save(rdhs);
+        return null;
+    }
+
+    public boolean isExixts(Rdhs rdhs){
+        if(rdhsRepository.findById(rdhs.getReg_no()).get()!=null)
+            return true;
+        return false;
+    }
+
+    public Integer deleteRdhs(String reg_no){
+        if(rdhsRepository.findById(reg_no).get()!=null) {
+            rdhsRepository.deleteById(reg_no);
+            return 1;
+    }
+        return 0;
     }
 }

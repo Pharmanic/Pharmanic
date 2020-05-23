@@ -1,6 +1,7 @@
 package com.example.pharmanic.services;
 
 import com.example.pharmanic.model.Medicine;
+import com.example.pharmanic.model.Ministry_Current_Stock;
 import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.repositories.Ministry_DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class Ministry_DriverService {
             }
         }
         return new Ministry_Driver();
+    }
+
+    //addDrivers
+    public Integer addDriver(Ministry_Driver ministry_driver){
+        ministry_driverRepository.save(ministry_driver);
+        return 1;
     }
 
 

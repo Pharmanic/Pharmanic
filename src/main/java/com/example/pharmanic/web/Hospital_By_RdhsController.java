@@ -46,4 +46,34 @@ public class Hospital_By_RdhsController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/hospitalByRdhs")
+    public ResponseEntity<Hospital_By_Rdhs> updateHospitalByRdhs(@RequestBody Hospital_By_Rdhs newHhospital_By_Rdhs) {
+
+//        return repository.findById(id)
+//                .map(employee -> {
+//                    employee.setName(newEmployee.getName());
+//                    employee.setRole(newEmployee.getRole());
+//                    return repository.save(employee);
+//                })
+//                .orElseGet(() -> {
+//                    newEmployee.setId(id);
+//                    return repository.save(newEmployee);
+//                });
+        if(hospital_by_rdhsService.updateHospitalByRdhs(newHhospital_By_Rdhs)!=null){
+            return ResponseEntity.ok(newHhospital_By_Rdhs);
+        }
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @DeleteMapping("/hospitalByRdhs/{reg_no}")
+    public ResponseEntity<Integer> deleteRdhs(@PathVariable String reg_no) {
+        Integer reply=hospital_by_rdhsService.deleteHospitalByRdhs(reg_no);
+
+        if (reply != null) {
+            return ResponseEntity.ok(reply);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

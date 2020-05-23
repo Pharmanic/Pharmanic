@@ -11,8 +11,8 @@ public class Supply_Order_Detail_To_Direct_Hospital {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id",referencedColumnName = "order_id")
-    private Supply_Order_To_Direct_Hospital order_id;
+    @JoinColumn(name = "supply_id",referencedColumnName = "supply_id")
+    private Supply_Order_To_Direct_Hospital supply_id;
 
     @ManyToOne
     @JoinColumn(name = "sr_no",referencedColumnName = "sr_no")
@@ -25,9 +25,9 @@ public class Supply_Order_Detail_To_Direct_Hospital {
     public Supply_Order_Detail_To_Direct_Hospital() {
     }
 
-    public Supply_Order_Detail_To_Direct_Hospital(Long id, Supply_Order_To_Direct_Hospital order_id, Medicine sr_no, String drug_name, Long quantity, Date date) {
+    public Supply_Order_Detail_To_Direct_Hospital(Long id, Supply_Order_To_Direct_Hospital supply_id, Medicine sr_no, String drug_name, Long quantity, Date date) {
         this.id = id;
-        this.order_id = order_id;
+        this.supply_id = supply_id;
         this.sr_no = sr_no;
         this.drug_name = drug_name;
         this.quantity = quantity;
@@ -42,12 +42,12 @@ public class Supply_Order_Detail_To_Direct_Hospital {
         this.id = id;
     }
 
-    public Supply_Order_To_Direct_Hospital getOrder_id() {
-        return order_id;
+    public Supply_Order_To_Direct_Hospital getSupply_id() {
+        return supply_id;
     }
 
-    public void setOrder_id(Supply_Order_To_Direct_Hospital order_id) {
-        this.order_id = order_id;
+    public void setSupply_id(Supply_Order_To_Direct_Hospital supply_id) {
+        this.supply_id = supply_id;
     }
 
     public Medicine getSr_no() {
@@ -86,7 +86,7 @@ public class Supply_Order_Detail_To_Direct_Hospital {
     public String toString() {
         return "Supply_Order_Detail_To_Direct_Hospital{" +
                 "id=" + id +
-                ", order_id=" + order_id +
+                ", supply_id=" + supply_id +
                 ", sr_no=" + sr_no +
                 ", drug_name='" + drug_name + '\'' +
                 ", quantity=" + quantity +

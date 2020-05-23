@@ -48,6 +48,21 @@ public class Hospital_By_RdhsService {
         return 0;
     }
 
+    public Hospital_By_Rdhs updateHospitalByRdhs(Hospital_By_Rdhs hospital_by_rdhs){
+        if(hospital_by_rdhs.getReg_no()!=null) {
+            if (isExists(hospital_by_rdhs))
+                return hospitalByRdhsRepository.save(hospital_by_rdhs);
+            return null;
+        }
+        return null;
+    }
+
+    public boolean isExists(Hospital_By_Rdhs hospital_by_rdhs){
+        if(hospitalByRdhsRepository.findById(hospital_by_rdhs.getReg_no()).get()!=null)
+            return true;
+        return false;
+    }
+
 
 
 }

@@ -17,17 +17,15 @@ public class Rdhs_Request_Order_Detail {
     @JoinColumn(name = "sr_no",referencedColumnName = "sr_no")
     private Medicine sr_no;
 
-    private String name;
     private Long quantity;
 
     public Rdhs_Request_Order_Detail() {
     }
 
-    public Rdhs_Request_Order_Detail(Long id, Rdhs_Request_Order order_id, Medicine sr_no, String name, Long quantity) {
+    public Rdhs_Request_Order_Detail(Long id, Rdhs_Request_Order order_id, Medicine sr_no, Long quantity) {
         this.id = id;
         this.order_id = order_id;
         this.sr_no = sr_no;
-        this.name = name;
         this.quantity = quantity;
     }
 
@@ -55,13 +53,6 @@ public class Rdhs_Request_Order_Detail {
         this.sr_no = sr_no;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Long getQuantity() {
         return quantity;
@@ -77,7 +68,6 @@ public class Rdhs_Request_Order_Detail {
                 "id=" + id +
                 ", order_id=" + order_id +
                 ", sr_no=" + sr_no +
-                ", name='" + name + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }

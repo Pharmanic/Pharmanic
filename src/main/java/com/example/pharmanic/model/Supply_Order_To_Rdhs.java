@@ -10,12 +10,8 @@ public class Supply_Order_To_Rdhs {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long supply_id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id",referencedColumnName = "order_id")
-    private Rdhs_Request_Order request_id;
-
-    @ManyToOne
-    @JoinColumn(name = "reg_no",referencedColumnName = "reg_no")
-    private Rdhs rdhs_reg_no;
+    @JoinColumn(name = "id",referencedColumnName = "id")
+    private Rdhs_Request_Order_Detail request_id;
 
     @ManyToOne
     @JoinColumn(name = "track_id",referencedColumnName = "track_id")
@@ -24,10 +20,9 @@ public class Supply_Order_To_Rdhs {
     public Supply_Order_To_Rdhs() {
     }
 
-    public Supply_Order_To_Rdhs(Long supply_id, Rdhs_Request_Order request_id, Rdhs rdhs_reg_no, Ministry_Track track_id) {
+    public Supply_Order_To_Rdhs(Long supply_id, Rdhs_Request_Order_Detail request_id, Ministry_Track track_id) {
         this.supply_id = supply_id;
         this.request_id = request_id;
-        this.rdhs_reg_no = rdhs_reg_no;
         this.track_id = track_id;
     }
 
@@ -39,20 +34,12 @@ public class Supply_Order_To_Rdhs {
         this.supply_id = supply_id;
     }
 
-    public Rdhs_Request_Order getRequest_id() {
+    public Rdhs_Request_Order_Detail getRequest_id() {
         return request_id;
     }
 
-    public void setRequest_id(Rdhs_Request_Order request_id) {
+    public void setRequest_id(Rdhs_Request_Order_Detail request_id) {
         this.request_id = request_id;
-    }
-
-    public Rdhs getRdhs_reg_no() {
-        return rdhs_reg_no;
-    }
-
-    public void setRdhs_reg_no(Rdhs rdhs_reg_no) {
-        this.rdhs_reg_no = rdhs_reg_no;
     }
 
     public Ministry_Track getTrack_id() {
@@ -68,7 +55,6 @@ public class Supply_Order_To_Rdhs {
         return "Supply_Order_To_Rdhs{" +
                 "supply_id=" + supply_id +
                 ", request_id=" + request_id +
-                ", rdhs_reg_no=" + rdhs_reg_no +
                 ", track_id=" + track_id +
                 '}';
     }
