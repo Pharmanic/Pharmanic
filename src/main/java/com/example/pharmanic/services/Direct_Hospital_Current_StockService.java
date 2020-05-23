@@ -18,10 +18,12 @@ public class Direct_Hospital_Current_StockService {
         return direct_hospital_current_stockList;
     }
 
-    //addDrugsToDirectHospitalCurrentStore
+    //addDrugsToDirectHospitalCurrentStock
     public Integer addDrugsToDirectHospitalCurrentStock(Direct_Hospital_Current_Stock direct_hospital_current_stock){
         direct_hospital_current_stockRepository.save(direct_hospital_current_stock);
 //        direct_hospital_current_stockRepository.updateAvailableStock(direct_hospital_current_stock.getBatch_id());
         return 1;
     }
+
+    //deleteDrugsFromDirectHospitalCurrentStock
 }

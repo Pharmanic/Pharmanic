@@ -27,4 +27,9 @@ public class Direct_Hospital_Current_StockController {
     public Integer addDirectHospitalCurrentStock(@RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock){
         return direct_hospital_current_stockService.addDrugsToDirectHospitalCurrentStock(direct_hospital_current_stock);
     }
+
+    @DeleteMapping("/directhospitalcurrentstock/{batch_id}")
+    void deleteDirectHospitalCurrentStockItem(@PathVariable Long batch_id){
+
+    }
 }
