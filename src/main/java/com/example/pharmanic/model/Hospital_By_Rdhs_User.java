@@ -18,7 +18,7 @@ public class Hospital_By_Rdhs_User extends User {
 
     }
 
-    public Hospital_By_Rdhs_User(Long nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role, Hospital_By_Rdhs hospital_by_rdhs) {
+    public Hospital_By_Rdhs_User(String nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role, Hospital_By_Rdhs hospital_by_rdhs) {
         super(nic, first_name, last_name, tel_no, email, address, password, status, role);
         this.hospital_by_rdhs = hospital_by_rdhs;
     }
