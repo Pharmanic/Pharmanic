@@ -1,5 +1,6 @@
 package com.example.pharmanic.services;
 
+import com.example.pharmanic.model.Direct_Hospital;
 import com.example.pharmanic.model.Rdhs_Hospital_Current_Stock;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Current_StockRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -22,34 +23,33 @@ public class Rdhs_Hospital_Current_StockService {
         super();
         this.rdhs_hospital_current_stockRepository = rdhs_hospital_current_stockRepository;
     }
+
     @GetMapping("/rhstock")
-    Collection<Rdhs_Hospital_Current_Stock> drugStore(){
+    Collection<Rdhs_Hospital_Current_Stock> drugStore() {
         return rdhs_hospital_current_stockRepository.findAll();
     }
 
     @GetMapping("/rhstock/{id}")
-    ResponseEntity<?> getMedicine(@PathVariable Long id){
+    ResponseEntity<?> getMedicine(@PathVariable Long id) {
         Optional<Rdhs_Hospital_Current_Stock> rdhs_hospital_current_stock = Optional.ofNullable(rdhs_hospital_current_stockRepository.findBybatchId(id));
-         return rdhs_hospital_current_stock.map(response->ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return rdhs_hospital_current_stock.map(response -> ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
     @PostMapping("/rhstock")
-    ResponseEntity<Rdhs_Hospital_Current_Stock> createExpense(@Validated @RequestBody Rdhs_Hospital_Current_Stock rdhs_hospital_current_stock)throws URISyntaxException {
-        Rdhs_Hospital_Current_Stock result=rdhs_hospital_current_stockRepository.save(rdhs_hospital_current_stock);
-        return ResponseEntity.created(new URI("/api/rhstock"+result.getBatchId())).body(result);
+    ResponseEntity<Rdhs_Hospital_Current_Stock> createExpense(@Validated @RequestBody Rdhs_Hospital_Current_Stock rdhs_hospital_current_stock) throws URISyntaxException {
+        Rdhs_Hospital_Current_Stock result = rdhs_hospital_current_stockRepository.save(rdhs_hospital_current_stock);
+        return ResponseEntity.created(new URI("/api/rhstock" + result.getBatchId())).body(result);
     }
 
     @PutMapping("/rhstock/{id}")
-    ResponseEntity<Rdhs_Hospital_Current_Stock> updateExpense(@Validated @RequestBody Rdhs_Hospital_Current_Stock expense){
-        Rdhs_Hospital_Current_Stock result=rdhs_hospital_current_stockRepository.save(expense);
+    ResponseEntity<Rdhs_Hospital_Current_Stock> updateExpense(@Validated @RequestBody Rdhs_Hospital_Current_Stock expense) {
+        Rdhs_Hospital_Current_Stock result = rdhs_hospital_current_stockRepository.save(expense);
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/expenses/{id}")
-    ResponseEntity<?> deleteCategory(@PathVariable Long id){
+    @DeleteMapping("/rhstock/{id}")
+    ResponseEntity<?> deleteCategory(@PathVariable Long id) {
         rdhs_hospital_current_stockRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
-
-
 }

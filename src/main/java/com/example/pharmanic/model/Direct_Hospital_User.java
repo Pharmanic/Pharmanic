@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 @Data
 @Entity
 public class Direct_Hospital_User extends User {
-/*
+
     @ManyToOne
     @JoinColumn(name = "reg_no",referencedColumnName = "reg_no")
     private Direct_Hospital direct_hospital;
@@ -37,5 +37,5 @@ public class Direct_Hospital_User extends User {
                 '}';
     }
 
- */
+
 }
