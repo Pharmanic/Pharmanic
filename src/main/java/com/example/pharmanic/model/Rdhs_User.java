@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 @Data
 @Entity
 public class Rdhs_User extends User {
-
+/*
     @ManyToOne
     @JoinColumn(name = "reg_no",referencedColumnName = "reg_no")
     private Rdhs rdhs;
@@ -36,5 +36,5 @@ public class Rdhs_User extends User {
         return "Rdhs_User{" +
                 "rdhs=" + rdhs +
                 '}';
-    }
+    }*/
 }
