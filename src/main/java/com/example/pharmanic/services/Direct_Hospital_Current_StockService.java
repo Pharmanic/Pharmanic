@@ -19,11 +19,27 @@ public class Direct_Hospital_Current_StockService {
     }
 
     //addDrugsToDirectHospitalCurrentStock
-    public Integer addDrugsToDirectHospitalCurrentStock(Direct_Hospital_Current_Stock direct_hospital_current_stock){
-        direct_hospital_current_stockRepository.save(direct_hospital_current_stock);
-//        direct_hospital_current_stockRepository.updateAvailableStock(direct_hospital_current_stock.getBatch_id());
-        return 1;
+    public Direct_Hospital_Current_Stock addDrugsToDirectHospitalCurrentStock(Direct_Hospital_Current_Stock direct_hospital_current_stock){
+        return direct_hospital_current_stockRepository.save(direct_hospital_current_stock);
+    }
+
+    //updateDirectHospitalCurrentStock
+    public Direct_Hospital_Current_Stock updateDirectHospitalCurrentStock(Direct_Hospital_Current_Stock direct_hospital_current_stock){
+        if(isExists(direct_hospital_current_stock)) return direct_hospital_current_stockRepository.save(direct_hospital_current_stock);
+        return null;
+    }
+
+    public boolean isExists(Direct_Hospital_Current_Stock direct_hospital_current_stock){
+        if(direct_hospital_current_stockRepository.findById(direct_hospital_current_stock.getBatch_id()).get()!=null) return true;
+        return false;
     }
 
     //deleteDrugsFromDirectHospitalCurrentStock
+    public Integer deleteDirectHospitalCurrentStock(Long batch_id){
+        if(direct_hospital_current_stockRepository.findById(batch_id).get()!=null){
+            direct_hospital_current_stockRepository.deleteById(batch_id);
+            return 1;
+        }
+        return 0;
+    }
 }

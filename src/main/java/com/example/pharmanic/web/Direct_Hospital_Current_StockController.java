@@ -29,7 +29,7 @@ public class Direct_Hospital_Current_StockController {
     }
 
     @DeleteMapping("/directhospitalcurrentstock/{batch_id}")
-    void deleteDirectHospitalCurrentStockItem(@PathVariable Long batch_id){
-
+    Integer deleteDirectHospitalCurrentStockItem(@PathVariable Long batch_id){
+        return direct_hospital_current_stockService.deleteDrugsFromDirectHospitalCurrentStock(batch_id);
     }
 }
