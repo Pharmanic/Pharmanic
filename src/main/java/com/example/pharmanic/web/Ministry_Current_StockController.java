@@ -30,7 +30,7 @@ public class Ministry_Current_StockController {
         return ministry_current_stockService.addDrugsToMinistryCurrentStock(ministry_current_stock);
     }
 
-    @PutMapping("ministrycurrentstock/update")
+    @PutMapping("/ministrycurrentstock/update")
     public ResponseEntity<Ministry_Current_Stock> updateMinistryCurrentStock(@Valid @RequestBody Ministry_Current_Stock object) {
         Ministry_Current_Stock ministry_current_stock = ministry_current_stockService.updateMinistryCurrentStock(object);
         if (ministry_current_stock.getBatch_id() != null) {
@@ -39,7 +39,7 @@ public class Ministry_Current_StockController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("ministrycurrentstock/{batch_id}")
+    @DeleteMapping("/ministrycurrentstock/{batch_id}")
     public ResponseEntity<Void> deleteVehicle(@PathVariable("batch_id") Long batch_id) {
       //  System.out.println("In vehicleId controller delete method");
 
