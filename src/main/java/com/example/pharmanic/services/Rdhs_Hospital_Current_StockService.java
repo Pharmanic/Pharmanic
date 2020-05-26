@@ -54,6 +54,8 @@ public class Rdhs_Hospital_Current_StockService {
         return ResponseEntity.ok().build();
     }
 
+
+   //get batch from sr_np
     @GetMapping("/rhstock/{sr}")
     ResponseEntity<?> getBatchByMedicine(@PathVariable String sr_no) {
         Optional<Rdhs_Hospital_Current_Stock> rdhs_hospital_current_stock = Optional.ofNullable(rdhs_hospital_current_stockRepository.findBySr_no(sr_no));
