@@ -4,6 +4,7 @@ import com.example.pharmanic.model.Direct_Hospital_Current_Stock;
 import com.example.pharmanic.repositories.Direct_Hospital_Current_StockRepository;
 import com.example.pharmanic.services.Direct_Hospital_Current_StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,8 +25,15 @@ public class Direct_Hospital_Current_StockController {
     }
 
     @PostMapping("/directhospitalcurrentstock/add")
-    public Integer addDirectHospitalCurrentStock(@RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock){
-        return direct_hospital_current_stockService.addDrugsToDirectHospitalCurrentStock(direct_hospital_current_stock);
+    public ResponseEntity<Direct_Hospital_Current_Stock> addDirectHospitalCurrentStock(@RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock) {
+        if (direct_hospital_current_stock == null) return ResponseEntity.noContent().build();
+        direct_hospital_current_stock = direct_hospital_current_stockService.addDrugsToDirectHospitalCurrentStock(direct_hospital_current_stock);
+        return ResponseEntity.ok(direct_hospital_current_stock);
+    }
+
+    @PutMapping("/directhospitalcurrentstock/{batch_id}")
+    Direct_Hospital_Current_Stock updateDirectHospitalCurrentStock(@RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock){
+        return direct_hospital_current_stockService.updateDirectHospitalCurrentStock(direct_hospital_current_stock);
     }
 
     @DeleteMapping("/directhospitalcurrentstock/{batch_id}")

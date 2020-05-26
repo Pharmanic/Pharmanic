@@ -35,7 +35,7 @@ public class Direct_Hospital_Current_StockService {
     }
 
     //deleteDrugsFromDirectHospitalCurrentStock
-    public Integer deleteDirectHospitalCurrentStock(Long batch_id){
+    public Integer deleteDrugsFromDirectHospitalCurrentStock(Long batch_id){
         if(direct_hospital_current_stockRepository.findById(batch_id).get()!=null){
             direct_hospital_current_stockRepository.deleteById(batch_id);
             return 1;
