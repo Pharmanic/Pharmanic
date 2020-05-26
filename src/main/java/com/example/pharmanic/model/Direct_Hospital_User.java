@@ -17,7 +17,7 @@ public class Direct_Hospital_User extends User {
 
     }
 
-    public Direct_Hospital_User(Long nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role, Direct_Hospital direct_hospital) {
+    public Direct_Hospital_User(String nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role, Direct_Hospital direct_hospital) {
         super(nic, first_name, last_name, tel_no, email, address, password, status, role);
         this.direct_hospital = direct_hospital;
     }
@@ -36,4 +36,6 @@ public class Direct_Hospital_User extends User {
                 "direct_hospital=" + direct_hospital +
                 '}';
     }
+
+
 }

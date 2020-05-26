@@ -19,14 +19,19 @@ public class Rdhs_Request_Order_Detail {
 
     private Long quantity;
 
+    private Long can_supply_status;
+    private Long supply_status;
+
     public Rdhs_Request_Order_Detail() {
     }
 
-    public Rdhs_Request_Order_Detail(Long id, Rdhs_Request_Order order_id, Medicine sr_no, Long quantity) {
+    public Rdhs_Request_Order_Detail(Long id, Rdhs_Request_Order order_id, Medicine sr_no, Long quantity, Long can_supply_status, Long supply_status) {
         this.id = id;
         this.order_id = order_id;
         this.sr_no = sr_no;
         this.quantity = quantity;
+        this.can_supply_status = can_supply_status;
+        this.supply_status = supply_status;
     }
 
     public Long getId() {
@@ -62,6 +67,22 @@ public class Rdhs_Request_Order_Detail {
         this.quantity = quantity;
     }
 
+    public Long getCan_supply_status() {
+        return can_supply_status;
+    }
+
+    public void setCan_supply_status(Long can_supply_status) {
+        this.can_supply_status = can_supply_status;
+    }
+
+    public Long getSupply_status() {
+        return supply_status;
+    }
+
+    public void setSupply_status(Long supply_status) {
+        this.supply_status = supply_status;
+    }
+
     @Override
     public String toString() {
         return "Rdhs_Request_Order_Detail{" +
@@ -69,6 +90,8 @@ public class Rdhs_Request_Order_Detail {
                 ", order_id=" + order_id +
                 ", sr_no=" + sr_no +
                 ", quantity=" + quantity +
+                ", can_supply_status=" + can_supply_status +
+                ", supply_status=" + supply_status +
                 '}';
     }
 }

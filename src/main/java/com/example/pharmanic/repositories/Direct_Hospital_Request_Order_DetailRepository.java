@@ -25,4 +25,5 @@ public interface Direct_Hospital_Request_Order_DetailRepository extends JpaRepos
     @Query(value="select * from direct_hospital_request_order_detail u where id = :id",nativeQuery=true)
     public Direct_Hospital_Request_Order_Detail findByID(@Param("id")Long id);
 
+
 }
