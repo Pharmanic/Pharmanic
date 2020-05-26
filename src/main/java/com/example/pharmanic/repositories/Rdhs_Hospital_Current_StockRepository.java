@@ -11,7 +11,7 @@ public interface Rdhs_Hospital_Current_StockRepository extends JpaRepository<Rdh
  Rdhs_Hospital_Current_Stock findBybatchId(Long id);
 
  @Query(value="select * from Rdhs_Hospital_Current_Stock h where sr_no = :sr_no",nativeQuery=true)
- public Hospital_By_Rdhs findBySr_no(@Param("sr_no")String sr_no);
+ Rdhs_Hospital_Current_Stock findBySr_no(@Param("sr_no")String sr_no);
 
 
 }

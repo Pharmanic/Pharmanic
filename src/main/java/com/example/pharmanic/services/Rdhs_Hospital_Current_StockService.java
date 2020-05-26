@@ -1,6 +1,7 @@
 package com.example.pharmanic.services;
 
 import com.example.pharmanic.model.Direct_Hospital;
+import com.example.pharmanic.model.Hospital_By_Rdhs;
 import com.example.pharmanic.model.Rdhs_Hospital_Current_Stock;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Current_StockRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -52,4 +53,14 @@ public class Rdhs_Hospital_Current_StockService {
         rdhs_hospital_current_stockRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/rhstock/{sr}")
+    ResponseEntity<?> getBatchByMedicine(@PathVariable String sr_no) {
+        Optional<Rdhs_Hospital_Current_Stock> rdhs_hospital_current_stock = Optional.ofNullable(rdhs_hospital_current_stockRepository.findBySr_no(sr_no));
+        return rdhs_hospital_current_stock.map(response -> ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+
+
+
 }
