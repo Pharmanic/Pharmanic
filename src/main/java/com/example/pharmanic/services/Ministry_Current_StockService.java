@@ -33,5 +33,15 @@ public class Ministry_Current_StockService {
         return new Ministry_Current_Stock();
     }
 
+    public String deleteministryCurrentStock(Long batch_id) {
+        if (batch_id != null) {
+            if (ministry_current_stockRepository.existsById(batch_id)) {
+                ministry_current_stockRepository.deleteById(batch_id);
+                return "success";
+            }
+        }
+        return "error";
+    }
+
 
 }

@@ -31,4 +31,8 @@ public class Ministry_Store_Damage_DrugService {
         return 1;
     }
 
+
+
+
+
 }

@@ -38,4 +38,15 @@ public class Ministry_Current_StockController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("ministrycurrentstock/{batch_id}")
+    public ResponseEntity<Void> deleteVehicle(@PathVariable("batch_id") Long batch_id) {
+      //  System.out.println("In vehicleId controller delete method");
+
+        String reply = ministry_current_stockService.deleteministryCurrentStock(batch_id);
+        if (reply.equals("success")) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
