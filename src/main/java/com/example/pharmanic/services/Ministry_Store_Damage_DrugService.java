@@ -31,4 +31,15 @@ public class Ministry_Store_Damage_DrugService {
         return 1;
     }
 
+    public Ministry_Store_Damage_Drug updateMinistryDamageStock(Ministry_Store_Damage_Drug ministry_store_damage_drug) {
+        if (ministry_store_damage_drugRepository.existsById(ministry_store_damage_drug.getDid())) {
+            return ministry_store_damage_drugRepository.save(ministry_store_damage_drug);
+        }
+
+        return new Ministry_Store_Damage_Drug();
+    }
+
+
+
+
 }

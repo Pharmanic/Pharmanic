@@ -53,7 +53,7 @@ public class Rdhs_Hospital_Current_StockService {
         rdhs_hospital_current_stockRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
+gi
 
    //get batch from sr_np
     @GetMapping("/rhstock/{sr}")
