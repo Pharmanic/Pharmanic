@@ -25,5 +25,23 @@ public class Ministry_Current_StockService {
         return 1;
     }
 
+    public Ministry_Current_Stock updateMinistryCurrentStock(Ministry_Current_Stock ministry_current_stock) {
+        if (ministry_current_stockRepository.existsById(ministry_current_stock.getBatch_id())) {
+            return ministry_current_stockRepository.save(ministry_current_stock);
+        }
+
+        return new Ministry_Current_Stock();
+    }
+
+    public String deleteministryCurrentStock(Long batch_id) {
+        if (batch_id != null) {
+            if (ministry_current_stockRepository.existsById(batch_id)) {
+                ministry_current_stockRepository.deleteById(batch_id);
+                return "success";
+            }
+        }
+        return "error";
+    }
+
 
 }

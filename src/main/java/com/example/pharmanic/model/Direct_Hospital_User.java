@@ -36,4 +36,6 @@ public class Direct_Hospital_User extends User {
                 "direct_hospital=" + direct_hospital +
                 '}';
     }
+
+
 }

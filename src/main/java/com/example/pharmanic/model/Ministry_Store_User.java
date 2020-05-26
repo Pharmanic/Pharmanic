@@ -37,4 +37,6 @@ public class Ministry_Store_User extends User {
                 "ministry_store=" + ministry_store +
                 '}';
     }
+
+
 }

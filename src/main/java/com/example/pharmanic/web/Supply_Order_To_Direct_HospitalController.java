@@ -19,8 +19,7 @@ public class Supply_Order_To_Direct_HospitalController {
 
     @Autowired
     Supply_Order_To_Direct_HospitalService supply_order_to_direct_hospitalService;
-
-
+    
     @PostMapping("/supplyordertodh/add")
     public Integer addSupplyOrderToDH(@RequestBody Supply_Order_To_Direct_Hospital supply_order_to_direct_hospital){
         return supply_order_to_direct_hospitalService.addSupplyOrderToDirectHospital(supply_order_to_direct_hospital);
