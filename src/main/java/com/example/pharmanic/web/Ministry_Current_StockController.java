@@ -4,8 +4,10 @@ import com.example.pharmanic.model.Ministry_Current_Stock;
 import com.example.pharmanic.repositories.Ministry_Current_StockRepository;
 import com.example.pharmanic.services.Ministry_Current_StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,5 +28,14 @@ public class Ministry_Current_StockController {
     @PostMapping("/ministrycurrentstock/add")
     public Integer addMinistryCurrentStock(@RequestBody Ministry_Current_Stock ministry_current_stock){
         return ministry_current_stockService.addDrugsToMinistryCurrentStock(ministry_current_stock);
+    }
+
+    @PutMapping("ministrycurrentstock/update")
+    public ResponseEntity<Ministry_Current_Stock> updateMinistryCurrentStock(@Valid @RequestBody Ministry_Current_Stock object) {
+        Ministry_Current_Stock ministry_current_stock = ministry_current_stockService.updateMinistryCurrentStock(object);
+        if (ministry_current_stock.getBatch_id() != null) {
+            return ResponseEntity.ok(ministry_current_stock);
+        }
+        return ResponseEntity.notFound().build();
     }
 }
