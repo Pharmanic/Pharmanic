@@ -62,6 +62,14 @@ public class Rdhs_Hospital_Current_StockService {
 
     }
 
+    @RequestMapping(value = "/rhstockreg/{reg_no}", method = RequestMethod.GET)
+    List<Rdhs_Hospital_Current_Stock> getHospitalBatch(@PathVariable("reg_no") String reg_no) {
+        return rdhs_hospital_current_stockRepository.findByreg_no(reg_no);
+
+    }
+
+
+
 
 
 

@@ -15,5 +15,8 @@ public interface Rdhs_Hospital_Current_StockRepository extends JpaRepository<Rdh
  @Query(value="select * from Rdhs_Hospital_Current_Stock h where h.sr_no = :sr_no",nativeQuery=true)
  List<Rdhs_Hospital_Current_Stock> findBySr_no(@Param("sr_no")String sr_no);
 
+ @Query(value="select * from Rdhs_Hospital_Current_Stock h where h.reg_no = :reg_no",nativeQuery=true)
+ List<Rdhs_Hospital_Current_Stock> findByreg_no(@Param("reg_no")String reg_no);
+
 
 }
