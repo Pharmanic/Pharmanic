@@ -19,6 +19,7 @@ public class Rdhs_Hospital_Current_Stock {
     private String expiredate;
 
     @ManyToOne
+    @JoinColumn(name = "reg_no", nullable = false, referencedColumnName = "reg_no")
     private Hospital_By_Rdhs hospital_by_rdhs;
 
 
