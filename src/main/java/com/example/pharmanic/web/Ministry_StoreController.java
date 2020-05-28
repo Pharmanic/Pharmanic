@@ -35,8 +35,9 @@ public class Ministry_StoreController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/ministry_store")
+    @PostMapping("/ministry_store/register")
    public  ResponseEntity<Ministry_Store> addMinistryStore(@RequestBody Ministry_Store ministry_Store) {
+        System.out.println("In Con Add");
         if (ministry_Store == null)
             return ResponseEntity.noContent().build();
         ministry_Store = ministry_storeService.addMinistryStore(ministry_Store);
