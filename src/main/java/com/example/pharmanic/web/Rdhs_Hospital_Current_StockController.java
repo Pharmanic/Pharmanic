@@ -2,6 +2,8 @@ package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Rdhs_Hospital_Current_Stock;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Current_StockRepository;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 @RestController
@@ -25,6 +28,7 @@ public class Rdhs_Hospital_Current_StockController {
 
     @GetMapping("/rhstock")
     Collection<Rdhs_Hospital_Current_Stock> drugStore() {
+
         return rdhs_hospital_current_stockRepository.findAll();
     }
 
@@ -64,5 +68,14 @@ public class Rdhs_Hospital_Current_StockController {
         return rdhs_hospital_current_stockRepository.findByreg_no(reg_no);
 
     }
+
+    @GetMapping("/expired")
+
+    Collection<Rdhs_Hospital_Current_Stock> drugS() {
+
+        return rdhs_hospital_current_stockRepository.findAll(
+                Sort.by(Sort.Direction.ASC,"expiredate"));
+    }
+
 
 }
