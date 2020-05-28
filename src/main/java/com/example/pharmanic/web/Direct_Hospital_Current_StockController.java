@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,8 +33,10 @@ public class Direct_Hospital_Current_StockController {
     }
 
     @PutMapping("/directhospitalcurrentstock/{batch_id}")
-    Direct_Hospital_Current_Stock updateDirectHospitalCurrentStock(@RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock){
-        return direct_hospital_current_stockService.updateDirectHospitalCurrentStock(direct_hospital_current_stock);
+    public ResponseEntity<Direct_Hospital_Current_Stock> updateDirectHospitalCurrentStock(@Valid @RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock){
+//        return direct_hospital_current_stockService.updateDirectHospitalCurrentStock(direct_hospital_current_stock);
+        Direct_Hospital_Current_Stock result=direct_hospital_current_stockRepository.save(direct_hospital_current_stock);
+        return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/directhospitalcurrentstock/{batch_id}")
