@@ -1,10 +1,7 @@
-package com.example.pharmanic.services;
+package com.example.pharmanic.web;
 
-import com.example.pharmanic.model.Direct_Hospital;
-import com.example.pharmanic.model.Hospital_By_Rdhs;
 import com.example.pharmanic.model.Rdhs_Hospital_Current_Stock;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Current_StockRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -15,16 +12,16 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/api")
-public class Rdhs_Hospital_Current_StockService {
+public class Rdhs_Hospital_Current_StockController {
     private Rdhs_Hospital_Current_StockRepository rdhs_hospital_current_stockRepository;
 
-    public Rdhs_Hospital_Current_StockService(Rdhs_Hospital_Current_StockRepository rdhs_hospital_current_stockRepository) {
+    public Rdhs_Hospital_Current_StockController(Rdhs_Hospital_Current_StockRepository rdhs_hospital_current_stockRepository) {
         super();
         this.rdhs_hospital_current_stockRepository = rdhs_hospital_current_stockRepository;
     }
+
 
     @GetMapping("/rhstock")
     Collection<Rdhs_Hospital_Current_Stock> drugStore() {
@@ -55,9 +52,9 @@ public class Rdhs_Hospital_Current_StockService {
         return ResponseEntity.ok().build();
     }
 
-   //get batch from sr_np
-   @RequestMapping(value = "/rhstocksr/{sr_no}", method = RequestMethod.GET)
-     List<Rdhs_Hospital_Current_Stock> getBatchByMedicine(@PathVariable("sr_no") String sr_no) {
+    //get batch from sr_np
+    @RequestMapping(value = "/rhstocksr/{sr_no}", method = RequestMethod.GET)
+    List<Rdhs_Hospital_Current_Stock> getBatchByMedicine(@PathVariable("sr_no") String sr_no) {
         return rdhs_hospital_current_stockRepository.findBySr_no(sr_no);
 
     }
@@ -67,10 +64,5 @@ public class Rdhs_Hospital_Current_StockService {
         return rdhs_hospital_current_stockRepository.findByreg_no(reg_no);
 
     }
-
-
-
-
-
 
 }

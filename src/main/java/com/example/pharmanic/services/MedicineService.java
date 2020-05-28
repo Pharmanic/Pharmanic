@@ -4,15 +4,21 @@ import com.example.pharmanic.model.Medicine;
 import com.example.pharmanic.repositories.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+@RestController
+@RequestMapping("/api")
 @Service
 public class MedicineService {
     @Autowired
     MedicineRepository medicineRepository;
 
     //getEMedicineList
+
+    @GetMapping("/medlist")
     public List<Medicine> getMedicineList(){
         List<Medicine> medicineList=medicineRepository.findAll();
         return medicineList;
