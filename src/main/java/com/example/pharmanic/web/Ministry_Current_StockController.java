@@ -40,7 +40,7 @@ public class Ministry_Current_StockController {
     }
 
     @DeleteMapping("/ministrycurrentstock/{batch_id}")
-    public ResponseEntity<Void> deleteVehicle(@PathVariable("batch_id") Long batch_id) {
+    public ResponseEntity<Void> deleteCurrentStock(@PathVariable("batch_id") Long batch_id) {
       //  System.out.println("In vehicleId controller delete method");
 
         String reply = ministry_current_stockService.deleteministryCurrentStock(batch_id);
