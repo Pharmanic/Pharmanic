@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Rdhs_Track {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+   // @GeneratedValue(strategy = GenerationType.AUTO)
     private int track_id;
     private Date date;
     private String start_point;
@@ -16,11 +16,11 @@ public class Rdhs_Track {
     @JoinColumn(name = "reg_no", nullable = false, referencedColumnName = "reg_no")
     private Rdhs rdhs;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "vehicle_no", nullable = false, referencedColumnName = "vehicle_no")
     private Rdhs_Vehicle rdhs_vehicle;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "nic", nullable = false, referencedColumnName = "nic")
     private Rdhs_Driver rdhs_driver;
 
