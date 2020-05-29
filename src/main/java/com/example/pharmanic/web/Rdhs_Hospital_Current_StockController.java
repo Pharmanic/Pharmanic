@@ -33,7 +33,7 @@ public class Rdhs_Hospital_Current_StockController {
     }
 
     @GetMapping("/rhstock/{id}")
-    ResponseEntity<?> getMedicine(@PathVariable Long id) {
+    ResponseEntity<?> getBatches(@PathVariable Long id) {
         Optional<Rdhs_Hospital_Current_Stock> rdhs_hospital_current_stock = Optional.ofNullable(rdhs_hospital_current_stockRepository.findBybatchId(id));
         return rdhs_hospital_current_stock.map(response -> ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -76,6 +76,19 @@ public class Rdhs_Hospital_Current_StockController {
         return rdhs_hospital_current_stockRepository.findAll(
                 Sort.by(Sort.Direction.ASC,"expiredate"));
     }
+  /*  @RequestMapping(value = "/rhstockreg/{reg_no}", method = RequestMethod.GET)
+    List<Rdhs_Hospital_Current_Stock> sortbatch(@PathVariable("reg_no") String reg_no) {
+        return rdhs_hospital_current_stockRepository.findAll(
+                Sort.by(Sort.Direction.ASC,"expiredate"));
+
+
+    }*/
+  @RequestMapping(value = "/expiration/{reg_no}", method = RequestMethod.GET)
+  List<Rdhs_Hospital_Current_Stock> getBatchByAsc(@PathVariable("reg_no") String sr_no) {
+      return rdhs_hospital_current_stockRepository.findByreg_noOrderByexpiredateAsc(sr_no);
+
+  }
+
 
 
 }
