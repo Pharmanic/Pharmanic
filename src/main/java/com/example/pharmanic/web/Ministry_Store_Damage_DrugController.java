@@ -39,4 +39,15 @@ public class Ministry_Store_Damage_DrugController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("/ministrydamagestock/{did}")
+    public ResponseEntity<Void> deleteDamageStock(@PathVariable("did") Long did) {
+        //  System.out.println("In vehicleId controller delete method");
+
+        String reply = ministry_store_damage_drugService.deleteministryDamageStock(did);
+        if (reply.equals("success")) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
