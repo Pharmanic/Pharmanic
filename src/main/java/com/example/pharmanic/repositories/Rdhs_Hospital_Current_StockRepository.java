@@ -23,5 +23,7 @@ public interface Rdhs_Hospital_Current_StockRepository extends JpaRepository<Rdh
 
 
  //List<Rdhs_Hospital_Current_Stock> findByBatchIdOrderByExpiredateAsc(String expiredate);
+ @Query(value="select * from Rdhs_Hospital_Current_Stock h where h.reg_no = :reg_no order by expiredate ASC ",nativeQuery=true)
+ List<Rdhs_Hospital_Current_Stock> findByreg_noOrderByexpiredateAsc(@Param("reg_no")String reg_no);
 
 }
