@@ -1,5 +1,6 @@
 package com.example.pharmanic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +24,11 @@ public class Rdhs_Track {
     @JoinColumn(name = "reg_no",referencedColumnName = "reg_no")
     private Rdhs rdhs;
 
+
     @ManyToOne
     @JoinColumn(name = "vehicle_no",referencedColumnName = "vehicle_no")
     private Rdhs_Vehicle rdhs_vehicle;
+
 
     @ManyToOne
     @JoinColumn(name = "nic",referencedColumnName = "nic")
