@@ -16,6 +16,7 @@ public class Ministry_Track {
 
     @ManyToOne
     @JoinColumn(name = "nic",referencedColumnName = "nic")
+
     private Ministry_Driver driver_id;
 
     private String starting_point;
