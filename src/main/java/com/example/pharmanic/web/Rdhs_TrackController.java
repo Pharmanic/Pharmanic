@@ -1,7 +1,9 @@
 package com.example.pharmanic.web;
 
+import com.example.pharmanic.model.Rdhs_Hospital_Current_Stock;
 import com.example.pharmanic.model.Rdhs_Track;
 import com.example.pharmanic.repositories.Rdhs_TrackRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
-
+@RestController
+@RequestMapping("/api")
 public class Rdhs_TrackController {
     private Rdhs_TrackRepository rdhs_trackRepository;
 
@@ -39,5 +42,10 @@ public class Rdhs_TrackController {
     ResponseEntity<?> deleteCategory(@PathVariable Long id) {
         rdhs_trackRepository.deleteById(id);
         return ResponseEntity.ok().build();
+    }
+    @GetMapping("/idgenerate")
+
+    String generateId() {
+        return rdhs_trackRepository.findNextId();
     }
 }
