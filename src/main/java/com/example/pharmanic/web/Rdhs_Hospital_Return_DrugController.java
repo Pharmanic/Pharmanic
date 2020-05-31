@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
-
+@RestController
+@RequestMapping("/api")
 public class Rdhs_Hospital_Return_DrugController {
     private Rdhs_Hospital_Return_DrugRepository rdhs_hospital_return_drugRepository;
 
@@ -31,7 +32,6 @@ public class Rdhs_Hospital_Return_DrugController {
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
         return ResponseEntity.created(new URI("/api/rhreturndrugs" + result.getReturned_id())).body(result);
     }
-
 
     @PutMapping("/updatereturn{id}")
     ResponseEntity<Rdhs_Hospital_Return_Drug> updateExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) {
