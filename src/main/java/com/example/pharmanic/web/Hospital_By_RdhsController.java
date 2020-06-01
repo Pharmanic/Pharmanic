@@ -19,7 +19,7 @@ public class Hospital_By_RdhsController {
     @Autowired
     Hospital_By_RdhsService hospital_by_rdhsService;
 
-    @GetMapping("/hospitalsByRdhs")
+    @GetMapping("/hospital_by_rdhs/hospital_by_rdhs_list")
     public List<Hospital_By_Rdhs> hospitalsByRdhs(){
         return hospital_by_rdhsService.getHospitalsByRdhsList();
     }
@@ -33,7 +33,7 @@ public class Hospital_By_RdhsController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/hospitalByRdhs/add")
+    @PostMapping("/hospital_by_rdhs/register")
     public Integer addHospitalByRDHA(@RequestBody Hospital_By_Rdhs hospital_by_rdhs){
         return hospital_by_rdhsService.addHospitalByRdhs(hospital_by_rdhs);
     }
