@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Medicine {
+public class  Medicine {
     private @Id String sr_no;
 
     private String name;
