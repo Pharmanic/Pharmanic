@@ -33,7 +33,7 @@ public class Rdhs_Request_OrderService {
     }
 
     //getRdhsRequstOrders
-    public List<Rdhs_Request_Order_Detail> getRDHSReqOrderDetailList(Long id){
+    public List<Rdhs_Request_Order_Detail> getRDHSReqOrderDetailList(String id){
         List<Rdhs_Request_Order_Detail> rdhs_request_order_detailList=rdhs_request_order_detailRepository.selectreqorderdetails(id);
         return rdhs_request_order_detailList;
     }

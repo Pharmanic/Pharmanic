@@ -20,7 +20,7 @@ public class Rdhs_Request_Order_DetailController {
     Rdhs_Request_Order_DetailRepository rdhs_request_order_detailRepository;
 
     @GetMapping("/rdhsreqorderdetails/{id}")
-    public List<Rdhs_Request_Order_Detail> rdhsreqorderdetails(@PathVariable("id")  Long id){
+    public List<Rdhs_Request_Order_Detail> rdhsreqorderdetails(@PathVariable("id")  String id){
         return rdhs_request_orderService.getRDHSReqOrderDetailList(id);
     }
 
