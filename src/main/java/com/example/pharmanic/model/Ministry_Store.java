@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 public class Ministry_Store {
-    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long m_store_id;
+    private @Id String m_store_id;
 
     private String name;
 
@@ -28,7 +28,7 @@ public class Ministry_Store {
     public Ministry_Store() {
     }
 
-    public Ministry_Store(Long m_store_id, String name, String email, String tel_no, String location, Integer total_storage, Integer available_storage, Ministry_Store_User ministry_store_incharge) {
+    public Ministry_Store(String m_store_id, String name, String email, String tel_no, String location, Integer total_storage, Integer available_storage, Ministry_Store_User ministry_store_incharge) {
         this.m_store_id = m_store_id;
         this.name = name;
         this.email = email;
@@ -95,11 +95,11 @@ public class Ministry_Store {
         return ministry_store_incharge;
     }
 
-    public Long getM_store_id() {
+    public String getM_store_id() {
         return m_store_id;
     }
 
-    public void setM_store_id(Long m_store_id) {
+    public void setM_store_id(String m_store_id) {
         this.m_store_id = m_store_id;
     }
 
@@ -115,7 +115,13 @@ public class Ministry_Store {
     public String toString() {
         return "Ministry_Store{" +
                 "m_store_id=" + m_store_id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", tel_no='" + tel_no + '\'' +
                 ", location='" + location + '\'' +
+                ", total_storage=" + total_storage +
+                ", available_storage=" + available_storage +
+                ", ministry_store_incharge=" + ministry_store_incharge +
                 '}';
     }
 }

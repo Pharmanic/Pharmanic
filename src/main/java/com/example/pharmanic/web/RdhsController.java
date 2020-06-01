@@ -20,7 +20,7 @@ public class RdhsController {
     @Autowired
     RdhsService rdhsService;
 
-    @GetMapping("/rdhss")
+    @GetMapping("/rdhs_list")
     public List<Rdhs> getRdhsList()
     {
         return rdhsService.getRdhsList();
@@ -35,7 +35,7 @@ public class RdhsController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/rdhs")
+    @PostMapping("/rdhs/register")
     public ResponseEntity<Rdhs> addRdhs(@RequestBody Rdhs newRdhs) {
         if (newRdhs == null)
             return ResponseEntity.noContent().build();
