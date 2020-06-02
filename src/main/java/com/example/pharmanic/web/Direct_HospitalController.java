@@ -20,7 +20,7 @@ public class Direct_HospitalController {
     @Autowired
     Direct_HospitalService direct_hospitalService;
 
-    @GetMapping("/directhospitals")
+    @GetMapping("/direct_hospital/direct_hospital_list")
     public List<Direct_Hospital> directhospitals(){
         return direct_hospitalService.getDirectHospitalList();
     }
@@ -34,7 +34,7 @@ public class Direct_HospitalController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/directhospital")
+    @PostMapping("/direct_hospital/register")
     public ResponseEntity<Direct_Hospital> addDirectHospital(@RequestBody Direct_Hospital newDirect_hospital) {
         if (newDirect_hospital == null)
             return ResponseEntity.noContent().build();
