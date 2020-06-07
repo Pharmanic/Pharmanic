@@ -4,9 +4,11 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "Hospital_By_Rdhs")
 public class Hospital_By_Rdhs {
     private @Id String reg_no;
     private String name;
