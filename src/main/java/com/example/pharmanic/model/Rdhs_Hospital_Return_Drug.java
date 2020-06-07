@@ -21,16 +21,16 @@ public class Rdhs_Hospital_Return_Drug {
    // private int track_id;
 
     @ManyToOne
-    @JoinColumn(name = "reg_no", referencedColumnName = "reg_no")
-    private Hospital_By_Rdhs hospital_by_rdhs;
+   @JoinColumn(name = "reg_no", referencedColumnName = "reg_no")
+    private Hospital_By_Rdhs reg_no;
 
     @ManyToOne
     @JoinColumn(name = "batchId" ,referencedColumnName = "batchId")
-    private Rdhs_Hospital_Current_Stock rdhs_hospital_current_stock;
+    private Rdhs_Hospital_Current_Stock batchId;
 
     @ManyToOne
     @JoinColumn(name = "track_id" ,referencedColumnName = "track_id")
-    private Rdhs_Track rdhs_track;
+    private Rdhs_Track track_id;
 
 
 }
