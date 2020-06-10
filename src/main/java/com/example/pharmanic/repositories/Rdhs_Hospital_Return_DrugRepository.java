@@ -15,4 +15,8 @@ public interface Rdhs_Hospital_Return_DrugRepository extends JpaRepository<Rdhs_
     @Query(value="select * from Rdhs_Hospital_Current_Stock h where h.reg_no = :reg_no order by expiredate ASC ",nativeQuery=true)
     List<Rdhs_Hospital_Current_Stock> findByreg_noOrderByexpiredateAsc(@Param("reg_no")String reg_no);
 
+
+  @Query(value="select * from rdhs_hospital_return_drug where track_id is NULL && reg_no = :reg_no ",nativeQuery=true)
+  List<Rdhs_Hospital_Return_Drug> findByreturned_id(@Param("reg_no")String reg_no);
+
 }

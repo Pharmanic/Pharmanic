@@ -3,13 +3,16 @@ package com.example.pharmanic.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
 @Entity
 @Data
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Rdhs_Hospital_Return_Drug")
@@ -28,9 +31,7 @@ public class Rdhs_Hospital_Return_Drug {
     @JoinColumn(name = "batchId" ,referencedColumnName = "batchId")
     private Rdhs_Hospital_Current_Stock batchId;
 
-    @ManyToOne
-    @JoinColumn(name = "track_id" ,referencedColumnName = "track_id")
-    private Rdhs_Track track_id;
-
+    @Column(nullable = false)
+    private Long track_id;
 
 }
