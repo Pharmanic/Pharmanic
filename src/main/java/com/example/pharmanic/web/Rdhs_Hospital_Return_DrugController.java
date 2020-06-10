@@ -12,6 +12,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -28,6 +29,11 @@ public class Rdhs_Hospital_Return_DrugController {
 
         return rdhs_hospital_return_drugRepository.findAll();
     }
+    @RequestMapping(value = "/returnCart/{reg_no}", method = RequestMethod.GET)
+    List<Rdhs_Hospital_Return_Drug> getReturnCart(@PathVariable("reg_no") String reg_no) {
+        return rdhs_hospital_return_drugRepository.findByreturned_id(reg_no);
+
+    }
 
    /* @PostMapping("/svreturndrug")
     ResponseEntity<Rdhs_Hospital_Return_Drug> createExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
@@ -36,7 +42,7 @@ public class Rdhs_Hospital_Return_DrugController {
         return ResponseEntity.created(new URI("/api/svreturndrug" + result.getReturned_id())).body(result);
 
     }*/
-   @PostMapping("/saverhreturndtock")
+   @PostMapping("/returndtock")
    ResponseEntity<Rdhs_Hospital_Return_Drug> createReturnDrug(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
 
        System.out.printf(String.valueOf(rdhs_hospital_return_drug));
@@ -45,7 +51,7 @@ public class Rdhs_Hospital_Return_DrugController {
    }
 
 
-    @PutMapping("/updatereturn{id}")
+    @PutMapping("/updatereturn/{id}")
     ResponseEntity<Rdhs_Hospital_Return_Drug> updateExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) {
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
         return ResponseEntity.ok().body(result);

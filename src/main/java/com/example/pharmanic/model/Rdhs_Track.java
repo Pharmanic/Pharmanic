@@ -13,11 +13,10 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-
 @Table(name = "Rdhs_Track")
 
 public class Rdhs_Track {
+
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long track_id;
     private String date;
     private String start_point;
@@ -26,17 +25,17 @@ public class Rdhs_Track {
 
 
     @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "reg_no",referencedColumnName = "reg_no",nullable=false)
+    @JoinColumn(name = "reg_no",referencedColumnName = "reg_no",nullable=true)
     private Rdhs reg_no;
 
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "vehicle_no",referencedColumnName = "vehicle_no",nullable=false)
+   @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name = "vehicle_no",referencedColumnName = "vehicle_no",nullable=true)
     private Rdhs_Vehicle vehicle_no;
 
 
     @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "nic",referencedColumnName = "nic",nullable=false)
+    @JoinColumn(name = "nic",referencedColumnName = "nic",nullable=true)
     private Rdhs_Driver nic;
 
 
