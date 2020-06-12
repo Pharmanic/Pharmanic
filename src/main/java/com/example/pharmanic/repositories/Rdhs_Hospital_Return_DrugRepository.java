@@ -19,4 +19,10 @@ public interface Rdhs_Hospital_Return_DrugRepository extends JpaRepository<Rdhs_
   @Query(value="select * from rdhs_hospital_return_drug where track_id is NULL && reg_no = :reg_no ",nativeQuery=true)
   List<Rdhs_Hospital_Return_Drug> findByreturned_id(@Param("reg_no")String reg_no);
 
+  @Query(value="update  rdhs_hospital_return_drug h set  h.quantity=(h.quantity+:quantity) where batch_id=6 && reg_no== :reg_no ",nativeQuery=true)
+ // List<Rdhs_Hospital_Return_Drug> findByreturned_id(@Param("reg_no")String reg_no);
+  int updateCart(@Param("reg_no")String reg_no,@Param("quantity")Long quantity);
+
+
+
 }
