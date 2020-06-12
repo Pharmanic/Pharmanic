@@ -56,6 +56,12 @@ public class Rdhs_Hospital_Return_DrugController {
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
         return ResponseEntity.ok().body(result);
     }
+
+    @PutMapping("/updatereturnqty/{id},{batch}")
+    int updateQuantity(@Validated @RequestBody String reg_no, @RequestBody Long batchId) {
+        int result = rdhs_hospital_return_drugRepository.updateCart(reg_no,batchId);
+        return result;
+    }
    /* @PostMapping("/saverhreturndrugs")
     void newRecord(@Validated @RequestBody Date date,int quantity,Long batch_id) throws URISyntaxException {
         System.out.println(quantity);
