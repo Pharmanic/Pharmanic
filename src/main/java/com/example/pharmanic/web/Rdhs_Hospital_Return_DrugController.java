@@ -35,6 +35,12 @@ public class Rdhs_Hospital_Return_DrugController {
 
     }
 
+    @RequestMapping(value = "/returnValCart/{returned_id}", method = RequestMethod.GET)
+    Collection<Rdhs_Hospital_Return_Drug> getReturnITem(@PathVariable("returned_id") Long returned_id){
+      return   rdhs_hospital_return_drugRepository.findReturnItem(returned_id);
+    }
+
+
    /* @PostMapping("/svreturndrug")
     ResponseEntity<Rdhs_Hospital_Return_Drug> createExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);

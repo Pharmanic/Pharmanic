@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,10 @@ public interface Rdhs_Hospital_Return_DrugRepository extends JpaRepository<Rdhs_
 
   @Query(value="select * from rdhs_hospital_return_drug where track_id is NULL && reg_no = :reg_no ",nativeQuery=true)
   List<Rdhs_Hospital_Return_Drug> findByreturned_id(@Param("reg_no")String reg_no);
+
+
+  @Query(value="select * from rdhs_hospital_return_drug where  returned_id = :returned_id ",nativeQuery=true)
+  Collection<Rdhs_Hospital_Return_Drug> findReturnItem(@Param("returned_id")Long returned_id);
 
   @Query(value="update  rdhs_hospital_return_drug h set  h.quantity=(h.quantity+:quantity) where batch_id=6 && reg_no== :reg_no ",nativeQuery=true)
  // List<Rdhs_Hospital_Return_Drug> findByreturned_id(@Param("reg_no")String reg_no);
