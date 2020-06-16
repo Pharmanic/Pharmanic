@@ -17,9 +17,6 @@ public class Rdhs {
     private String email;
     private String telephone;
 
-    @OneToOne
-    @JoinColumn(name = "rdhs_incharge",referencedColumnName = "nic")
-    private Rdhs_User rdhs_incharge;
 
     public Rdhs() {
     }
@@ -30,7 +27,6 @@ public class Rdhs {
         this.address = address;
         this.email = email;
         this.telephone = telephone;
-        this.rdhs_incharge = rdhs_incharge;
     }
 
     public Rdhs(String reg_no, String name, String address, String email, String telephone) {
@@ -81,13 +77,7 @@ public class Rdhs {
         this.telephone = telephone;
     }
 
-    public Rdhs_User getRdhs_User() {
-        return rdhs_incharge;
-    }
 
-    public void setRdhs_User(Rdhs_User rdhs_incharge) {
-        this.rdhs_incharge = rdhs_incharge;
-    }
 
     @Override
     public String toString() {
@@ -97,7 +87,7 @@ public class Rdhs {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
-                ", rdhs_incharge=" + rdhs_incharge +
+
                 '}';
     }
 }
