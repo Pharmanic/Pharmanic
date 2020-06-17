@@ -4,9 +4,11 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "Hospital_By_Rdhs")
 public class Hospital_By_Rdhs {
     private @Id String reg_no;
     private String name;
@@ -14,17 +16,27 @@ public class Hospital_By_Rdhs {
     private String telephone;
     private String email;
     private String doctor_incharge;
+    private String rdhsId;
 
     public Hospital_By_Rdhs() {
     }
 
-    public Hospital_By_Rdhs(String reg_no, String name, String address, String telephone, String email, String doctor_incharge) {
+    public Hospital_By_Rdhs(String reg_no, String name, String address, String telephone, String email, String doctor_incharge, String rdhsId) {
         this.reg_no = reg_no;
         this.name = name;
         this.address = address;
         this.telephone = telephone;
         this.email = email;
         this.doctor_incharge = doctor_incharge;
+        this.rdhsId = rdhsId;
+    }
+
+    public String getRdhsId() {
+        return rdhsId;
+    }
+
+    public void setRdhsId(String rdhsId) {
+        this.rdhsId = rdhsId;
     }
 
     public String getReg_no() {
@@ -75,15 +87,17 @@ public class Hospital_By_Rdhs {
         this.doctor_incharge = doctor_incharge;
     }
 
+
     @Override
     public String toString() {
-        return "Direct_Hospital{" +
+        return "Hospital_By_Rdhs{" +
                 "reg_no='" + reg_no + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
                 ", doctor_incharge='" + doctor_incharge + '\'' +
+                ", rdhsId='" + rdhsId + '\'' +
                 '}';
     }
 }

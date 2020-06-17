@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class Rdhs_Hospital_Return_DrugController {
@@ -26,20 +29,69 @@ public class Rdhs_Hospital_Return_DrugController {
 
         return rdhs_hospital_return_drugRepository.findAll();
     }
+    @RequestMapping(value = "/returnCart/{reg_no}", method = RequestMethod.GET)
+    List<Rdhs_Hospital_Return_Drug> getReturnCart(@PathVariable("reg_no") String reg_no) {
+        return rdhs_hospital_return_drugRepository.findByreturned_id(reg_no);
 
-    @PostMapping("/rhreturndrugs")
-    ResponseEntity<Rdhs_Hospital_Return_Drug> newReturnRecord(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
-        Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
-        return ResponseEntity.created(new URI("/api/rhreturndrugs" + result.getReturned_id())).body(result);
     }
 
-    @PutMapping("/updatereturn{id}")
+    @RequestMapping(value = "/returnValCart/{returnedId}", method = RequestMethod.GET)
+    Collection<Rdhs_Hospital_Return_Drug> getReturnITem(@PathVariable("returnedId") Long returnedId){
+      return   rdhs_hospital_return_drugRepository.findReturnItem(returnedId);
+    }
+
+
+   /* @PostMapping("/svreturndrug")
+    ResponseEntity<Rdhs_Hospital_Return_Drug> createExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
+        Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
+        System.out.println("In post controller");
+        return ResponseEntity.created(new URI("/api/svreturndrug" + result.getReturned_id())).body(result);
+
+    }*/
+   @PostMapping("/returndtock")
+   ResponseEntity<Rdhs_Hospital_Return_Drug> createReturnDrug(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
+
+       System.out.printf(String.valueOf(rdhs_hospital_return_drug));
+       Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
+       return ResponseEntity.created(new URI("/api/returndtock" + result.getReturnedId())).body(result);
+   }
+
+
+    @PutMapping("/updatereturn/{id}")
     ResponseEntity<Rdhs_Hospital_Return_Drug> updateExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) {
+        System.out.println("This is put function");
+        System.out.println(rdhs_hospital_return_drug);
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
+        System.out.println("updating..");
         return ResponseEntity.ok().body(result);
+
     }
-    @DeleteMapping("returnitem/{id}")
+    @PutMapping("/updatereturnqty/{id},{batch}")
+    int updateQuantity(@Validated @RequestBody String reg_no, @RequestBody Long batchId) {
+        int result = rdhs_hospital_return_drugRepository.updateCart(reg_no,batchId);
+        return result;
+    }
+   /* @PostMapping("/saverhreturndrugs")
+    void newRecord(@Validated @RequestBody Date date,int quantity,Long batch_id) throws URISyntaxException {
+        System.out.println(quantity);
+        System.out.println("c1");
+        Integer n1=new Integer(quantity);
+     //   int q1=new Integer(quantity);
+        System.out.println("c2");
+
+
+        //System.out.println("qty"+q1);
+        System.out.println("batch"+batch_id);
+        rdhs_hospital_return_drugRepository.savereturn(date,n1,batch_id);
+       // return ResponseEntity.created(new URI("/api/rhreturndrugs" + result.getReturned_id())).body(result);
+    }*/
+
+
+
+    @DeleteMapping("dltreturnitem/{id}")
     ResponseEntity<?> deleteCategory(@PathVariable Long id) {
+        System.out.println("This is dlt method");
+        System.out.println("Id is"+id);
         rdhs_hospital_return_drugRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
