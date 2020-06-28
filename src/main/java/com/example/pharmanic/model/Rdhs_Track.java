@@ -24,18 +24,18 @@ public class Rdhs_Track {
 
 
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "reg_no",referencedColumnName = "reg_no",nullable=true)
+    @ManyToOne
+    @JoinColumn(name = "reg_no",referencedColumnName = "reg_no",nullable=false)
     private Rdhs reg_no;
 
 
-   @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "vehicle_no",referencedColumnName = "vehicle_no",nullable=true)
+   @ManyToOne
+    @JoinColumn(name = "vehicle_no",referencedColumnName = "vehicle_no",nullable=false)
     private Rdhs_Vehicle vehicle_no;
 
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    @JoinColumn(name = "nic",referencedColumnName = "nic",nullable=true)
+    @ManyToOne
+    @JoinColumn(name = "nic",referencedColumnName = "nic",nullable=false)
     private Rdhs_Driver nic;
 
 

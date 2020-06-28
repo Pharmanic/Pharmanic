@@ -26,4 +26,11 @@ public interface Rdhs_Hospital_Current_StockRepository extends JpaRepository<Rdh
  @Query(value="select * from Rdhs_Hospital_Current_Stock h where h.reg_no = :reg_no order by expiredate ASC ",nativeQuery=true)
  List<Rdhs_Hospital_Current_Stock> findByreg_noOrderByexpiredateAsc(@Param("reg_no")String reg_no);
 
+ @Query(value = "select stock_id,batch_no,expiredate,reg_no,sr_no,sum(quantity) as quantity from Rdhs_Hospital_Current_Stock h where h.reg_no = :reg_no group by sr_no order by quantity ASC",nativeQuery = true)
+ List<Rdhs_Hospital_Current_Stock> findByreg_noQuantityAsc(@Param("reg_no")String reg_no);
+/*
+ @Query(value ="select  sr_no,sum(quantity) from Rdhs_Hospital_Current_Stock h where h.reg_no = :reg_no group by sr_no");
+ //@Query(value = "select * from rdhs_hospital_current_stock h  where h.reg_no=:reg_no group by sr_no",nativeQuery = true);
+ List<Rdhs_Hospital_Current_Stock> findByqty(@Param("reg_no")String reg_no);
+*/
 }
