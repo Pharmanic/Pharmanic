@@ -27,7 +27,7 @@ public class Ministry_StoreController {
     }
 
     @GetMapping("/ministry_stores/{m_store_id}")
-    public ResponseEntity<Ministry_Store> getMinistryStore(@PathVariable("m_store_id") Long m_store_id){
+    public ResponseEntity<Ministry_Store> getMinistryStore(@PathVariable("m_store_id") String m_store_id){
         Ministry_Store ministry_store=(Ministry_Store) ministry_storeService.getMinistryStoreDetails(m_store_id);
         if(ministry_store.getM_store_id() !=null){
             return ResponseEntity.ok(ministry_store);
@@ -35,8 +35,9 @@ public class Ministry_StoreController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/ministry_store")
+    @PostMapping("/ministry_store/register")
    public  ResponseEntity<Ministry_Store> addMinistryStore(@RequestBody Ministry_Store ministry_Store) {
+        System.out.println("In Con Add");
         if (ministry_Store == null)
             return ResponseEntity.noContent().build();
         ministry_Store = ministry_storeService.addMinistryStore(ministry_Store);
@@ -50,7 +51,7 @@ public class Ministry_StoreController {
     }
 
     @DeleteMapping("/ministry_store/{ministry_id}")
-    Integer deleteMinistryStore(@PathVariable Long ministry_id) {
+    Integer deleteMinistryStore(@PathVariable String ministry_id) {
         return ministry_storeService.deleteMinistryStore(ministry_id);
     }
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Data
 @Entity
@@ -15,7 +17,16 @@ public class Rdhs {
     private String email;
     private String telephone;
 
+
     public Rdhs() {
+    }
+
+    public Rdhs(String reg_no, String name, String address, String email, String telephone, Rdhs_User rdhs_incharge) {
+        this.reg_no = reg_no;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.telephone = telephone;
     }
 
     public Rdhs(String reg_no, String name, String address, String email, String telephone) {
@@ -66,6 +77,8 @@ public class Rdhs {
         this.telephone = telephone;
     }
 
+
+
     @Override
     public String toString() {
         return "Rdhs{" +
@@ -74,6 +87,7 @@ public class Rdhs {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
+
                 '}';
     }
 }

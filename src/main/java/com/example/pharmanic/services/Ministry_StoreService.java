@@ -23,7 +23,7 @@ public class Ministry_StoreService {
     }
 
     //getMinistryStoreDetails
-    public Ministry_Store getMinistryStoreDetails(Long m_store_id){
+    public Ministry_Store getMinistryStoreDetails(String m_store_id){
         if (m_store_id !=null){
             if (ministry_storeRepository.existsById(m_store_id)){
                 return ministry_storeRepository.findByM_store_id(m_store_id);
@@ -48,7 +48,7 @@ public class Ministry_StoreService {
         return false;
     }
 
-    public Integer deleteMinistryStore(Long ministry_id){
+    public Integer deleteMinistryStore(String ministry_id){
         if(ministry_storeRepository.findById(ministry_id).get()!=null) {
             ministry_storeRepository.deleteById(ministry_id);
             return 1;

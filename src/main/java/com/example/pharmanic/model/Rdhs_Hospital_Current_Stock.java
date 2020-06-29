@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,10 +13,14 @@ import java.util.Date;
 @Data
 @Table(name = "Rdhs_Hospital_Current_Stock")
 public class Rdhs_Hospital_Current_Stock {
+
     @Id
-    private Long batchId;
+    private Long stockId;
+    private Long batchNo;
     private int quantity;
     private String expiredate;
+
+
 
     @ManyToOne
     @JoinColumn(name = "reg_no", nullable = false, referencedColumnName = "reg_no")
