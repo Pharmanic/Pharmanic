@@ -5,20 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name = "Rdhs_Hospital_Current_Stock")
-public class Rdhs_Hospital_Current_Stock {
-    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long stockId;
-    private Long batchNo;
-    private int quantity;
-    private String expiredate;
-
-
+@Table(name = "Rdhs_Hospital_Request_Order_Cart")
+public class Rdhs_Hospital_Request_Order_Cart {
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long cartId;
+    private int qty;
+    @Column(nullable = true)
+    private int state;
 
     @ManyToOne
     @JoinColumn(name = "reg_no", nullable = false, referencedColumnName = "reg_no")
