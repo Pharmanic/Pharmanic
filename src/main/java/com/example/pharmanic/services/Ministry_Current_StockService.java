@@ -17,6 +17,11 @@ public class Ministry_Current_StockService {
         List<Ministry_Current_Stock> ministry_current_stockList=ministry_current_stockRepository.findAll();
         return ministry_current_stockList;
     }
+    //getMinistryCurrentStockNearestexpiringDrugs
+    public List<Ministry_Current_Stock> getNearestExpiringMedicineList(){
+        List<Ministry_Current_Stock> nearest_expiring_list=ministry_current_stockRepository.nearestExpiringList();
+        return nearest_expiring_list;
+    }
 
     //addDrugsToMinistryCurrentStore
     public Integer addDrugsToMinistryCurrentStock(Ministry_Current_Stock ministry_current_stock){
