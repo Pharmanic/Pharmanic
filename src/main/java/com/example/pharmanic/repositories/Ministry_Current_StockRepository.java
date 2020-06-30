@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface Ministry_Current_StockRepository extends JpaRepository<Ministry_Current_Stock,Long> {
 
     @Query(value="{call ministry_store_damage(:id, :quantity)}",nativeQuery=true)
@@ -12,5 +14,8 @@ public interface Ministry_Current_StockRepository extends JpaRepository<Ministry
 
     @Query(value="{call ministry_available_quantity(:id)}",nativeQuery=true)
     public void updateAvailableStock(@Param("id") Long id);
+
+    @Query(value="{call nearest_expiring_medicine()}",nativeQuery=true)
+    public List<Ministry_Current_Stock> nearestExpiringList();
 
 }

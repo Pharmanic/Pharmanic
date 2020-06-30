@@ -33,15 +33,17 @@ public class Rdhs_Hospital_Current_StockController {
     }
 
     @GetMapping("/rhstock/{id}")
-    ResponseEntity<?> getBatches(@PathVariable Long id) {
-        Optional<Rdhs_Hospital_Current_Stock> rdhs_hospital_current_stock = Optional.ofNullable(rdhs_hospital_current_stockRepository.findBybatchId(id));
+    ResponseEntity<?> getStock(@PathVariable Long id) {
+        Optional<Rdhs_Hospital_Current_Stock> rdhs_hospital_current_stock = Optional.ofNullable(rdhs_hospital_current_stockRepository.findByStockId(id));
         return rdhs_hospital_current_stock.map(response -> ResponseEntity.ok().body(response)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+
 
     @PostMapping("/rhstock")
     ResponseEntity<Rdhs_Hospital_Current_Stock> createExpense(@Validated @RequestBody Rdhs_Hospital_Current_Stock rdhs_hospital_current_stock) throws URISyntaxException {
         Rdhs_Hospital_Current_Stock result = rdhs_hospital_current_stockRepository.save(rdhs_hospital_current_stock);
-        return ResponseEntity.created(new URI("/api/rhstock" + result.getBatchId())).body(result);
+        return ResponseEntity.created(new URI("/api/rhstock" + result.getStockId())).body(result);
     }
 
     @PutMapping("/rhstock/{id}")
@@ -88,7 +90,10 @@ public class Rdhs_Hospital_Current_StockController {
       return rdhs_hospital_current_stockRepository.findByreg_noOrderByexpiredateAsc(sr_no);
 
   }
+  @RequestMapping(value = "/lessqty/{reg_no}",method =RequestMethod.GET)
+  List<Rdhs_Hospital_Current_Stock> getQtyByasc(@PathVariable("reg_no") String reg_no) {
+      return rdhs_hospital_current_stockRepository.findByreg_noQuantityAsc(reg_no);
 
-
+  }
 
 }

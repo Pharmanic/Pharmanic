@@ -25,8 +25,8 @@ public class Rdhs_Driver {
     private String telephone;
 
     @ManyToOne
-    @JoinColumn(name = "reg_no", nullable = false, referencedColumnName = "reg_no")
-    private Rdhs rdhs;
+    @JoinColumn(name = "reg_no", referencedColumnName = "reg_no" ,nullable = true)
+    private Rdhs reg_no;
 
 
 

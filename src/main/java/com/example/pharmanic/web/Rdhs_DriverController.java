@@ -25,5 +25,12 @@ public class Rdhs_DriverController {
     Collection<Rdhs_Driver> allDriver() {
         return rdhs_driverRepository.findAll();
     }
+    @GetMapping("/rdhs_driver/{nic}")
+    public ResponseEntity<Rdhs_Driver> getDriver(@PathVariable("nic") String nic){
+        Rdhs_Driver rdhs_driver=(Rdhs_Driver) rdhs_driverRepository.findBynic(nic);
+
+        return ResponseEntity.ok(rdhs_driver);
+
+    }
 
 }
