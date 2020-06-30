@@ -25,6 +25,11 @@ public class Ministry_Current_StockController {
         return ministry_current_stockService.getMinistryCurrentStockList();
     }
 
+    @GetMapping("/ministrynearestexpiringlist")
+    public List<Ministry_Current_Stock> getNearestExpiringList(){
+        return ministry_current_stockService.getNearestExpiringMedicineList();
+    }
+
     @PostMapping("/ministrycurrentstock/add")
     public Integer addMinistryCurrentStock(@RequestBody Ministry_Current_Stock ministry_current_stock){
         return ministry_current_stockService.addDrugsToMinistryCurrentStock(ministry_current_stock);

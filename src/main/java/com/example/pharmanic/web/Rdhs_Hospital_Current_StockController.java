@@ -90,7 +90,10 @@ public class Rdhs_Hospital_Current_StockController {
       return rdhs_hospital_current_stockRepository.findByreg_noOrderByexpiredateAsc(sr_no);
 
   }
+  @RequestMapping(value = "/lessqty/{reg_no}",method =RequestMethod.GET)
+  List<Rdhs_Hospital_Current_Stock> getQtyByasc(@PathVariable("reg_no") String reg_no) {
+      return rdhs_hospital_current_stockRepository.findByreg_noQuantityAsc(reg_no);
 
-
+  }
 
 }
