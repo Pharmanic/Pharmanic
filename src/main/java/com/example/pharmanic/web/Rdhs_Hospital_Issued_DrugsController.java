@@ -4,7 +4,9 @@ import com.example.pharmanic.model.Rdhs_Hospital_Current_Stock;
 import com.example.pharmanic.model.Rdhs_Hospital_Issued_Drugs;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Current_StockRepository;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Issued_DrugsRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +30,12 @@ public class Rdhs_Hospital_Issued_DrugsController {
         return rdhs_hospital_issued_drugsRepository.findAll();
     }
     @PostMapping("/addissue")
-    ResponseEntity<Rdhs_Hospital_Issued_Drugs> addIssue(@Validated @RequestBody Rdhs_Hospital_Issued_Drugs rdhs_hospital_issued_drugs) throws URISyntaxException {
+
+    ResponseEntity<Rdhs_Hospital_Issued_Drugs> addIssue(@Validated @RequestBody Rdhs_Hospital_Issued_Drugs rdhs_hospital_issued_drugs) throws URISyntaxException{
+
+        System.out.println("controller"+rdhs_hospital_issued_drugs);
         Rdhs_Hospital_Issued_Drugs result = rdhs_hospital_issued_drugsRepository.save(rdhs_hospital_issued_drugs);
-        return ResponseEntity.created(new URI("/rdhshospital/addissue" + result.getId())).body(result);
+        return ResponseEntity.created(new URI("/rdhshospital/addissue" + result.getIssueId())).body(result);
     }
 
 

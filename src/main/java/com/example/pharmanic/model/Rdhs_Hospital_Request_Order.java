@@ -15,8 +15,7 @@ public class Rdhs_Hospital_Request_Order {
     private @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) Long orderId;
     private String date;
-    private String rdhs_id;
-    private String trackId;
+   // private String rdhs_id;
 
     @ManyToOne
     @JoinColumn(name = "reg_no", referencedColumnName = "reg_no")
