@@ -20,14 +20,10 @@ public abstract class User {
     private String address;
     private String password;
     private Integer status; //To mark active users
-    private Integer role; //To mark active users
+    private Integer type; //To mark users type - Ministry User, RDHS User etc
+    private Integer role; //to mark the role of user in each type
 
-
-    public User() {
-        System.out.println("User");
-    }
-
-    public User(String nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer role) {
+    public User(String nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer type, Integer role) {
         this.nic = nic;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -36,15 +32,7 @@ public abstract class User {
         this.address = address;
         this.password = password;
         this.status = status;
-        this.role = role;
-        System.out.println("User1");
-    }
-
-    public Integer getRole() {
-        return role;
-    }
-
-    public void setRole(Integer role) {
+        this.type = type;
         this.role = role;
     }
 
@@ -109,20 +97,39 @@ public abstract class User {
     }
 
     public void setStatus(Integer status) {
-        status = status;
+        this.status = status;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "nic=" + nic +
+                "nic='" + nic + '\'' +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", tel_no='" + tel_no + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
-                ", Status=" + status +
+                ", status=" + status +
+                ", type=" + type +
+                ", role=" + role +
                 '}';
     }
+
 }
