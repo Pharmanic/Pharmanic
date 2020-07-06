@@ -1,18 +1,11 @@
 package com.example.pharmanic.repositories;
 
-
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import com.example.pharmanic.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String username);
 
-    Boolean existsByUsername(String username);
+@Transactional
+public interface UserRepository extends User_BaseRepository<User> {
 
-    Boolean existsByEmail(String email);
+
 }
