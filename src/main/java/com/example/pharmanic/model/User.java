@@ -1,71 +1,68 @@
 package com.example.pharmanic.model;
 
-import lombok.Data;
+//package com.bezkoder.springjwt.models;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
-import javax.persistence.Id;
-//import javax.persistence.MappedSuperclass;
-@Data
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User {
-
+@Table(	name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        })
+public class User {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String nic;
-    private String first_name;
-    private String last_name;
-    private String tel_no;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Size(max = 20)
+    private String username;
+
+    @NotBlank
+    @Size(max = 50)
+    @Email
     private String email;
-    private String address;
+
+    @NotBlank
+    @Size(max = 120)
     private String password;
-    private Integer status; //To mark active users
-    private Integer type; //To mark users type - Ministry User, RDHS User etc
-    private Integer role; //to mark the role of user in each type
 
-    public User(String nic, String first_name, String last_name, String tel_no, String email, String address, String password, Integer status, Integer type, Integer role) {
-        this.nic = nic;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.tel_no = tel_no;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
-        this.address = address;
         this.password = password;
-        this.status = status;
-        this.type = type;
-        this.role = role;
     }
 
-    public String getNic() {
-        return nic;
+    public Long getId() {
+        return id;
     }
 
-    public void setNic(String nic) {
-        this.nic = nic;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getTel_no() {
-        return tel_no;
-    }
-
-    public void setTel_no(String tel_no) {
-        this.tel_no = tel_no;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -76,14 +73,6 @@ public abstract class User {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -92,44 +81,11 @@ public abstract class User {
         this.password = password;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getRole() {
-        return role;
-    }
-
-    public void setRole(Integer role) {
-        this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "nic='" + nic + '\'' +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", tel_no='" + tel_no + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", password='" + password + '\'' +
-                ", status=" + status +
-                ", type=" + type +
-                ", role=" + role +
-                '}';
-    }
-
 }
