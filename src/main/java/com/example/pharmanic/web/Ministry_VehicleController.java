@@ -1,5 +1,6 @@
 package com.example.pharmanic.web;
 
+import com.example.pharmanic.model.Medicine;
 import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.model.Ministry_Store;
 import com.example.pharmanic.model.Ministry_Vehicle;
@@ -35,8 +36,13 @@ public class Ministry_VehicleController {
         return ResponseEntity.noContent().build();
     }
 
+
+
     @PostMapping("/ministry_vehicle/add")
-    public Integer addMinistryVehicle(@RequestBody Ministry_Vehicle ministry_vehicle){
-        return ministry_vehicleService.addVehicle(ministry_vehicle);
+    public ResponseEntity<Ministry_Vehicle> addVehicle(@RequestBody Ministry_Vehicle newVehicle) {
+        if (newVehicle== null)
+            return ResponseEntity.noContent().build();
+        newVehicle = ministry_vehicleService.addVehicle(newVehicle);
+        return ResponseEntity.ok(newVehicle);
     }
 }

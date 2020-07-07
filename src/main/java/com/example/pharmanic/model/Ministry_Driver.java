@@ -3,13 +3,15 @@ package com.example.pharmanic.model;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
 @Entity
 public class Ministry_Driver {
-    private @Id String nic;
 
+    private @Id String nic;
     private String name;
     private String email;
     private String address;

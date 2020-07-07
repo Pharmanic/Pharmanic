@@ -3,6 +3,7 @@ package com.example.pharmanic.web;
 import com.example.pharmanic.model.Medicine;
 import com.example.pharmanic.model.Ministry_Current_Stock;
 import com.example.pharmanic.model.Ministry_Driver;
+import com.example.pharmanic.model.Rdhs;
 import com.example.pharmanic.repositories.Ministry_DriverRepository;
 import com.example.pharmanic.services.Ministry_DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,19 @@ public class Ministry_DriverController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/ministry_driver/add")
-    public Integer addMinistryDriver(@RequestBody Ministry_Driver ministry_driver){
-        return ministry_driverService.addDriver(ministry_driver);
+   // @PostMapping("/ministry_driver/add")
+  //  public Integer addMinistryDriver(@RequestBody Ministry_Driver ministry_driver){
+       // return ministry_driverService.addDriver(ministry_driver);
+   // }
+
+    @PostMapping("/Driver/register")
+    public ResponseEntity<Ministry_Driver> addDriver(@RequestBody Ministry_Driver newDriver) {
+        if (newDriver == null)
+            return ResponseEntity.noContent().build();
+        newDriver = ministry_driverService.addDriver(newDriver);
+        return ResponseEntity.ok(newDriver);
     }
+
+
+
 }
