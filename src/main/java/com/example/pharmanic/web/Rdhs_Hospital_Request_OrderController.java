@@ -5,10 +5,7 @@ import com.example.pharmanic.model.Rdhs_Hospital_Request_Order_Cart;
 import com.example.pharmanic.repositories.Rdhs_Hospital_Request_OrderRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,5 +23,10 @@ public class Rdhs_Hospital_Request_OrderController {
     ResponseEntity<Rdhs_Hospital_Request_Order> addItem(@Validated @RequestBody Rdhs_Hospital_Request_Order rdhs_hospital_request_order_cart) throws URISyntaxException {
         Rdhs_Hospital_Request_Order result = rdhs_hospital_request_orderRepository.save(rdhs_hospital_request_order_cart);
         return ResponseEntity.created(new URI("/rhRequestOrder/addOrder" + result.getOrderId())).body(result);
+    }
+    @GetMapping("/nxtid")
+
+    Long generateId() {
+        return rdhs_hospital_request_orderRepository.findNextId();
     }
 }
