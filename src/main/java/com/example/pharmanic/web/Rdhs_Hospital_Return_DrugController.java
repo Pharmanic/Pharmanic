@@ -35,6 +35,12 @@ public class Rdhs_Hospital_Return_DrugController {
 
     }
 
+    @RequestMapping(value = "/returnValCart/{returnedId}", method = RequestMethod.GET)
+    Collection<Rdhs_Hospital_Return_Drug> getReturnITem(@PathVariable("returnedId") Long returnedId){
+      return   rdhs_hospital_return_drugRepository.findReturnItem(returnedId);
+    }
+
+
    /* @PostMapping("/svreturndrug")
     ResponseEntity<Rdhs_Hospital_Return_Drug> createExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) throws URISyntaxException {
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
@@ -47,14 +53,23 @@ public class Rdhs_Hospital_Return_DrugController {
 
        System.out.printf(String.valueOf(rdhs_hospital_return_drug));
        Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
-       return ResponseEntity.created(new URI("/api/returndtock" + result.getReturned_id())).body(result);
+       return ResponseEntity.created(new URI("/api/returndtock" + result.getReturnedId())).body(result);
    }
 
 
     @PutMapping("/updatereturn/{id}")
     ResponseEntity<Rdhs_Hospital_Return_Drug> updateExpense(@Validated @RequestBody Rdhs_Hospital_Return_Drug rdhs_hospital_return_drug) {
+        System.out.println("This is put function");
+        System.out.println(rdhs_hospital_return_drug);
         Rdhs_Hospital_Return_Drug result = rdhs_hospital_return_drugRepository.save(rdhs_hospital_return_drug);
+        System.out.println("updating..");
         return ResponseEntity.ok().body(result);
+
+    }
+    @PutMapping("/updatereturnqty/{id},{batch}")
+    int updateQuantity(@Validated @RequestBody String reg_no, @RequestBody Long batchId) {
+        int result = rdhs_hospital_return_drugRepository.updateCart(reg_no,batchId);
+        return result;
     }
    /* @PostMapping("/saverhreturndrugs")
     void newRecord(@Validated @RequestBody Date date,int quantity,Long batch_id) throws URISyntaxException {
@@ -73,8 +88,10 @@ public class Rdhs_Hospital_Return_DrugController {
 
 
 
-    @DeleteMapping("returnitem/{id}")
+    @DeleteMapping("dltreturnitem/{id}")
     ResponseEntity<?> deleteCategory(@PathVariable Long id) {
+        System.out.println("This is dlt method");
+        System.out.println("Id is"+id);
         rdhs_hospital_return_drugRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
