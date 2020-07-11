@@ -15,6 +15,8 @@ public class Ministry_Driver {
     private String name;
     private String email;
     private String address;
+    //remove later
+    private String address2;
     private String telephone;
 
     public Ministry_Driver() {

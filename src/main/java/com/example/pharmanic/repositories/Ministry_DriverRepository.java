@@ -11,4 +11,8 @@ public interface Ministry_DriverRepository extends JpaRepository<Ministry_Driver
     @Query(value="select *from ministry_driver u where nic = :nic",nativeQuery=true)
     public Ministry_Driver findByNic(@Param("nic") String nic);
 
+    //remove later
+    @Query(value="select *from ministry_driver u where nic = :nic",nativeQuery=true)
+    public Ministry_Driver findByName(@Param("name") String name);
+
 }
