@@ -13,8 +13,8 @@ import java.sql.Date;
 @Entity
 @Data
 @ToString
-@Table(name = "Rdhs_Hospital_Current_Stock")
-public class Rdhs_Hospital_Current_Stock {
+@Table(name = "LM_Hospital_Current_Stock")
+public class LM_Hospital_Current_Stock {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long stockId;
     private Long batchNo;
     private Integer quantity;
@@ -24,7 +24,7 @@ public class Rdhs_Hospital_Current_Stock {
 
     @ManyToOne
     @JoinColumn(name = "reg_no", referencedColumnName = "reg_no")
-    private Hospital_By_Rdhs hospital_by_rdhs;
+    private Direct_Hospital direct_hospital;
 
 
     @ManyToOne
@@ -33,13 +33,15 @@ public class Rdhs_Hospital_Current_Stock {
 
     @Override
     public String toString() {
-        return "Rdhs_Hospital_Current_Stock{" +
+        return "LM_Hospital_Current_Stock{" +
                 "stockId=" + stockId +
                 ", batchNo=" + batchNo +
                 ", quantity=" + quantity +
                 ", expiredate='" + expiredate + '\'' +
-                ", hospital_by_rdhs=" + hospital_by_rdhs +
+                ", direct_hospital=" + direct_hospital +
                 ", medicine=" + medicine +
                 '}';
     }
+
+
 }
