@@ -35,13 +35,13 @@ public class Rdhs_TrackController {
         return  ResponseEntity.ok(result);
     }*/
 
-    @PostMapping("/saveTrack")
-    ResponseEntity<Rdhs_Track> createExpense(@Validated @RequestBody Rdhs_Track rdhs_track) throws URISyntaxException {
-        System.out.printf("hello controllwe");
-        System.out.println(rdhs_track);
-        Rdhs_Track result = rdhs_trackRepository.save(rdhs_track);
-        return ResponseEntity.created(new URI("/api/saveTrack" + result.getTrack_id())).body(result);
-    }
+//    @PostMapping("/saveTrack")
+//    ResponseEntity<Rdhs_Track> createExpense(@Validated @RequestBody Rdhs_Track rdhs_track) throws URISyntaxException {
+//        System.out.printf("hello controllwe");
+//        System.out.println(rdhs_track);
+//        Rdhs_Track result = rdhs_trackRepository.save(rdhs_track);
+//        return ResponseEntity.created(new URI("/api/saveTrack" + result.getTrack_id())).body(result);
+//    }
 
     @PutMapping("/updateTrack{id}")
     ResponseEntity<Rdhs_Track> updateTrack(@Validated @RequestBody Rdhs_Track rdhs_track){
