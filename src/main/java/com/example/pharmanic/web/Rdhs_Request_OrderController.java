@@ -25,6 +25,12 @@ public class Rdhs_Request_OrderController {
         return rdhs_request_orderService.getRDHSRequestOrderList();
     }
 
+
+    @GetMapping("/rdhsrequestordersnotcomplete")
+    public List<Rdhs_Request_Order> rdhsrequestordersnotcomplete(){
+        return rdhs_request_orderService.getnotcompleteRdhsRequestOrderList();
+    }
+
     @PostMapping("/rdhsrequestorder/add")
     public Integer addRdhsRequestOrder(@RequestBody Rdhs_Request_Order rdhs_request_order){
         return rdhs_request_orderService.addRdhsRequestOrder(rdhs_request_order);

@@ -26,4 +26,9 @@ public class Supply_Order_To_RdhsService {
         }
         return 1;
     }
+
+    public Integer closeorder(Long o_id){
+        supply_order_to_rdhsRepository.closeRdhsReqOrder(o_id);
+        return 1;
+    }
 }
