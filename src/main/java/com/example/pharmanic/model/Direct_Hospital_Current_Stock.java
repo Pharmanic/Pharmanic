@@ -8,7 +8,12 @@ import java.util.Date;
 @Data
 @Entity
 public class Direct_Hospital_Current_Stock {
-    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long batch_id;
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private @GeneratedValue(strategy = GenerationType.IDENTITY) Long batch_id;
 
     @ManyToOne
     @JoinColumn(name = "sr_no", referencedColumnName = "sr_no")
@@ -25,7 +30,8 @@ public class Direct_Hospital_Current_Stock {
     public Direct_Hospital_Current_Stock() {
     }
 
-    public Direct_Hospital_Current_Stock(Long batch_id, Medicine sr_no, String name, Date expire_date, Long available_quantity, Direct_Hospital dh_reg_no) {
+    public Direct_Hospital_Current_Stock(Long id, Long batch_id, Medicine sr_no, String name, Date expire_date, Long available_quantity, Direct_Hospital dh_reg_no) {
+        this.id = id;
         this.batch_id = batch_id;
         this.sr_no = sr_no;
         this.name = name;
@@ -33,6 +39,10 @@ public class Direct_Hospital_Current_Stock {
         this.available_quantity = available_quantity;
         this.dh_reg_no = dh_reg_no;
     }
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     public Long getBatch_id() { return batch_id; }
 
@@ -61,6 +71,7 @@ public class Direct_Hospital_Current_Stock {
     @Override
     public String toString() {
         return "Direct_Hospital_Current_Stock{" +
+                "id=" + id +
                 "batch_id=" + batch_id +
                 ", sr_no=" + sr_no +
                 ", name='" + name + '\'' +

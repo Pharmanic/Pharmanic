@@ -25,6 +25,11 @@ public class Direct_Hospital_Request_OrderController {
         return direct_hospital_request_orderService.getDirectHospitalRequestOrderList();
     }
 
+    @GetMapping("/dhrequestordersnotcoplete")
+    public List<Direct_Hospital_Request_Order> dhrequestordersnotcomplete(){
+        return direct_hospital_request_orderService.getnotcompleteDirectHospitalRequestOrderList();
+    }
+
     @PostMapping("/directhospitalrequestorder/add")
     public Integer addDirectHospitalRequestOrder(@RequestBody Direct_Hospital_Request_Order direct_hospital_request_order){
         return direct_hospital_request_orderService.addDirectHospitalRequestOrder(direct_hospital_request_order);

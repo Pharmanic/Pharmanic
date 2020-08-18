@@ -1,11 +1,14 @@
 package com.example.pharmanic.services;
 
+import com.example.pharmanic.model.Ministry_Current_Stock;
 import com.example.pharmanic.model.Ministry_Track;
 import com.example.pharmanic.model.Supply_Order_To_Direct_Hospital;
 import com.example.pharmanic.repositories.Direct_Hospital_Request_Order_DetailRepository;
 import com.example.pharmanic.repositories.Supply_Order_To_Direct_HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class Supply_Order_To_Direct_HospitalService {
@@ -24,6 +27,12 @@ public class Supply_Order_To_Direct_HospitalService {
         }catch (NullPointerException ex){
 
         }
+        return 1;
+    }
+
+    //closedirecthospitalreqorder
+    public Integer closeorder(Long o_id){
+        supply_order_to_direct_hospitalRepository.closeDHReqOrder(o_id);
         return 1;
     }
 }

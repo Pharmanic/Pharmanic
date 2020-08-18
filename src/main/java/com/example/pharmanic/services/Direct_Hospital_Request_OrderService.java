@@ -28,6 +28,12 @@ public class Direct_Hospital_Request_OrderService {
         return direct_hospital_request_orderList;
     }
 
+    //getDirectHospitalRequstOrders
+    public List<Direct_Hospital_Request_Order> getnotcompleteDirectHospitalRequestOrderList(){
+        List<Direct_Hospital_Request_Order> direct_hospital_request_orderList=direct_hospital_request_orderRepository.reqorderlist();
+        return direct_hospital_request_orderList;
+    }
+
     //addDirectHospitalRequestOrder
     public Integer addDirectHospitalRequestOrder(Direct_Hospital_Request_Order direct_hospital_request_order){
         direct_hospital_request_orderRepository.save(direct_hospital_request_order);
