@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface Rdhs_Request_OrderRepository extends JpaRepository<Rdhs_Request_Order,Long> {
     @Query(value="{call new_rdhs_order_notification()}",nativeQuery=true)
-    public List<Rdhs_Request_Order> rdhsreqorder();
+    public List<Rdhs_Request_Order> reqorderlist();
 }

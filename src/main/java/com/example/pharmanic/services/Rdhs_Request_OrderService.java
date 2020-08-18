@@ -26,12 +26,6 @@ public class Rdhs_Request_OrderService {
         return rdhs_request_orderList;
     }
 
-    //getDirectHospitalRequstOrders
-    public List<Rdhs_Request_Order> getnotcompleteRdhsRequestOrderList(){
-        List<Rdhs_Request_Order> rdhs_request_orderList=rdhs_request_orderRepository.rdhsreqorder();
-        return rdhs_request_orderList;
-    }
-
     //addRdhsRequestOrder
     public Integer addRdhsRequestOrder(Rdhs_Request_Order rdhs_request_order){
         rdhs_request_orderRepository.save(rdhs_request_order);
