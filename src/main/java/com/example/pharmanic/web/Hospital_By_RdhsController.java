@@ -60,6 +60,7 @@ public class Hospital_By_RdhsController {
 //                    newEmployee.setId(id);
 //                    return repository.save(newEmployee);
 //                });
+        System.out.println("Updating");
         if(hospital_by_rdhsService.updateHospitalByRdhs(newHhospital_By_Rdhs)!=null){
             return ResponseEntity.ok(newHhospital_By_Rdhs);
         }
