@@ -21,6 +21,7 @@ public class Hospital_By_RdhsController {
 
     @GetMapping("/hospital_by_rdhs/hospital_by_rdhs_list")
     public List<Hospital_By_Rdhs> hospitalsByRdhs(){
+        System.out.println(hospital_by_rdhsService.getHospitalsByRdhsList());
         return hospital_by_rdhsService.getHospitalsByRdhsList();
     }
 

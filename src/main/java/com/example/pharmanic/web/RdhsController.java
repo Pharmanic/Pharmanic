@@ -23,11 +23,13 @@ public class RdhsController {
     @GetMapping("/rdhs_list")
     public List<Rdhs> getRdhsList()
     {
+        System.out.println("Hello With Auth Header");
         return rdhsService.getRdhsList();
     }
 
     @GetMapping("/rdhss/{reg_no}")
     public ResponseEntity<Rdhs> getRdhs(@PathVariable("reg_no") String reg_no){
+        System.out.println("rdhs reg No :"+reg_no);
         Rdhs rdhs=(Rdhs) rdhsService.getRdhsDetails(reg_no);
         if(rdhs.getReg_no() !=null){
             return ResponseEntity.ok(rdhs);
@@ -37,6 +39,7 @@ public class RdhsController {
 
     @PostMapping("/rdhs/register")
     public ResponseEntity<Rdhs> addRdhs(@RequestBody Rdhs newRdhs) {
+        System.out.println("In registration"+newRdhs.getReg_no());
         if (newRdhs == null)
             return ResponseEntity.noContent().build();
         newRdhs = rdhsService.addRdhs(newRdhs);
@@ -67,6 +70,7 @@ public class RdhsController {
 
     @DeleteMapping("/rdhs/{reg_no}")
     public ResponseEntity<Integer> deleteRdhs(@PathVariable String reg_no) {
+        System.out.println("in Del"+reg_no);
         Integer reply=rdhsService.deleteRdhs(reg_no);
 
         if (reply != null) {

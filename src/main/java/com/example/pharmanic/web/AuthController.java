@@ -97,6 +97,7 @@ public class AuthController {
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
+        System.out.println("Role"+strRoles);
 
         if (strRoles == null) {
             System.out.println("Null Role");
@@ -116,6 +117,12 @@ public class AuthController {
                         Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(modRole);
+
+                        break;
+                    case "ministry":
+                        Role ministryRole = roleRepository.findByName(ERole.ministry)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(ministryRole);
 
                         break;
                     default:
