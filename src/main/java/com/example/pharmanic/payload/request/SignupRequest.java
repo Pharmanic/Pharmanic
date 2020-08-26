@@ -16,6 +16,8 @@ public class SignupRequest {
 
     private Set<String> role;
 
+    private String branch;
+
     @NotBlank
     @Size(min = 6, max = 40)
     private String password;
@@ -34,6 +36,14 @@ public class SignupRequest {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 
     public String getPassword() {

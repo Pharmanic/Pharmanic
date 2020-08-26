@@ -8,14 +8,17 @@ public class JwtResponse {
     private Long id;
     private String username;
     private String email;
+    private String branch;
     private List<String> roles;
 
-    public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles,String branch) {
+        System.out.println("JWT REs"+branch);
         this.token = accessToken;
         this.id = id;
         this.username = username;
         this.email = email;
         this.roles = roles;
+        this.branch = branch;
     }
 
     public String getAccessToken() {
@@ -52,6 +55,14 @@ public class JwtResponse {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 
     public void setUsername(String username) {

@@ -1,7 +1,5 @@
 package com.example.pharmanic.model;
 
-//package com.bezkoder.springjwt.models;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,19 +32,27 @@ public class User {
     @Size(max = 120)
     private String password;
 
+    private String branch;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns ={ @JoinColumn(name = "user_id")  },
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+
+
+    )
+
+
     private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String branch) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.branch = branch;
     }
 
     public Long getId() {
@@ -87,5 +93,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 }
