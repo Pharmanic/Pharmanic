@@ -24,27 +24,18 @@ public class UserDetailsImpl implements UserDetails {
     @JsonIgnore
     private String password;
 
-<<<<<<< HEAD
     private String branch;
 
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(Long id, String username, String email, String password,String branch,
-=======
-    private Collection<? extends GrantedAuthority> authorities;
-
-    public UserDetailsImpl(Long id, String username, String email, String password,
->>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
-<<<<<<< HEAD
         this.branch=branch;
-=======
->>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
     }
 
     public static UserDetailsImpl build(User user) {
@@ -57,13 +48,9 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
-<<<<<<< HEAD
                 user.getBranch(),
                 authorities
                 );
-=======
-                authorities);
->>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
     }
 
     @Override
@@ -79,15 +66,12 @@ public class UserDetailsImpl implements UserDetails {
         return email;
     }
 
-<<<<<<< HEAD
     public String getBranch() {
         return branch;
     }
 
 
 
-=======
->>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
     @Override
     public String getPassword() {
         return password;
