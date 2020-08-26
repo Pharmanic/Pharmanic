@@ -4,7 +4,9 @@ public enum ERole {
     ROLE_USER,
     ROLE_MODERATOR,
     ROLE_ADMIN,
-    MINISTRY_ADMIN,
+    ministry_admin,
     ministry,
+    minister,
     rdhs_user,
+    ministry_stock_keeper,
 }
