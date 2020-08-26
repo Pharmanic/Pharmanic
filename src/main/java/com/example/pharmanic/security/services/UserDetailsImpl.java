@@ -25,11 +25,17 @@ public class UserDetailsImpl implements UserDetails {
     private String password;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private String branch;
 
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(Long id, String username, String email, String password,String branch,
+=======
+    private Collection<? extends GrantedAuthority> authorities;
+
+    public UserDetailsImpl(Long id, String username, String email, String password,
+>>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
 =======
     private Collection<? extends GrantedAuthority> authorities;
 
@@ -42,7 +48,10 @@ public class UserDetailsImpl implements UserDetails {
         this.password = password;
         this.authorities = authorities;
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.branch=branch;
+=======
+>>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
 =======
 >>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
     }
@@ -58,9 +67,13 @@ public class UserDetailsImpl implements UserDetails {
                 user.getEmail(),
                 user.getPassword(),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 user.getBranch(),
                 authorities
                 );
+=======
+                authorities);
+>>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
 =======
                 authorities);
 >>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
@@ -80,12 +93,15 @@ public class UserDetailsImpl implements UserDetails {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String getBranch() {
         return branch;
     }
 
 
 
+=======
+>>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
 =======
 >>>>>>> parent of 6941f6b... Merge branch 'master' into Anupama
     @Override
