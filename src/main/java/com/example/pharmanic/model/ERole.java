@@ -14,4 +14,6 @@ public enum ERole {
     rdhs_admin,
     rdhs_director,
     rdhs_stock_keeper,
+    direct_hospital_admin,
+    direct_hospital_doctor_incharge,
 }
