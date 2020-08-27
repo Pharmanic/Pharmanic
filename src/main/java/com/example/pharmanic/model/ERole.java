@@ -9,4 +9,6 @@ public enum ERole {
     minister,
     rdhs_user,
     ministry_stock_keeper,
+    ministry_store_admin,
+    ministry_store_stock_keeper,
 }
