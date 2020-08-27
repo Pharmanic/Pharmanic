@@ -153,6 +153,24 @@ public class AuthController {
                         roles.add(ministryStoreStockKeeperRole);
 
                         break;
+//                   rdhs users
+                    case "rdhs_admin":
+                        Role rdhsAdminRole = roleRepository.findByName(ERole.rdhs_admin)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(rdhsAdminRole);
+                    case "rdhs_director":
+                        Role rdhsDirectorRole = roleRepository.findByName(ERole.rdhs_director)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(rdhsDirectorRole);
+
+                        break;
+                    case "rdhs_stock_keeper":
+                        Role rdhsStockKeeperRole = roleRepository.findByName(ERole.rdhs_stock_keeper)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(rdhsStockKeeperRole);
+
+                        break;
+
                     default:
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));

@@ -11,4 +11,7 @@ public enum ERole {
     ministry_stock_keeper,
     ministry_store_admin,
     ministry_store_stock_keeper,
+    rdhs_admin,
+    rdhs_director,
+    rdhs_stock_keeper,
 }
