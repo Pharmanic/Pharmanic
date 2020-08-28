@@ -170,6 +170,24 @@ public class AuthController {
                         roles.add(rdhsStockKeeperRole);
 
                         break;
+                    case "direct_hospital_admin":
+                        Role directHospitalAdmin = roleRepository.findByName(ERole.direct_hospital_admin)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(directHospitalAdmin);
+
+                        break;
+                    case "direct_hospital_doctor_incharge":
+                        Role directHospitalDoctorIncharge = roleRepository.findByName(ERole.direct_hospital_doctor_incharge)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(directHospitalDoctorIncharge);
+
+                        break;
+                    case "direct_hospital_stock_keeper":
+                        Role directHospitalStockKeeper = roleRepository.findByName(ERole.direct_hospital_stock_keeper)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(directHospitalStockKeeper);
+
+                        break;
 
                     default:
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
