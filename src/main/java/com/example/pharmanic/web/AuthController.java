@@ -182,6 +182,12 @@ public class AuthController {
                         roles.add(directHospitalDoctorIncharge);
 
                         break;
+                    case "direct_hospital_stock_keeper":
+                        Role directHospitalStockKeeper = roleRepository.findByName(ERole.direct_hospital_stock_keeper)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(directHospitalStockKeeper);
+
+                        break;
 
                     default:
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
