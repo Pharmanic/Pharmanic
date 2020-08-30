@@ -79,5 +79,15 @@ public class RdhsController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/rdhs/{name}")
+    public ResponseEntity<Rdhs> getRdhsbyName(@PathVariable("name") String name){
+        System.out.println("rdhs name :"+ name);
+        Rdhs rdhs=(Rdhs) rdhsService.getRdhsByName(name);
+        if(rdhs.getReg_no() !=null){
+            return ResponseEntity.ok(rdhs);
+        }
+        return ResponseEntity.noContent().build();
+    }
+
 
 }
