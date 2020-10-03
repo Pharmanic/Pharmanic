@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.example.pharmanic.model.Rdhs;
+import com.example.pharmanic.repositories.RdhsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -46,6 +48,9 @@ public class AuthController {
     RoleRepository roleRepository;
 
     @Autowired
+    RdhsRepository rdhsRepository;
+
+    @Autowired
     PasswordEncoder encoder;
 
     @Autowired
@@ -67,7 +72,7 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
-
+//        Rdhs rdhs=rdhsRepository.findByName(userDetails.getBranch());
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
