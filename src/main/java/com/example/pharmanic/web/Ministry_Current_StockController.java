@@ -1,6 +1,7 @@
 package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Ministry_Current_Stock;
+import com.example.pharmanic.model.QtyYear;
 import com.example.pharmanic.repositories.Ministry_Current_StockRepository;
 import com.example.pharmanic.services.Ministry_Current_StockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,35 @@ public class Ministry_Current_StockController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/yearlyImportMedicieSumYears5")
+    public String[] getyearlyImportMedicieSumYears5(){
+        return ministry_current_stockService.getYearlyImportMedicieSumYears5();
+    }
+
+    @GetMapping("/yearlyImportMedicieSum5")
+    public Integer[] getyearlyImportMedicieSum5(){
+        return ministry_current_stockService.getYearlyImportMedicieSum5();
+    }
+
+    @GetMapping("/yearlyImportMedicieSumYears10")
+    public String[] getyearlyImportMedicieSumYears10(){
+        return ministry_current_stockService.getYearlyImportMedicieSumYears10();
+    }
+
+    @GetMapping("/yearlyImportMedicieSum10")
+    public Integer[] getyearlyImportMedicieSum10(){
+        return ministry_current_stockService.getYearlyImportMedicieSum10();
+    }
+
+    @GetMapping("/yearlyImportMedicieSumYears")
+    public String[] getyearlyImportMedicieSumYears(){
+        return ministry_current_stockService.getYearlyImportMedicieSumYears();
+    }
+
+    @GetMapping("/yearlyImportMedicieSum")
+    public Integer[] getyearlyImportMedicieSum(){
+        return ministry_current_stockService.getYearlyImportMedicieSum();
     }
 }

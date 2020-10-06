@@ -1,6 +1,8 @@
 package com.example.pharmanic.services;
 
 import com.example.pharmanic.model.Ministry_Current_Stock;
+import com.example.pharmanic.model.QtyYear;
+import com.example.pharmanic.model.User_Detail_Interface;
 import com.example.pharmanic.repositories.Ministry_Current_StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +53,75 @@ public class Ministry_Current_StockService {
             }
         }
         return "error";
+    }
+
+    //getQtyYearList
+    public String[] getYearlyImportMedicieSumYears5(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentImportStockListInt=ministry_current_stockRepository.yearWiseCurrentImportStockYears5();
+        String[] yearWiseCurrentImportStockList=new String[yearWiseCurrentImportStockListInt.length];
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentImportStockList.get(0).getYear());
+        for(int i=0;i<yearWiseCurrentImportStockListInt.length;i++){
+            yearWiseCurrentImportStockList[i]=yearWiseCurrentImportStockListInt[i].toString();
+        }
+
+        return yearWiseCurrentImportStockList;
+    }
+    public Integer[] getYearlyImportMedicieSum5(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentImportStockList=ministry_current_stockRepository.yearWiseCurrentImportStock5();
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentImportStockList.get(0).getYear());
+        return yearWiseCurrentImportStockList;
+    }
+
+    //getQtyYearList
+    public String[] getYearlyImportMedicieSumYears10(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentImportStockListInt=ministry_current_stockRepository.yearWiseCurrentImportStockYears10();
+        String[] yearWiseCurrentImportStockList=new String[yearWiseCurrentImportStockListInt.length];
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentImportStockList.get(0).getYear());
+        for(int i=0;i<yearWiseCurrentImportStockListInt.length;i++){
+            yearWiseCurrentImportStockList[i]=yearWiseCurrentImportStockListInt[i].toString();
+        }
+
+        return yearWiseCurrentImportStockList;
+    }
+    public Integer[] getYearlyImportMedicieSum10(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentImportStockList=ministry_current_stockRepository.yearWiseCurrentImportStock10();
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentImportStockList.get(0).getYear());
+        return yearWiseCurrentImportStockList;
+    }
+
+    //getQtyYearList
+    public String[] getYearlyImportMedicieSumYears(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentImportStockListInt=ministry_current_stockRepository.yearWiseCurrentImportStockYears();
+        String[] yearWiseCurrentImportStockList=new String[yearWiseCurrentImportStockListInt.length];
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentImportStockList.get(0).getYear());
+        for(int i=0;i<yearWiseCurrentImportStockListInt.length;i++){
+            yearWiseCurrentImportStockList[i]=yearWiseCurrentImportStockListInt[i].toString();
+        }
+
+        return yearWiseCurrentImportStockList;
+    }
+    public Integer[] getYearlyImportMedicieSum(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentImportStockList=ministry_current_stockRepository.yearWiseCurrentImportStock();
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentImportStockList.get(0).getYear());
+        return yearWiseCurrentImportStockList;
     }
 
 

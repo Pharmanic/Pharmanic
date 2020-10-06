@@ -61,6 +61,7 @@ public class RdhsController {
 //                    newEmployee.setId(id);
 //                    return repository.save(newEmployee);
 //                });
+
       if(rdhsService.updateRdhs(newRdhs)!=null){
           return ResponseEntity.ok(newRdhs);
       }
