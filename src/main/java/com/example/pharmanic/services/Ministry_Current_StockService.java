@@ -124,5 +124,16 @@ public class Ministry_Current_StockService {
         return yearWiseCurrentImportStockList;
     }
 
+    public Integer getYearlyImportMedicieAvg(){
+        return ministry_current_stockRepository.yearWiseCurrentImportStockAvg();
+    }
+    public Integer getYearlyImportMedicieAvg5(){
+        System.out.println(ministry_current_stockRepository.yearWiseCurrentImportStock5Avg());
+        return ministry_current_stockRepository.yearWiseCurrentImportStock5Avg();
+    }
+    public Integer getYearlyImportMedicieAvg10(){
+        return ministry_current_stockRepository.yearWiseCurrentImportStock10Avg();
+    }
+
 
 }

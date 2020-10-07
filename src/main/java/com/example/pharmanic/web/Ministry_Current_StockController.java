@@ -85,4 +85,17 @@ public class Ministry_Current_StockController {
     public Integer[] getyearlyImportMedicieSum(){
         return ministry_current_stockService.getYearlyImportMedicieSum();
     }
+
+    @GetMapping("/yearlyImportMedicieAvg")
+    public Integer getyearlyImportMedicieAvg(){
+        return ministry_current_stockService.getYearlyImportMedicieAvg();
+    }
+    @GetMapping("/yearlyImportMedicie5Avg")
+    public Integer getyearlyImportMedicie5Avg(){
+        return ministry_current_stockService.getYearlyImportMedicieAvg5();
+    }
+    @GetMapping("/yearlyImportMedicie10Avg")
+    public Integer getyearlyImportMedicie10Avg(){
+        return ministry_current_stockService.getYearlyImportMedicieAvg10();
+    }
 }
