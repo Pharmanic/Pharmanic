@@ -16,14 +16,15 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    //getRdhsList
+    //getUserList
     public List<User_Detail_Interface> getUserDetailsList(){
         System.out.println("User Details List in service");
 
         List<User_Detail_Interface> userList=userRepository.getUserDetails();
-        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
         return userList;
     }
+
 
 //    //getRdhsDetails
 //    public Rdhs getRdhsDetails(String reg_no){
