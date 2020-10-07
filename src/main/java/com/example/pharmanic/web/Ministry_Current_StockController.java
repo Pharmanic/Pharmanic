@@ -178,4 +178,45 @@ public class Ministry_Current_StockController {
         return ministry_current_stockService.getYearlySupplyedMedicieAvg10();
     }
 
+//    @GetMapping("/yearlyDamagedMedicieAvg5")
+//    public Integer getyearlyDamagedMedicieAvg5(){
+//        return ministry_current_stockService.getYearlyDamagedMedicieAvg5();
+//    }
+    @GetMapping("/yearlyDamagedMedicieSumYears10")
+    public String[] getyearlyDamagedMedicieSumYears10(){
+        return ministry_current_stockService.getYearlyDamagedMedicieSumYears10();
+    }
+    @GetMapping("/yearlyDamagedMedicieSum10")
+    public Integer[] getyearlyDamagedMedicieSum10(){
+        return ministry_current_stockService.getYearlyDamagedMedicieSum10();
+    }
+    @GetMapping("/yearlyDamagedMedicieAvg10")
+    public Integer getyearlyDamagedMedicieAvg10(){
+        return ministry_current_stockService.getYearlyDamagedMedicieAvg10();
+    }
+    @GetMapping("/yearlyDamagedMedicieSumYears")
+    public String[] getyearlyDamagedMedicieSumYears(){
+        return ministry_current_stockService.getYearlyDamagedMedicieSumYears();
+    }
+    @GetMapping("/yearlyDamagedMedicieSum")
+    public Integer[] getyearlyDamagedMedicieSum(){
+        return ministry_current_stockService.getYearlyDamagedMedicieSum();
+    }
+    @GetMapping("/yearlyDamagedMedicieAvg")
+    public Integer getyearlyDamagedMedicieAvg(){
+        return ministry_current_stockService.getYearlyDamagedMedicieAvg();
+    }
+    @GetMapping("/yearlyDamagedMedicieSumYears5")
+    public String[] getyearlyDamagedMedicieSumYears5(){
+        return ministry_current_stockService.getYearlyDamagedMedicieSumYears5();
+    }
+    @GetMapping("/yearlyDamagedMedicieSum5")
+    public Integer[] getyearlyDamagedMedicieSum5(){
+        return ministry_current_stockService.getYearlyDamagedMedicieSum5();
+    }
+    @GetMapping("/yearlyDamagedMedicieAvg5")
+    public Integer getyearlyDamagedMedicieAvg5() {
+        return ministry_current_stockService.getYearlyDamagedMedicieAvg5();
+    }
+
 }

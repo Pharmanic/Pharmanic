@@ -101,4 +101,30 @@ public interface Ministry_Current_StockRepository extends JpaRepository<Ministry
 
     @Query(value="SELECT sum(supplyed_quantity)/count(distinct year(export_date)) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id order by export_date ASC;",nativeQuery=true)
     public Integer yearWiseCurrentSuppliedStockAvg10();
+
+    @Query(value="SELECT sum(damage_quantity) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id group by year(export_date) order by export_date ASC;",nativeQuery=true)
+    public Integer[] yearWiseCurrentDamagedStock();
+
+    @Query(value="SELECT year(export_date) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id group by year(export_date) order by export_date ASC;",nativeQuery=true)
+    public Integer[] yearWiseCurrentDamagedStockYears();
+
+    @Query(value="SELECT sum(damage_quantity)/count(distinct year(export_date)) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id order by export_date ASC;",nativeQuery=true)
+    public Integer yearWiseCurrentDamagedStockAvg();
+
+    @Query(value="SELECT sum(damage_quantity) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id group by year(export_date) order by export_date ASC limit 5;",nativeQuery=true)
+    public Integer[] yearWiseCurrentDamagedStock5();
+
+    @Query(value="SELECT year(export_date) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id group by year(export_date) order by export_date ASC limit 5;",nativeQuery=true)
+    public Integer[] yearWiseCurrentDamagedStockYears5();
+
+    @Query(value="SELECT sum(damage_quantity)/count(distinct year(export_date)) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id order by export_date ASC;",nativeQuery=true)
+    public Integer yearWiseCurrentDamagedStockAvg5();
+    @Query(value="SELECT sum(damage_quantity) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id group by year(export_date) order by export_date ASC limit 10;",nativeQuery=true)
+    public Integer[] yearWiseCurrentDamagedStock10();
+
+    @Query(value="SELECT year(export_date) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id group by year(export_date) order by export_date ASC limit 10;",nativeQuery=true)
+    public Integer[] yearWiseCurrentDamagedStockYears10();
+
+    @Query(value="SELECT sum(damage_quantity)/count(distinct year(export_date)) FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id order by export_date ASC;",nativeQuery=true)
+    public Integer yearWiseCurrentDamagedStockAvg10();
 }

@@ -297,5 +297,86 @@ public class Ministry_Current_StockService {
         return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg10();
     }
 
+    public String[] getYearlyDamagedMedicieSumYears(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentAvailableStockListInt=ministry_current_stockRepository.yearWiseCurrentDamagedStockYears();
+        String[] yearWiseCurrentAvailableStockList=new String[yearWiseCurrentAvailableStockListInt.length];
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
+        for(int i=0;i<yearWiseCurrentAvailableStockListInt.length;i++){
+            yearWiseCurrentAvailableStockList[i]=yearWiseCurrentAvailableStockListInt[i].toString();
+        }
+
+        return yearWiseCurrentAvailableStockList;
+    }
+
+    public Integer[] getYearlyDamagedMedicieSum(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentAvailableStockList=ministry_current_stockRepository.yearWiseCurrentDamagedStock();
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
+        return yearWiseCurrentAvailableStockList;
+    }
+
+    public Integer getYearlyDamagedMedicieAvg(){
+        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg();
+    }
+
+    public String[] getYearlyDamagedMedicieSumYears5(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentAvailableStockListInt=ministry_current_stockRepository.yearWiseCurrentDamagedStockYears5();
+        String[] yearWiseCurrentAvailableStockList=new String[yearWiseCurrentAvailableStockListInt.length];
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
+        for(int i=0;i<yearWiseCurrentAvailableStockListInt.length;i++){
+            yearWiseCurrentAvailableStockList[i]=yearWiseCurrentAvailableStockListInt[i].toString();
+        }
+
+        return yearWiseCurrentAvailableStockList;
+    }
+
+    public Integer[] getYearlyDamagedMedicieSum5(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentAvailableStockList=ministry_current_stockRepository.yearWiseCurrentDamagedStock5();
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
+        return yearWiseCurrentAvailableStockList;
+    }
+
+    public Integer getYearlyDamagedMedicieAvg5(){
+        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg5();
+    }
+
+    public String[] getYearlyDamagedMedicieSumYears10(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentAvailableStockListInt=ministry_current_stockRepository.yearWiseCurrentDamagedStockYears10();
+        String[] yearWiseCurrentAvailableStockList=new String[yearWiseCurrentAvailableStockListInt.length];
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
+        for(int i=0;i<yearWiseCurrentAvailableStockListInt.length;i++){
+            yearWiseCurrentAvailableStockList[i]=yearWiseCurrentAvailableStockListInt[i].toString();
+        }
+
+        return yearWiseCurrentAvailableStockList;
+    }
+
+    public Integer[] getYearlyDamagedMedicieSum10(){
+        System.out.println("Yr Im Med Sum Servc");
+
+        Integer[] yearWiseCurrentAvailableStockList=ministry_current_stockRepository.yearWiseCurrentDamagedStock10();
+//        System.out.println(userList.get(0)+userList.get(0).toString()+"User Details List"+userList.get(0).getUserName()+"  "+userList.get(0).getBranch()+"  "+userList.get(0).getEMail()+"  "+userList.get(0).getName());
+//        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
+        return yearWiseCurrentAvailableStockList;
+    }
+
+    public Integer getYearlyDamagedMedicieAvg10(){
+        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg10();
+    }
+
 
 }
