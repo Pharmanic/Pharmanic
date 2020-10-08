@@ -140,4 +140,33 @@ public interface Ministry_Current_StockRepository extends JpaRepository<Ministry
 
     @Query(value="SELECT sum(damage_quantity)/1000 FROM pharmanic.ministry_current_stock cs inner join pharmanic.exported_stock es on cs.stock_id=es.stock_id where year(export_date)=year(curdate()) group by year(export_date);",nativeQuery=true)
     public Integer getCurrentDamagedStock();
+
+    //daily
+    @Query(value="SELECT total_available_stock/1000 FROM pharmanic.ministry_daily_available_stock limit 30;",nativeQuery=true)
+    public Integer[] get_total_available_stock();
+
+    @Query(value="SELECT total_supplied_stock/1000 FROM pharmanic.ministry_daily_available_stock limit 30;",nativeQuery=true)
+    public Integer[] get_total_supplied_stock();
+
+    @Query(value="SELECT total_damaged_stock/1000 FROM pharmanic.ministry_daily_available_stock limit 30;",nativeQuery=true)
+    public Integer[] get_total_damaged_stock();
+
+    @Query(value="SELECT day(date) FROM pharmanic.ministry_daily_available_stock limit 30;",nativeQuery=true)
+    public Integer[] getDatesDailyCounts();
+
+    //daily 3 months
+    @Query(value="SELECT total_available_stock/1000 FROM pharmanic.ministry_daily_available_stock limit 90;",nativeQuery=true)
+    public Integer[] get_total_available_stock3();
+
+    @Query(value="SELECT total_supplied_stock/1000 FROM pharmanic.ministry_daily_available_stock limit 90;",nativeQuery=true)
+    public Integer[] get_total_supplied_stock3();
+
+    @Query(value="SELECT total_damaged_stock/1000 FROM pharmanic.ministry_daily_available_stock limit 90;",nativeQuery=true)
+    public Integer[] get_total_damaged_stock3();
+
+    @Query(value="SELECT day(date) FROM pharmanic.ministry_daily_available_stock limit 90;",nativeQuery=true)
+    public Integer[] getDatesDailyCounts3();
+
+
+
 }

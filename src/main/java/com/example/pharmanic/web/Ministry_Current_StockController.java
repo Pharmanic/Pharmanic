@@ -237,4 +237,40 @@ public class Ministry_Current_StockController {
         return ministry_current_stockService.getCurrentSuppliedStock();
     }
 
+//daily
+    @GetMapping("/getTotalSuppliedStockDaily")
+    public Integer[] getTotalSuppliedStockDaily() {
+        return ministry_current_stockService.getTotalSuppliedStock();
+    }
+    @GetMapping("/getTotalAvailableStockDaily")
+    public Integer[] getTotalAvailableStockDaily() {
+        return ministry_current_stockService.getTotalAvailableStock();
+    }
+    @GetMapping("/getTotalDamagedStockDaily")
+    public Integer[] getTotalDamagedStockDaily() {
+        return ministry_current_stockService.getTotalDamagedStock();
+    }
+    @GetMapping("/getDatesDailyCounts")
+    public Integer[] getDatesDailyCounts() {
+        return ministry_current_stockService.getDatesDailyCounts();
+    }
+
+    //daily 3 months
+    @GetMapping("/getTotalSuppliedStockDaily3")
+    public Integer[] getTotalSuppliedStockDaily3() {
+        return ministry_current_stockService.getTotalSuppliedStock3();
+    }
+    @GetMapping("/getTotalAvailableStockDaily3")
+    public Integer[] getTotalAvailableStockDaily3() {
+        return ministry_current_stockService.getTotalAvailableStock3();
+    }
+    @GetMapping("/getTotalDamagedStockDaily3")
+    public Integer[] getTotalDamagedStockDaily3() {
+        return ministry_current_stockService.getTotalDamagedStock3();
+    }
+    @GetMapping("/getDatesDailyCounts3")
+    public Integer[] getDatesDailyCounts3() {
+        return ministry_current_stockService.getDatesDailyCounts3();
+    }
+
 }

@@ -391,5 +391,32 @@ public class Ministry_Current_StockService {
     }
 
 
+    public Integer[] getTotalSuppliedStock(){
+        return ministry_current_stockRepository.get_total_supplied_stock();
+    }
+    public Integer[] getTotalAvailableStock(){
+        return ministry_current_stockRepository.get_total_available_stock();
+    }
+    public Integer[] getTotalDamagedStock(){
+        return ministry_current_stockRepository.get_total_damaged_stock();
+    }
+    public Integer[] getDatesDailyCounts(){
+        return ministry_current_stockRepository.getDatesDailyCounts();
+    }
+
+    public Integer[] getTotalSuppliedStock3(){
+        return ministry_current_stockRepository.get_total_supplied_stock3();
+    }
+    public Integer[] getTotalAvailableStock3(){
+        return ministry_current_stockRepository.get_total_available_stock3();
+    }
+    public Integer[] getTotalDamagedStock3(){
+        return ministry_current_stockRepository.get_total_damaged_stock3();
+    }
+    public Integer[] getDatesDailyCounts3(){
+        return ministry_current_stockRepository.getDatesDailyCounts3();
+    }
+
+
 
 }
