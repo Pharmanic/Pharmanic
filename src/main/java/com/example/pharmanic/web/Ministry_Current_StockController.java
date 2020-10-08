@@ -219,4 +219,22 @@ public class Ministry_Current_StockController {
         return ministry_current_stockService.getYearlyDamagedMedicieAvg5();
     }
 
+    @GetMapping("/getCurrentImportedStock")
+    public Integer getCurrentImportStock() {
+        System.out.println("jkjkjkjk"+ministry_current_stockService.getCurrentImportedStock());
+        return ministry_current_stockService.getCurrentImportedStock();
+    }
+    @GetMapping("/getCurrentAvailableStock")
+    public Integer getCurrentAvailableStock() {
+        return ministry_current_stockService.getCurrentAvailableStock();
+    }
+    @GetMapping("/getCurrentDamagedStock")
+    public Integer getCurrentDamagedStock() {
+        return ministry_current_stockService.getCurrentDamagedStock();
+    }
+    @GetMapping("/getCurrentSuppliedStock")
+    public Integer getCurrentSuppliedStock() {
+        return ministry_current_stockService.getCurrentSuppliedStock();
+    }
+
 }

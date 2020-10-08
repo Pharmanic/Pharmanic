@@ -125,14 +125,14 @@ public class Ministry_Current_StockService {
     }
 
     public Integer getYearlyImportMedicieAvg(){
-        return ministry_current_stockRepository.yearWiseCurrentImportStockAvg();
+        return ministry_current_stockRepository.yearWiseCurrentImportStockAvg()/1000;
     }
     public Integer getYearlyImportMedicieAvg5(){
         System.out.println(ministry_current_stockRepository.yearWiseCurrentImportStock5Avg());
-        return ministry_current_stockRepository.yearWiseCurrentImportStock5Avg();
+        return ministry_current_stockRepository.yearWiseCurrentImportStock5Avg()/1000;
     }
     public Integer getYearlyImportMedicieAvg10(){
-        return ministry_current_stockRepository.yearWiseCurrentImportStock10Avg();
+        return ministry_current_stockRepository.yearWiseCurrentImportStock10Avg()/1000;
     }
 
     //getQtyYearList
@@ -204,15 +204,15 @@ public class Ministry_Current_StockService {
         return yearWiseCurrentAvailableStockList;
     }
     public Integer getYearlyAvailableMedicieAvg(){
-        return ministry_current_stockRepository.yearWiseCurrentAvailableStockAvg();
+        return ministry_current_stockRepository.yearWiseCurrentAvailableStockAvg()/1000;
     }
 
     public Integer getYearlyAvailableMedicieAvg5(){
         System.out.println(ministry_current_stockRepository.yearWiseCurrentAvailableStock5Avg());
-        return ministry_current_stockRepository.yearWiseCurrentAvailableStock5Avg();
+        return ministry_current_stockRepository.yearWiseCurrentAvailableStock5Avg()/1000;
     }
     public Integer getYearlyAvailableMedicieAvg10(){
-        return ministry_current_stockRepository.yearWiseCurrentAvailableStock10Avg();
+        return ministry_current_stockRepository.yearWiseCurrentAvailableStock10Avg()/1000;
     }
 
     //getQtyYearList
@@ -240,7 +240,7 @@ public class Ministry_Current_StockService {
     }
 
     public Integer getYearlySupplyedMedicieAvg(){
-        return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg();
+        return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg()/1000;
     }
 
     public String[] getYearlySupplyedMedicieSumYears5(){
@@ -267,7 +267,7 @@ public class Ministry_Current_StockService {
     }
 
     public Integer getYearlySupplyedMedicieAvg5(){
-        return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg5();
+        return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg5()/1000;
     }
 
     public String[] getYearlySupplyedMedicieSumYears10(){
@@ -294,7 +294,7 @@ public class Ministry_Current_StockService {
     }
 
     public Integer getYearlySupplyedMedicieAvg10(){
-        return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg10();
+        return ministry_current_stockRepository.yearWiseCurrentSuppliedStockAvg10()/1000;
     }
 
     public String[] getYearlyDamagedMedicieSumYears(){
@@ -321,7 +321,7 @@ public class Ministry_Current_StockService {
     }
 
     public Integer getYearlyDamagedMedicieAvg(){
-        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg();
+        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg()/1000;
     }
 
     public String[] getYearlyDamagedMedicieSumYears5(){
@@ -348,7 +348,7 @@ public class Ministry_Current_StockService {
     }
 
     public Integer getYearlyDamagedMedicieAvg5(){
-        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg5();
+        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg5()/1000;
     }
 
     public String[] getYearlyDamagedMedicieSumYears10(){
@@ -373,10 +373,23 @@ public class Ministry_Current_StockService {
 //        System.out.println("QTy Years"+yearWiseCurrentAvailableStockList.get(0).getYear());
         return yearWiseCurrentAvailableStockList;
     }
-
-    public Integer getYearlyDamagedMedicieAvg10(){
-        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg10();
+    public Integer getYearlyDamagedMedicieAvg10() {
+        return ministry_current_stockRepository.yearWiseCurrentDamagedStockAvg10()/1000;
     }
+
+    public Integer getCurrentImportedStock(){
+        return ministry_current_stockRepository.getCurrentImportStock();
+    }
+    public Integer getCurrentAvailableStock(){
+        return ministry_current_stockRepository.getCurrentAvailableStock();
+    }
+    public Integer getCurrentDamagedStock(){
+        return ministry_current_stockRepository.getCurrentDamagedStock();
+    }
+    public Integer getCurrentSuppliedStock(){
+        return ministry_current_stockRepository.getCurrentSuppliedStock();
+    }
+
 
 
 }
