@@ -90,5 +90,11 @@ public class RdhsController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("getRdhsCount")
+    public Integer getRdhsCount(){
+
+        return rdhsService.getRdhsCount();
+    }
+
 
 }

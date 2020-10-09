@@ -54,6 +54,9 @@ public class Direct_HospitalService {
         }
         return 0;
     }
+    public Integer getDirectHospitalCount(){
+        return direct_hospitalRepository.getDirectHospitalCount();
+    }
 
 
 

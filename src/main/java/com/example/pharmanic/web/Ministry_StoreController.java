@@ -57,4 +57,10 @@ public class Ministry_StoreController {
     Integer deleteMinistryStore(@PathVariable String ministry_id) {
         return ministry_storeService.deleteMinistryStore(ministry_id);
     }
+
+    @GetMapping("/getMinistryStoreCount")
+    public Integer getMinistryStoreCount(){
+        return ministry_storeService.getMinistryStoreCount();
+
+    }
 }

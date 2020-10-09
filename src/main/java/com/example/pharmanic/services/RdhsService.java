@@ -62,4 +62,9 @@ public class RdhsService {
         }
         return new Rdhs();
     }
+
+    public Integer getRdhsCount(){
+           return rdhsRepository.getRdhsCount();
+
+    }
 }

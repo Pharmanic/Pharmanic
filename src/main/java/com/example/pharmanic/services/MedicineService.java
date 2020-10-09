@@ -34,5 +34,10 @@ public class MedicineService {
         return new Medicine();
     }
 
+    public Integer getMedicineCount(){
+                return medicineRepository.getMedicineCount();
+
+    }
+
 
 }

@@ -9,4 +9,7 @@ public interface Direct_HospitalRepository extends JpaRepository<Direct_Hospital
 
     @Query(value="select * from direct_hospital u where reg_no = :reg_no",nativeQuery=true)
     public Direct_Hospital findByReg_no(@Param("reg_no")String reg_no);
+
+    @Query(value="select count(reg_no) from direct_hospital",nativeQuery=true)
+    public Integer getDirectHospitalCount();
 }

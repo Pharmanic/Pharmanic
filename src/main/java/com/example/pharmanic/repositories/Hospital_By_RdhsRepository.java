@@ -10,4 +10,7 @@ public interface Hospital_By_RdhsRepository extends JpaRepository<Hospital_By_Rd
     @Query(value="select * from hospital_by_rdhs h where reg_no = :reg_no",nativeQuery=true)
     public Hospital_By_Rdhs findByReg_no(@Param("reg_no")String reg_no);
 
+    @Query(value="select count(reg_no) from hospital_by_rdhs",nativeQuery=true)
+    public Integer gerRDHSHospitalCount();
+
 }

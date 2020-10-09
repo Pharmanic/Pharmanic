@@ -36,4 +36,9 @@ public class Ministry_VehicleService {
         ministry_vehicleRepository.save(ministry_vehicle);
         return 1;
     }
+
+    //getMinistryVehicleList
+    public Integer getMinistryVehicleCount(){
+        return ministry_vehicleRepository.getMinistryVehicleCount();
+    }
 }
