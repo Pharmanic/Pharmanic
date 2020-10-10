@@ -42,5 +42,28 @@ public class Supply_Order_To_RdhsController {
         return supplyOrderService.getWeeklySupplyDays();
     }
 
+    @GetMapping("/getRDHSCurrentYearSupply")
+    public Integer getRDHSCurrentYearSupply(){
+        return supplyOrderService.getRDHSYearlySupplyCount();
+    }
+
+    @GetMapping("/getDirectCurrentYearSupply")
+    public Integer getDirectCurrentYearSupply(){
+        System.out.println("Dir Cur"+supplyOrderService.getDirectYearlySupplyCount());
+        return supplyOrderService.getDirectYearlySupplyCount();
+    }
+
+    @GetMapping("/getRDHSCurrentYearDemand")
+    public Integer getRDHSCurrentYearDemand(){
+        System.out.println("-----RDHS Cur"+supplyOrderService.getRDHSYearsDemandCount());
+
+        return supplyOrderService.getRDHSYearsDemandCount();
+    }
+
+    @GetMapping("/getDirectCurrentYearDemand")
+    public Integer getDirectCurrentYearDemand(){
+        System.out.println("-----Dir Cur"+supplyOrderService.getDirectYearsDemandCount());
+        return supplyOrderService.getDirectYearsDemandCount();
+    }
 
 }

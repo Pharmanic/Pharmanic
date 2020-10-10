@@ -78,5 +78,29 @@ public class Supply_Order_Service {
         return supply_order_to_directHospital.getDate();
     }
 
+    public Integer getDirectYearlySupplyCount(){
+
+        return supply_order_to_directHospital.getDirectYearsSupplyCount();
+
+    }
+
+    public Integer getRDHSYearlySupplyCount(){
+
+        return supply_order_to_rdhs.getRDHSYearsSupplyCount();
+
+    }
+
+    public Integer getRDHSYearsDemandCount(){
+        System.out.println(supply_order_to_rdhs.getRDHSYearsDemandCount());
+        return supply_order_to_rdhs.getRDHSYearsDemandCount();
+
+    }
+
+    public Integer getDirectYearsDemandCount(){
+        System.out.println(supply_order_to_directHospital.getDirectYearsDemandCount());
+        return supply_order_to_directHospital.getDirectYearsDemandCount();
+
+    }
+
 
 }
