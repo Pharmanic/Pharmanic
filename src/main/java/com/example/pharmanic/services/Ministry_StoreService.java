@@ -55,4 +55,9 @@ public class Ministry_StoreService {
         }
         return 0;
     }
+
+    public Integer getMinistryStoreCount(){
+        return ministry_storeRepository.getMinistryStoreCount();
+
+    }
 }

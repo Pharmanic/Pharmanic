@@ -62,6 +62,10 @@ public class Hospital_By_RdhsService {
             return true;
         return false;
     }
+    public Integer getRDHSHospitalCount() {
+                return hospitalByRdhsRepository.gerRDHSHospitalCount();
+
+    }
 
 
 

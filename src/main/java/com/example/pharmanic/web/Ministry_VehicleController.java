@@ -39,4 +39,9 @@ public class Ministry_VehicleController {
     public Integer addMinistryVehicle(@RequestBody Ministry_Vehicle ministry_vehicle){
         return ministry_vehicleService.addVehicle(ministry_vehicle);
     }
+
+    @GetMapping("/getVehicleCount")
+    public Integer getVehicleCount(){
+        return ministry_vehicleService.getMinistryVehicleCount();
+    }
 }

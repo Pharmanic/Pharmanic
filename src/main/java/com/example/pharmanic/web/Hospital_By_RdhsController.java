@@ -78,4 +78,9 @@ public class Hospital_By_RdhsController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/getRDHSHospitalCount")
+    public Integer getRDHSHospitalCount(){
+        return hospital_by_rdhsService.getRDHSHospitalCount();
+    }
 }
