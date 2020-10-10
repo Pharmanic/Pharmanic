@@ -29,6 +29,10 @@ public class Rdhs_Request_Order_DetailController {
         return rdhs_request_orderService.getRdhsOrderDetail(id);
     }
 
+    @GetMapping("/rdhsreqorderdetailssupplied/{id}")
+    public List<Rdhs_Request_Order_Detail> rdhsreqorderdetailssupplied(@PathVariable("id")  Long id){
+        return rdhs_request_orderService.getRDHSReqOrderDetailSuppliedList(id);
+    }
 
     @PostMapping("/rdhsrequestorderdetail/add")
     public Integer addRdhsRequestOrderDetail(@RequestBody Rdhs_Request_Order_Detail rdhs_request_order_detail){

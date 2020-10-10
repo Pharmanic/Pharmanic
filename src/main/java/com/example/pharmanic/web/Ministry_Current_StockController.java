@@ -1,6 +1,7 @@
 package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Ministry_Current_Stock;
+import com.example.pharmanic.model.QtyYear;
 import com.example.pharmanic.repositories.Ministry_Current_StockRepository;
 import com.example.pharmanic.services.Ministry_Current_StockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class Ministry_Current_StockController {
     @GetMapping("/ministrycurrentstocks")
     public List<Ministry_Current_Stock> getMinistryCurrentStockList(){
         return ministry_current_stockService.getMinistryCurrentStockList();
+    }
+
+    @GetMapping("/ministrynearestexpiringlist")
+    public List<Ministry_Current_Stock> getNearestExpiringList(){
+        return ministry_current_stockService.getNearestExpiringMedicineList();
     }
 
     @PostMapping("/ministrycurrentstock/add")
@@ -49,4 +55,127 @@ public class Ministry_Current_StockController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/yearlyImportMedicieSumYears5")
+    public String[] getyearlyImportMedicieSumYears5(){
+        return ministry_current_stockService.getYearlyImportMedicieSumYears5();
+    }
+
+    @GetMapping("/yearlyImportMedicieSum5")
+    public Integer[] getyearlyImportMedicieSum5(){
+        return ministry_current_stockService.getYearlyImportMedicieSum5();
+    }
+
+    @GetMapping("/yearlyImportMedicieSumYears10")
+    public String[] getyearlyImportMedicieSumYears10(){
+        return ministry_current_stockService.getYearlyImportMedicieSumYears10();
+    }
+
+    @GetMapping("/yearlyImportMedicieSum10")
+    public Integer[] getyearlyImportMedicieSum10(){
+        return ministry_current_stockService.getYearlyImportMedicieSum10();
+    }
+
+    @GetMapping("/yearlyImportMedicieSumYears")
+    public String[] getyearlyImportMedicieSumYears(){
+        return ministry_current_stockService.getYearlyImportMedicieSumYears();
+    }
+
+    @GetMapping("/yearlyImportMedicieSum")
+    public Integer[] getyearlyImportMedicieSum(){
+        return ministry_current_stockService.getYearlyImportMedicieSum();
+    }
+
+    @GetMapping("/yearlyImportMedicieAvg")
+    public Integer getyearlyImportMedicieAvg(){
+        return ministry_current_stockService.getYearlyImportMedicieAvg();
+    }
+    @GetMapping("/yearlyImportMedicie5Avg")
+    public Integer getyearlyImportMedicie5Avg(){
+        return ministry_current_stockService.getYearlyImportMedicieAvg5();
+    }
+    @GetMapping("/yearlyImportMedicie10Avg")
+    public Integer getyearlyImportMedicie10Avg(){
+        return ministry_current_stockService.getYearlyImportMedicieAvg10();
+    }
+
+    //available charts query
+    @GetMapping("/yearlyAvailableMedicieSumYears5")
+    public String[] getyearlyAvailableMedicieSumYears5(){
+        return ministry_current_stockService.getYearlyAvailableMedicieSumYears5();
+    }
+    @GetMapping("/yearlyAvailableMedicieSum5")
+    public Integer[] getyearlyAvailableMedicieSum5(){
+        return ministry_current_stockService.getYearlyAvailableMedicieSum5();
+    }
+
+    @GetMapping("/yearlyAvailableMedicieSumYears10")
+    public String[] getyearlyAvailableMedicieSumYears10(){
+        return ministry_current_stockService.getYearlyAvailableMedicieSumYears10();
+    }
+
+    @GetMapping("/yearlyAvailableMedicieSum10")
+    public Integer[] getyearlyAvailableMedicieSum10(){
+        return ministry_current_stockService.getYearlyAvailableMedicieSum10();
+    }
+
+    @GetMapping("/yearlyAvailableMedicieSumYears")
+    public String[] getyearlyAvailableMedicieSumYears(){
+        return ministry_current_stockService.getYearlyAvailableMedicieSumYears();
+    }
+
+    @GetMapping("/yearlyAvailableMedicieSum")
+    public Integer[] getyearlyAvailableMedicieSum(){
+        return ministry_current_stockService.getYearlyAvailableMedicieSum();
+    }
+
+    @GetMapping("/yearlyAvailableMedicieAvg")
+    public Integer getyearlyAvailableMedicieAvg(){
+        return ministry_current_stockService.getYearlyAvailableMedicieAvg();
+    }
+    @GetMapping("/yearlyAvailableMedicie5Avg")
+    public Integer getyearlyAvailableMedicie5Avg(){
+        return ministry_current_stockService.getYearlyAvailableMedicieAvg5();
+    }
+    @GetMapping("/yearlyAvailableMedicie10Avg")
+    public Integer getyearlyAvailableMedicie10Avg(){
+        return ministry_current_stockService.getYearlyAvailableMedicieAvg10();
+    }
+    @GetMapping("/yearlySuppliedMedicieSumYears")
+    public String[] getyearlySupplyedMedicieSumYears(){
+        return ministry_current_stockService.getYearlySupplyedMedicieSumYears();
+    }
+    @GetMapping("/yearlySuppliedMedicieSum")
+    public Integer[] getyearlySupplyedMedicieSum(){
+        return ministry_current_stockService.getYearlySupplyedMedicieSum();
+    }
+    @GetMapping("/yearlySuppliedMedicieAvg")
+    public Integer getyearlySupplyedMedicieAvg(){
+        return ministry_current_stockService.getYearlySupplyedMedicieAvg();
+    }
+    @GetMapping("/yearlySuppliedMedicieSumYears5")
+    public String[] getyearlySupplyedMedicieSumYears5(){
+        return ministry_current_stockService.getYearlySupplyedMedicieSumYears5();
+    }
+    @GetMapping("/yearlySuppliedMedicieSum5")
+    public Integer[] getyearlySupplyedMedicieSum5(){
+        return ministry_current_stockService.getYearlySupplyedMedicieSum5();
+    }
+    @GetMapping("/yearlySuppliedMedicieAvg5")
+    public Integer getyearlySupplyedMedicieAvg5(){
+        return ministry_current_stockService.getYearlySupplyedMedicieAvg5();
+    }
+    @GetMapping("/yearlySuppliedMedicieSumYears10")
+    public String[] getyearlySupplyedMedicieSumYears10(){
+        return ministry_current_stockService.getYearlySupplyedMedicieSumYears10();
+    }
+    @GetMapping("/yearlySuppliedMedicieSum10")
+    public Integer[] getyearlySupplyedMedicieSum10(){
+        return ministry_current_stockService.getYearlySupplyedMedicieSum10();
+    }
+    @GetMapping("/yearlySuppliedMedicieAvg10")
+    public Integer getyearlySupplyedMedicieAvg10(){
+        return ministry_current_stockService.getYearlySupplyedMedicieAvg10();
+    }
+
 }

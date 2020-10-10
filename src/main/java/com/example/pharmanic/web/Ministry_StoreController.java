@@ -23,6 +23,9 @@ public class Ministry_StoreController {
 
     @GetMapping("/ministrystores")
     public List<Ministry_Store> getMinistryStoreList(){
+
+        System.out.println("M Store List");
+        System.out.println(ministry_storeService.getMinistryStoreList());
         return ministry_storeService.getMinistryStoreList();
     }
 

@@ -28,6 +28,18 @@ public class Direct_Hospital_Request_OrderService {
         return direct_hospital_request_orderList;
     }
 
+    //getDirectHospitalRequstOrders
+    public List<Direct_Hospital_Request_Order> getDirectHospitalPendingOrderList(){
+        List<Direct_Hospital_Request_Order> direct_hospital_request_orderList=direct_hospital_request_orderRepository.pendingorderlist();
+        return direct_hospital_request_orderList;
+    }
+
+    //getDirectHospitalRequstOrders
+    public List<Direct_Hospital_Request_Order> getnotcompleteDirectHospitalRequestOrderList(){
+        List<Direct_Hospital_Request_Order> direct_hospital_request_orderList=direct_hospital_request_orderRepository.reqorderlist();
+        return direct_hospital_request_orderList;
+    }
+
     //addDirectHospitalRequestOrder
     public Integer addDirectHospitalRequestOrder(Direct_Hospital_Request_Order direct_hospital_request_order){
         direct_hospital_request_orderRepository.save(direct_hospital_request_order);
@@ -37,6 +49,12 @@ public class Direct_Hospital_Request_OrderService {
     //getDirectHospitalRequstOrders
     public List<Direct_Hospital_Request_Order_Detail> getDHReqOrderDetailList(Long id){
         List<Direct_Hospital_Request_Order_Detail> direct_hospital_request_order_detailList=direct_hospital_request_order_detailRepository.selectreqorderdetails(id);
+        return direct_hospital_request_order_detailList;
+    }
+
+    //getDirectHospitalRequstOrders
+    public List<Direct_Hospital_Request_Order_Detail> getDHReqOrderDetailSuppliedList(Long id){
+        List<Direct_Hospital_Request_Order_Detail> direct_hospital_request_order_detailList=direct_hospital_request_order_detailRepository.selectreqorderdetailssupplied(id);
         return direct_hospital_request_order_detailList;
     }
 

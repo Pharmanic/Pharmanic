@@ -21,14 +21,14 @@ public class Ministry_Store {
 
     private Integer available_storage;
 
-    @OneToOne
-    @JoinColumn(name = "ministry_store_incharge",referencedColumnName = "nic")
-    private Ministry_Store_User ministry_store_incharge;
+//    @OneToOne
+//    @JoinColumn(name = "ministry_store_incharge",referencedColumnName = "nic")
+//    private Ministry_Store_User ministry_store_incharge;
 
     public Ministry_Store() {
     }
 
-    public Ministry_Store(String m_store_id, String name, String email, String tel_no, String location, Integer total_storage, Integer available_storage, Ministry_Store_User ministry_store_incharge) {
+    public Ministry_Store(String m_store_id, String name, String email, String tel_no, String location, Integer total_storage, Integer available_storage) {
         this.m_store_id = m_store_id;
         this.name = name;
         this.email = email;
@@ -36,7 +36,14 @@ public class Ministry_Store {
         this.location = location;
         this.total_storage = total_storage;
         this.available_storage = available_storage;
-        this.ministry_store_incharge = ministry_store_incharge;
+    }
+
+    public void setM_store_id(String m_store_id) {
+        this.m_store_id = m_store_id;
+    }
+
+    public String getM_store_id() {
+        return m_store_id;
     }
 
     public Integer getTotal_storage() {
@@ -53,10 +60,6 @@ public class Ministry_Store {
 
     public void setAvilable_storage(Integer avilable_storage) {
         this.available_storage = avilable_storage;
-    }
-
-    public void setMinistry_store_incharge(Ministry_Store_User ministry_store_incharge) {
-        this.ministry_store_incharge = ministry_store_incharge;
     }
 
     public String getName() {
@@ -91,17 +94,10 @@ public class Ministry_Store {
         this.available_storage = available_storage;
     }
 
-    public Ministry_Store_User getMinistry_store_incharge() {
-        return ministry_store_incharge;
-    }
+//    public Ministry_Store_User getMinistry_store_incharge() {
+//        return ministry_store_incharge;
+//    }
 
-    public String getM_store_id() {
-        return m_store_id;
-    }
-
-    public void setM_store_id(String m_store_id) {
-        this.m_store_id = m_store_id;
-    }
 
     public String getLocation() {
         return location;
@@ -121,7 +117,7 @@ public class Ministry_Store {
                 ", location='" + location + '\'' +
                 ", total_storage=" + total_storage +
                 ", available_storage=" + available_storage +
-                ", ministry_store_incharge=" + ministry_store_incharge +
+//                ", ministry_store_incharge=" + ministry_store_incharge +
                 '}';
     }
 }

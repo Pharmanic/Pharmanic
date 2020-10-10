@@ -32,15 +32,15 @@ public class Direct_Hospital_Current_StockController {
         return ResponseEntity.ok(direct_hospital_current_stock);
     }
 
-    @PutMapping("/directhospitalcurrentstock/{batch_id}")
+    @PutMapping("/directhospitalcurrentstock/{id}")
     public ResponseEntity<Direct_Hospital_Current_Stock> updateDirectHospitalCurrentStock(@Valid @RequestBody Direct_Hospital_Current_Stock direct_hospital_current_stock){
 //        return direct_hospital_current_stockService.updateDirectHospitalCurrentStock(direct_hospital_current_stock);
         Direct_Hospital_Current_Stock result=direct_hospital_current_stockRepository.save(direct_hospital_current_stock);
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/directhospitalcurrentstock/{batch_id}")
-    Integer deleteDirectHospitalCurrentStockItem(@PathVariable Long batch_id){
-        return direct_hospital_current_stockService.deleteDrugsFromDirectHospitalCurrentStock(batch_id);
+    @DeleteMapping("/directhospitalcurrentstock/{id}")
+    Integer deleteDirectHospitalCurrentStockItem(@PathVariable Long id){
+        return direct_hospital_current_stockService.deleteDrugsFromDirectHospitalCurrentStock(id);
     }
 }
