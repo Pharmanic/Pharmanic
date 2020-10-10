@@ -43,4 +43,17 @@ public class Supply_Order_To_RdhsController {
     }
 
 
+//    @PostMapping("/closeorderrdhs/{id}")
+//    public Integer closeorderrdhs(@PathVariable("id") Long id){
+//        return supply_order_to_rdhsService.closeorder(id);
+//    }
+
+    @PostMapping("/closeorderrdhs/{id}")
+    public Integer closeorder(@PathVariable("id") Long id){
+        System.out.println("incontroller");
+        //   return supply_order_to_direct_hospitalRepository.suppliedcount(id);
+        return supply_order_to_rdhsService.closeorder(id);
+    }
+
+
 }

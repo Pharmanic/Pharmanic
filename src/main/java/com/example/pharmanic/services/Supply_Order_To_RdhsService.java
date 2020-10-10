@@ -26,4 +26,24 @@ public class Supply_Order_To_RdhsService {
         }
         return 1;
     }
+
+//    public Integer closeorder(Long o_id){
+//        supply_order_to_rdhsRepository.closeRdhsReqOrder(o_id);
+//        return 1;
+//    }
+
+    public Integer closeorder(Long o_id){
+        System.out.println("in service");
+        Integer supplycount = supply_order_to_rdhsRepository.suppliedcount(o_id);
+        Integer orderdetailcount = supply_order_to_rdhsRepository.orderdetailcont(o_id);
+        System.out.println(supplycount);
+        System.out.println(orderdetailcount);
+        if(supplycount == orderdetailcount){
+            supply_order_to_rdhsRepository.closeRdhsReqOrder(o_id);
+        }else{
+            supply_order_to_rdhsRepository.setorderstopending(o_id);
+        }
+        // supply_order_to_direct_hospitalRepository.closeDHReqOrder(o_id);
+        return 1;
+    }
 }

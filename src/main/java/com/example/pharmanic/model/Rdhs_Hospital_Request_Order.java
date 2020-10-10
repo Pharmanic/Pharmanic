@@ -21,6 +21,5 @@ public class Rdhs_Hospital_Request_Order {
     @JoinColumn(name = "reg_no", referencedColumnName = "reg_no")
     private Hospital_By_Rdhs hospital_by_rdhs;
 
-
-
 }
+

@@ -13,6 +13,10 @@ public interface Rdhs_Request_Order_DetailRepository extends JpaRepository<Rdhs_
     @Query(value="{call rdhsreq_order_details(:id)}",nativeQuery=true)
     public List<Rdhs_Request_Order_Detail> selectreqorderdetails(@Param("id") String id);
 
+    @Query(value="{call rdhsreq_order_details_supplied(:id)}",nativeQuery=true)
+    public List<Rdhs_Request_Order_Detail> selectreqorderdetailssupplied(@Param("id") Long id);
+
+
     @Query(value="{call dhreq_order_details(:id)}",nativeQuery=true)
     public List<Direct_Hospital_Request_Order_Detail> rdhsreqorderdetail(@Param("id") Long id);
 
