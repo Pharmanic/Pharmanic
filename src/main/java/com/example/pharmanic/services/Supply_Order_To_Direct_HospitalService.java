@@ -23,7 +23,7 @@ public class Supply_Order_To_Direct_HospitalService {
     //addDrivers
     public Integer addSupplyOrderToDirectHospital(Supply_Order_To_Direct_Hospital supply_order_to_direct_hospital){
         Supply_Order_To_Direct_Hospital object=supply_order_to_direct_hospital;
-        object.setSupply_date(object.getTrack_id().getDate());
+//        object.setSupply_date(object.getTrack_id().getDate());
         supply_order_to_direct_hospitalRepository.save(object);
         try{
             direct_hospital_request_order_detailRepository.sypplyordersdirecthospital(supply_order_to_direct_hospital.getRequest_id().getId(),supply_order_to_direct_hospital.getRequest_id().getQuantity(),supply_order_to_direct_hospital.getRequest_id().getSr_no().getSr_no(),supply_order_to_direct_hospital.getRequest_id().getOrder_id().getM_store_id().getM_store_id());
