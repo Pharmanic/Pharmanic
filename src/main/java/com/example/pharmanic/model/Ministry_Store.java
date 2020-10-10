@@ -38,6 +38,14 @@ public class Ministry_Store {
         this.available_storage = available_storage;
     }
 
+    public void setM_store_id(String m_store_id) {
+        this.m_store_id = m_store_id;
+    }
+
+    public String getM_store_id() {
+        return m_store_id;
+    }
+
     public Integer getTotal_storage() {
         return total_storage;
     }
@@ -53,10 +61,6 @@ public class Ministry_Store {
     public void setAvilable_storage(Integer avilable_storage) {
         this.available_storage = avilable_storage;
     }
-
-//    public void setMinistry_store_incharge(Ministry_Store_User ministry_store_incharge) {
-//        this.ministry_store_incharge = ministry_store_incharge;
-//    }
 
     public String getName() {
         return name;
@@ -94,13 +98,6 @@ public class Ministry_Store {
 //        return ministry_store_incharge;
 //    }
 
-    public String getM_store_id() {
-        return m_store_id;
-    }
-
-    public void setM_store_id(String m_store_id) {
-        this.m_store_id = m_store_id;
-    }
 
     public String getLocation() {
         return location;

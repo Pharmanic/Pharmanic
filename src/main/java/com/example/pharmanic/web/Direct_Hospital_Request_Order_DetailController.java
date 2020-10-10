@@ -25,6 +25,11 @@ public class Direct_Hospital_Request_Order_DetailController {
         return direct_hospital_request_orderService.getDHReqOrderDetailList(id);
     }
 
+    @GetMapping("/dhreqorderdetailssupplied/{id}")
+    public List<Direct_Hospital_Request_Order_Detail> dhreqorderdetailssupplied(@PathVariable("id")  Long id){
+        return direct_hospital_request_orderService.getDHReqOrderDetailSuppliedList(id);
+    }
+
     @GetMapping("/dhreqorderdetail/{id}")
     public Direct_Hospital_Request_Order_Detail dhreqorderdetail(@PathVariable("id")  Long id){
         return direct_hospital_request_orderService.getDirectHospitalOrderDetail(id);
