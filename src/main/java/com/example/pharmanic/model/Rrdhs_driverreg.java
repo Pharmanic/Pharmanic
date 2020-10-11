@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 @Data
 @Entity
-public class Rdhs_driverreg {
+public class Rrdhs_driverreg {
     private @Id String nic;
 
     private String name;
@@ -13,10 +13,10 @@ public class Rdhs_driverreg {
     private String address;
     private String telephone;
 
-    public Rdhs_driverreg() {
+    public Rrdhs_driverreg() {
     }
 
-    public Rdhs_driverreg(String nic, String name, String email, String address, String telephone) {
+    public Rrdhs_driverreg(String nic, String name, String email, String address, String telephone) {
         this.nic = nic;
         this.name = name;
         this.email = email;
