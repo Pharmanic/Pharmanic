@@ -29,7 +29,7 @@ public class Supply_Order_To_RdhsController {
     @Autowired
     Supply_Order_Service supplyOrderService;
 
-    @PostMapping("/supplyordertordhs/add")
+    @PostMapping("/supplyordertohos/add")
     public Integer addSupplyOrderTordhs(@RequestBody Supply_Order_To_Rdhs supply_order_to_rdhs){
         return supply_order_to_rdhsService.addSupplyOrderToRdhs(supply_order_to_rdhs);
     }

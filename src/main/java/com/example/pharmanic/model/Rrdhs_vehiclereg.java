@@ -7,15 +7,15 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Rdhs_vehiclereg {
+public class Rrdhs_vehiclereg {
     private @Id String vehicle_no;
     private String type;
     private Long capacity;
 
-    public Rdhs_vehiclereg() {
+    public Rrdhs_vehiclereg() {
     }
 
-    public Rdhs_vehiclereg(String vehicle_no, String type, Long capacity) {
+    public Rrdhs_vehiclereg(String vehicle_no, String type, Long capacity) {
         this.vehicle_no = vehicle_no;
         this.type = type;
         this.capacity = capacity;
