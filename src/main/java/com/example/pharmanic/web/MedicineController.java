@@ -1,14 +1,12 @@
 package com.example.pharmanic.web;
 
 import com.example.pharmanic.model.Medicine;
+import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.repositories.MedicineRepository;
 import com.example.pharmanic.services.MedicineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,8 +34,31 @@ public class MedicineController {
         return ResponseEntity.noContent().build();
     }
 
+
+
+    @PostMapping("/Mediciness/register")
+    public ResponseEntity<Medicine> addMedicine(@RequestBody Medicine newMedicine) {
+        if (newMedicine == null)
+            return ResponseEntity.noContent().build();
+        newMedicine = medicineService.addMedicine(newMedicine);
+        return ResponseEntity.ok(newMedicine);
+    }
+
+    @DeleteMapping("/deleteministrymedicene/{mid}")
+    public  ResponseEntity<Void> deleteMinistryDriver(@PathVariable("mid") String mid) {
+
+        String reply=medicineService.deleteministrymedicene(mid);
+        if(reply.equals("success")){
+            return  ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
+
     @GetMapping("/medicineCount")
     public Integer getMedicineCount(){
         return medicineService.getMedicineCount();
     }
+
 }

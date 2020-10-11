@@ -11,6 +11,8 @@ public class Ministry_Vehicle {
     private @Id String vehicle_no;
     private String type;
     private Long capacity;
+    //remove later
+    private String tel;
 
     public Ministry_Vehicle() {
     }

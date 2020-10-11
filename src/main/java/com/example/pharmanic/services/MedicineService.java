@@ -1,6 +1,7 @@
 package com.example.pharmanic.services;
 
 import com.example.pharmanic.model.Medicine;
+import com.example.pharmanic.model.Ministry_Driver;
 import com.example.pharmanic.repositories.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class MedicineService {
 
     //getEMedicineList
 
-    @GetMapping("/medlist")
+
     public List<Medicine> getMedicineList(){
         List<Medicine> medicineList=medicineRepository.findAll();
         return medicineList;
@@ -39,5 +40,24 @@ public class MedicineService {
 
     }
 
+
+    //addMedicine
+    public Medicine addMedicine(Medicine regmed){
+        return medicineRepository.save(regmed);
+
+    }
+
+    public  String deleteministrymedicene(String mid){
+        if(mid != null){
+            if(medicineRepository.existsById(mid)){
+
+                medicineRepository.deleteById(mid);
+                return  "success";
+            }
+
+        }
+
+        return  " error";
+    }
 
 }

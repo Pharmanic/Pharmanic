@@ -14,6 +14,8 @@ public class  Medicine {
     private String name;
     private String side_effect;
     private String description;
+    //remove later
+    private String country;
 
     public Medicine() {
     }

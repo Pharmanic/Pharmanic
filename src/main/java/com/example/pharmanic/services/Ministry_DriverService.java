@@ -3,6 +3,7 @@ package com.example.pharmanic.services;
 import com.example.pharmanic.model.Medicine;
 import com.example.pharmanic.model.Ministry_Current_Stock;
 import com.example.pharmanic.model.Ministry_Driver;
+import com.example.pharmanic.model.Rdhs;
 import com.example.pharmanic.repositories.Ministry_DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,9 +33,22 @@ public class Ministry_DriverService {
     }
 
     //addDrivers
-    public Integer addDriver(Ministry_Driver ministry_driver){
-        ministry_driverRepository.save(ministry_driver);
-        return 1;
+    public Ministry_Driver addDriver(Ministry_Driver ministry_driver){
+       return ministry_driverRepository.save(ministry_driver);
+
+    }
+
+    public  String deleteministryDriver(String did){
+        if(did != null){
+            if(ministry_driverRepository.existsById(did)){
+
+                ministry_driverRepository.deleteById(did);
+                return  "success";
+            }
+
+        }
+
+        return  " error";
     }
 
 

@@ -10,6 +10,9 @@ public interface Ministry_VehicleRepository extends JpaRepository<Ministry_Vehic
 
     @Query(value="select *from ministry_vehicle u where vehicle_no = :vehicle_no",nativeQuery=true)
     public Ministry_Vehicle findByVehicle_no(@Param("vehicle_no") String vehicle_no);
+//remove later
+    @Query(value="select *from ministry_vehicle u where vehicle_no = :vehicle_no",nativeQuery=true)
+    public Ministry_Vehicle findBytype(@Param("type") String type);
 
     @Query(value="select count(vehicle_no) from ministry_vehicle",nativeQuery=true)
     public Integer getMinistryVehicleCount();

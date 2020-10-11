@@ -1,7 +1,5 @@
 package com.example.pharmanic.services;
 
-import com.example.pharmanic.model.Ministry_Driver;
-import com.example.pharmanic.model.Ministry_Store;
 import com.example.pharmanic.model.Ministry_Vehicle;
 import com.example.pharmanic.repositories.Ministry_VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +29,30 @@ public class Ministry_VehicleService {
         return new Ministry_Vehicle();
     }
 
-    //addDrugsToMinistryCurrentStore
-    public Integer addVehicle(Ministry_Vehicle ministry_vehicle){
-        ministry_vehicleRepository.save(ministry_vehicle);
-        return 1;
+    //addMedicine
+
+        //addDrugsToMinistryCurrentStore
+    public Ministry_Vehicle addVehicle(Ministry_Vehicle ministry_vehicle){
+       return ministry_vehicleRepository.save(ministry_vehicle);
+    }
+
+
+    public  String deleteministryVehicle(String vid){
+        if(vid != null){
+            if(ministry_vehicleRepository.existsById(vid)){
+
+                ministry_vehicleRepository.deleteById(vid);
+                return  "success";
+            }
+
+        }
+
+        return  " error";
     }
 
     //getMinistryVehicleList
     public Integer getMinistryVehicleCount(){
         return ministry_vehicleRepository.getMinistryVehicleCount();
     }
+
 }

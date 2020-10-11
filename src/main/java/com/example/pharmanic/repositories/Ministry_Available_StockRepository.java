@@ -5,3 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface Ministry_Available_StockRepository extends JpaRepository<Ministry_Available_Stock,Long> {
 }
+
+
+
