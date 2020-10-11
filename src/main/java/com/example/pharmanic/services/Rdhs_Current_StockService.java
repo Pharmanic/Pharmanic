@@ -1,8 +1,11 @@
 package com.example.pharmanic.services;
 
+import com.example.pharmanic.model.Rdhs_Current_Stock;
 import com.example.pharmanic.repositories.Rdhs_Current_StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class Rdhs_Current_StockService {
@@ -19,4 +22,10 @@ public class Rdhs_Current_StockService {
 
         return 1;
     }
+
+    public List<Rdhs_Current_Stock> getallRdhsCurrentStock(){
+        return rdhs_current_stockRepository.findAll();
+    }
+
+
 }
