@@ -97,7 +97,10 @@ public class Supply_Order_To_RdhsController {
         return supply_Order_Detail_To_RdhsRepository.getDemand();
     }
 
-
-
+    @GetMapping("/getCurrentStockOfAll")
+    public Integer[] getCurrentStockOfAll(){
+        System.out.println("getCurrentStockOfAll");
+        return supplyOrderService.totalSupplies();
+    }
 
 }

@@ -102,5 +102,18 @@ public class Supply_Order_Service {
 
     }
 
+    public Integer[] totalSupplies(){
+//        System.out.println(supply_order_to_directHospital.getDirectYearsDemandCount());
+        Integer[] supplies=new Integer[3];
+        supplies[0]=supply_order_to_rdhs.gettotalSupplytoRDHS();
+        supplies[1]=supply_order_to_rdhs.gettotalSupplytoRDHSHospital();
+        supplies[2]=supply_order_to_rdhs.gettotalSupplytoDirectHospital();
+        supplies[0]=supplies[0]-supplies[1];
+
+        return supplies;
+
+
+    }
+
 
 }
