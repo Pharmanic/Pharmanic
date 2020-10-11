@@ -38,5 +38,18 @@ public class Ministry_DriverService {
 
     }
 
+    public  String deleteministryDriver(String did){
+        if(did != null){
+            if(ministry_driverRepository.existsById(did)){
+
+                ministry_driverRepository.deleteById(did);
+                return  "sucess";
+            }
+
+        }
+
+        return  " error";
+    }
+
 
 }

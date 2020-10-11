@@ -49,6 +49,14 @@ public class Ministry_DriverController {
         return ResponseEntity.ok(newDriver);
     }
 
+@DeleteMapping("/deleteministrydriver/{did}")
+    public  ResponseEntity<Void> deleteMinistryDriver(@PathVariable("did") String did) {
 
+        String reply=ministry_driverService.deleteministryDriver(did);
+        if(reply.equals("success")){
+            return  ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+}
 
 }
