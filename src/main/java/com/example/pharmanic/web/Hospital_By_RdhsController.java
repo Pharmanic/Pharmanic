@@ -21,6 +21,7 @@ public class Hospital_By_RdhsController {
 
     @GetMapping("/hospital_by_rdhs/hospital_by_rdhs_list")
     public List<Hospital_By_Rdhs> hospitalsByRdhs(){
+        System.out.println(hospital_by_rdhsService.getHospitalsByRdhsList());
         return hospital_by_rdhsService.getHospitalsByRdhsList();
     }
 
@@ -60,6 +61,7 @@ public class Hospital_By_RdhsController {
 //                    newEmployee.setId(id);
 //                    return repository.save(newEmployee);
 //                });
+        System.out.println("Updating");
         if(hospital_by_rdhsService.updateHospitalByRdhs(newHhospital_By_Rdhs)!=null){
             return ResponseEntity.ok(newHhospital_By_Rdhs);
         }
@@ -75,5 +77,10 @@ public class Hospital_By_RdhsController {
             return ResponseEntity.ok(reply);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/getRDHSHospitalCount")
+    public Integer getRDHSHospitalCount(){
+        return hospital_by_rdhsService.getRDHSHospitalCount();
     }
 }

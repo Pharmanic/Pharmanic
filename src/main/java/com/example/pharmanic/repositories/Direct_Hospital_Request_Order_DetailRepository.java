@@ -13,6 +13,9 @@ public interface Direct_Hospital_Request_Order_DetailRepository extends JpaRepos
     @Query(value="{call dhreq_order_details(:id)}",nativeQuery=true)
     public List<Direct_Hospital_Request_Order_Detail> selectreqorderdetails(@Param("id") Long id);
 
+    @Query(value="{call dhreq_order_details_supplied(:id)}",nativeQuery=true)
+    public List<Direct_Hospital_Request_Order_Detail> selectreqorderdetailssupplied(@Param("id") Long id);
+
     @Query(value="{call dhreq_order_details(:id)}",nativeQuery=true)
     public List<Direct_Hospital_Request_Order_Detail> dhreqorderdetail(@Param("id") Long id);
 

@@ -35,4 +35,9 @@ public class MedicineController {
         }
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/medicineCount")
+    public Integer getMedicineCount(){
+        return medicineService.getMedicineCount();
+    }
 }

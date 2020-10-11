@@ -25,6 +25,11 @@ public class Direct_Hospital_Request_OrderController {
         return direct_hospital_request_orderService.getDirectHospitalRequestOrderList();
     }
 
+    @GetMapping("/directhospitalpendingorders")
+    public List<Direct_Hospital_Request_Order> directhospitalpendingorders(){
+        return direct_hospital_request_orderService.getDirectHospitalPendingOrderList();
+    }
+
     @GetMapping("/dhrequestordersnotcoplete")
     public List<Direct_Hospital_Request_Order> dhrequestordersnotcomplete(){
         return direct_hospital_request_orderService.getnotcompleteDirectHospitalRequestOrderList();

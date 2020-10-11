@@ -8,7 +8,10 @@ import org.springframework.data.repository.query.Param;
 
 public interface RdhsRepository extends JpaRepository<Rdhs,String> {
 
-//    @Query(value="select *from rdhs u where reg_no = :reg_no",nativeQuery=true)
-//    public Rdhs findByReg_no(@Param("reg_no") String reg_no);
+    @Query(value="select *from rdhs u where name = :name",nativeQuery=true)
+    public Rdhs findByName(@Param("name") String name);
+
+    @Query(value="select count(reg_no) from rdhs",nativeQuery=true)
+    public Integer getRdhsCount();
 
 }
