@@ -35,4 +35,18 @@ public class Ministry_VehicleService {
     public Ministry_Vehicle addVehicle(Ministry_Vehicle ministry_vehicle){
        return ministry_vehicleRepository.save(ministry_vehicle);
     }
+
+    public  String deleteministryVehicle(String vid){
+        if(vid != null){
+            if(ministry_vehicleRepository.existsById(vid)){
+
+                ministry_vehicleRepository.deleteById(vid);
+                return  "success";
+            }
+
+        }
+
+        return  " error";
+    }
+
 }

@@ -43,7 +43,7 @@ public class Ministry_DriverService {
             if(ministry_driverRepository.existsById(did)){
 
                 ministry_driverRepository.deleteById(did);
-                return  "sucess";
+                return  "success";
             }
 
         }

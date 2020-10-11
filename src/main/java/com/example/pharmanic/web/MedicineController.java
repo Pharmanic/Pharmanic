@@ -43,4 +43,15 @@ public class MedicineController {
         return ResponseEntity.ok(newMedicine);
     }
 
+    @DeleteMapping("/deleteministrymedicene/{mid}")
+    public  ResponseEntity<Void> deleteMinistryDriver(@PathVariable("mid") String mid) {
+
+        String reply=medicineService.deleteministrymedicene(mid);
+        if(reply.equals("success")){
+            return  ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
 }

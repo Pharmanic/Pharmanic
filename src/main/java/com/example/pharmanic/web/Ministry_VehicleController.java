@@ -45,4 +45,15 @@ public class Ministry_VehicleController {
         newVehicle = ministry_vehicleService.addVehicle(newVehicle);
         return ResponseEntity.ok(newVehicle);
     }
+
+    @DeleteMapping("/deleteministryvehicle/{vid}")
+    public  ResponseEntity<Void> deleteMinistryVehicle(@PathVariable("vid") String vid) {
+
+        String reply=ministry_vehicleService.deleteministryVehicle(vid);
+        if(reply.equals("success")){
+            return  ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
 }

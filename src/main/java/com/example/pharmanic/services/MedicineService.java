@@ -42,4 +42,17 @@ public class MedicineService {
 
     }
 
+    public  String deleteministrymedicene(String mid){
+        if(mid != null){
+            if(medicineRepository.existsById(mid)){
+
+                medicineRepository.deleteById(mid);
+                return  "success";
+            }
+
+        }
+
+        return  " error";
+    }
+
 }
