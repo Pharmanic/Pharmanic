@@ -46,6 +46,7 @@ public class Ministry_VehicleController {
         return ResponseEntity.ok(newVehicle);
     }
 
+
     @DeleteMapping("/deleteministryvehicle/{vid}")
     public  ResponseEntity<Void> deleteMinistryVehicle(@PathVariable("vid") String vid) {
 
@@ -54,6 +55,12 @@ public class Ministry_VehicleController {
             return  ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+
+    @GetMapping("/getVehicleCount")
+    public Integer getVehicleCount(){
+        return ministry_vehicleService.getMinistryVehicleCount();
     }
 
 }

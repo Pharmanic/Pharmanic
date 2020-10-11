@@ -61,4 +61,9 @@ public class Direct_HospitalController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/getDirectHospitalCount")
+    public Integer getDirectHospitalCount(){
+        return direct_hospitalService.getDirectHospitalCount();
+    }
 }

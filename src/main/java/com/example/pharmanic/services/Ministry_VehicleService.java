@@ -36,6 +36,7 @@ public class Ministry_VehicleService {
        return ministry_vehicleRepository.save(ministry_vehicle);
     }
 
+
     public  String deleteministryVehicle(String vid){
         if(vid != null){
             if(ministry_vehicleRepository.existsById(vid)){
@@ -47,6 +48,11 @@ public class Ministry_VehicleService {
         }
 
         return  " error";
+    }
+
+    //getMinistryVehicleList
+    public Integer getMinistryVehicleCount(){
+        return ministry_vehicleRepository.getMinistryVehicleCount();
     }
 
 }

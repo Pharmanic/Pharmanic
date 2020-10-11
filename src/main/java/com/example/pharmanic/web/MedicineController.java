@@ -35,6 +35,7 @@ public class MedicineController {
     }
 
 
+
     @PostMapping("/Mediciness/register")
     public ResponseEntity<Medicine> addMedicine(@RequestBody Medicine newMedicine) {
         if (newMedicine == null)
@@ -53,5 +54,11 @@ public class MedicineController {
         return ResponseEntity.notFound().build();
     }
 
+
+
+    @GetMapping("/medicineCount")
+    public Integer getMedicineCount(){
+        return medicineService.getMedicineCount();
+    }
 
 }

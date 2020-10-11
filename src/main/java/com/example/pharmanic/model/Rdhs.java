@@ -11,7 +11,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Rdhs {
     private @Id String reg_no;
-
     private String name;
     private String address;
     private String email;
@@ -21,13 +20,7 @@ public class Rdhs {
     public Rdhs() {
     }
 
-    public Rdhs(String reg_no, String name, String address, String email, String telephone, Rdhs_User rdhs_incharge) {
-        this.reg_no = reg_no;
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.telephone = telephone;
-    }
+
 
     public Rdhs(String reg_no, String name, String address, String email, String telephone) {
         this.reg_no = reg_no;

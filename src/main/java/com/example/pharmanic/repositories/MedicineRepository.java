@@ -14,6 +14,9 @@ public interface MedicineRepository extends JpaRepository<Medicine,String> {
     public Medicine findByname(@Param("name") String name);
 
 
+
+    @Query(value="select count(sr_no) from medicine",nativeQuery=true)
+    public Integer getMedicineCount();
 }
 
 

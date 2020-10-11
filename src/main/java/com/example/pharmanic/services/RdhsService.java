@@ -52,4 +52,19 @@ public class RdhsService {
     }
         return 0;
     }
+
+    //getRdhsDetails
+    public Rdhs getRdhsByName(String name){
+        if (name !=null){
+            if (rdhsRepository.existsById(name)){
+                return rdhsRepository.findByName(name);
+            }
+        }
+        return new Rdhs();
+    }
+
+    public Integer getRdhsCount(){
+           return rdhsRepository.getRdhsCount();
+
+    }
 }
