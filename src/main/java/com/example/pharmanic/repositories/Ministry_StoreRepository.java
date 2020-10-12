@@ -13,4 +13,8 @@ public interface Ministry_StoreRepository extends JpaRepository<Ministry_Store,S
 
     @Query(value="select count(m_store_id) from ministry_store",nativeQuery=true)
     public Integer getMinistryStoreCount();
+
+    @Query(value="select *from ministry_store u where m_store_id = :m_store_id",nativeQuery=true)
+    public Ministry_Store ministryStoreVariations(@Param("m_store_id") String m_store_id);
+
 }
